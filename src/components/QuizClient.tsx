@@ -59,6 +59,23 @@ export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
     }
   };
 
+  if (!quiz.items || quiz.items.length === 0) {
+    return (
+      <Card className="max-w-2xl mx-auto text-center">
+        <CardHeader>
+            <CardTitle>{title}</CardTitle>
+            <CardDescription>Coming Soon!</CardDescription>
+        </CardHeader>
+        <CardContent>
+            <p className="mb-4">The quiz for this lesson is not available yet. Please check back later.</p>
+            <Button asChild>
+                <Link href="/">Return to Dashboard</Link>
+            </Button>
+        </CardContent>
+      </Card>
+    )
+  }
+
   if (showResults) {
     return (
       <div className="max-w-2xl mx-auto">

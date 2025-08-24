@@ -61,3 +61,28 @@ export interface UserProgress {
   dailyChecklists?: Record<string, string[]>; // e.g. { "2024-07-31": ["item1", "item2"] }
   disciplineScore?: number;
 }
+
+
+// --- Scenario Trainer Types ---
+export type ScenarioChoice = 'long' | 'short' | 'wait';
+
+export interface ScenarioOutcome {
+    isCorrect: boolean;
+    title: string;
+    explanation: string;
+}
+
+export interface Scenario {
+    id: string;
+    title: string;
+    setup: string;
+    image: {
+        src: string;
+        alt: string;
+        'data-ai-hint': string;
+    };
+    decisionPoint: string;
+    outcomes: {
+        [key in ScenarioChoice]: ScenarioOutcome;
+    };
+}

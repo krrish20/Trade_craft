@@ -10,6 +10,8 @@ import { curriculum } from '@/content/curriculum';
 import Link from 'next/link';
 import { CheckCircle, Lock, PlayCircle } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { cn } from '@/lib/utils';
+import { Logo } from '@/components/Logo';
 
 function Dashboard() {
   const { progress, getLessonStatus, getLevelStatus } = useProgress();
@@ -104,9 +106,4 @@ export default function HomePage() {
       <Dashboard />
     </MainLayout>
   );
-}
-
-// Dummy logo for loading state
-function Logo() {
-  return <div className="h-12 w-12 rounded-lg bg-primary mx-auto"></div>;
 }

@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { candlestickPatterns, chartPatterns, glossaryTerms } from '@/content/resources';
-import { BookMarked, CandlestickChart, ListChecks, Shapes } from 'lucide-react';
+import { BookMarked, CandlestickChart, Shapes } from 'lucide-react';
 
 
 export default function ResourcesPage() {

@@ -1,4 +1,5 @@
 
+
 export const glossaryTerms = [
   {
     term: "Ask Price",
@@ -84,6 +85,63 @@ export const glossaryTerms = [
     term: "RSI (Relative Strength Index)",
     definition: "A momentum oscillator that measures the speed and change of price movements. The RSI oscillates between zero and 100. Traditionally the RSI is considered overbought when above 70 and oversold when below 30."
   }
+];
+
+export const candlestickPatterns = [
+    {
+      name: "Bullish Engulfing",
+      type: "Two Candlestick",
+      indication: "Bullish Reversal",
+      description: "A small bearish candle is followed by a large bullish candle that completely 'engulfs' the previous candle's body. It suggests a potential bottom and a shift to buying pressure."
+    },
+    {
+      name: "Bearish Engulfing",
+      type: "Two Candlestick",
+      indication: "Bearish Reversal",
+      description: "A small bullish candle is followed by a large bearish candle that completely 'engulfs' the previous candle's body. It suggests a potential top and a shift to selling pressure."
+    },
+    {
+      name: "Hammer",
+      type: "Single Candlestick",
+      indication: "Bullish Reversal",
+      description: "A candlestick with a short body, little to no upper wick, and a long lower wick (at least 2x the body). It appears in a downtrend and indicates that buyers stepped in to push prices up from their lows."
+    },
+    {
+      name: "Shooting Star",
+      type: "Single Candlestick",
+      indication: "Bearish Reversal",
+      description: "A candlestick with a short body, little to no lower wick, and a long upper wick (at least 2x the body). It appears in an uptrend and indicates that sellers stepped in to push prices down from their highs."
+    },
+    {
+      name: "Doji",
+      type: "Single Candlestick",
+      indication: "Indecision / Reversal",
+      description: "A candlestick where the open and close prices are virtually equal, resulting in a very small body. It signifies a tug-of-war between buyers and sellers and can signal a potential turning point."
+    },
+    {
+      name: "Morning Star",
+      type: "Three Candlestick",
+      indication: "Bullish Reversal",
+      description: "A three-candle pattern in a downtrend: a long bearish candle, followed by a small-bodied candle (or Doji) that gaps down, followed by a long bullish candle that closes within the first candle's body. Signals a strong potential bottom."
+    },
+    {
+      name: "Evening Star",
+      type: "Three Candlestick",
+      indication: "Bearish Reversal",
+      description: "The opposite of a Morning Star, occurring in an uptrend. A long bullish candle is followed by a small-bodied candle that gaps up, followed by a long bearish candle. Signals a strong potential top."
+    },
+    {
+      name: "Tweezer Bottoms",
+      type: "Two Candlestick",
+      indication: "Bullish Reversal",
+      description: "Two consecutive candlesticks with matching low prices, appearing in a downtrend. It signifies strong support and a potential reversal."
+    },
+    {
+      name: "Tweezer Tops",
+      type: "Two Candlestick",
+      indication: "Bearish Reversal",
+      description: "Two consecutive candlesticks with matching high prices, appearing in an uptrend. It signifies strong resistance and a potential reversal."
+    }
 ];
 
 export const preTradeChecklist = [

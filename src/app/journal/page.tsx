@@ -1,4 +1,6 @@
+"use client";
 
+import { useState } from 'react';
 import { MainLayout } from '@/components/MainLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { PlusCircle } from 'lucide-react';
@@ -11,6 +13,14 @@ import {
   TableHead,
   TableCell,
 } from '@/components/ui/table';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { NewJournalEntryForm } from '@/components/NewJournalEntryForm';
 
 // This is mock data. In a real app, this would come from user storage.
 const mockTrades = [
@@ -19,7 +29,27 @@ const mockTrades = [
   { id: 3, date: '2024-07-26', ticker: 'NVDA', direction: 'Long', outcome: '+3.0R', notes: 'Great trend continuation trade.' },
 ];
 
+export interface Trade {
+  id: number;
+  date: string;
+  ticker: string;
+  direction: 'Long' | 'Short';
+  outcome: string;
+  notes: string;
+}
+
 export default function JournalPage() {
+  const [trades, setTrades] = useState<Trade[]>(mockTrades);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const addTrade = (newTradeData: Omit<Trade, 'id'>) => {
+    const newTrade: Trade = {
+      id: trades.length > 0 ? Math.max(...trades.map(t => t.id)) + 1 : 1,
+      ...newTradeData
+    };
+    setTrades(prevTrades => [newTrade, ...prevTrades]);
+  };
+
   return (
     <MainLayout>
         <div className="space-y-4">
@@ -28,10 +58,20 @@ export default function JournalPage() {
                     <h1 className="text-3xl font-bold">Trading Journal</h1>
                     <p className="text-muted-foreground font-body">Your logbook for continuous improvement.</p>
                 </div>
-                <Button>
-                    <PlusCircle className="mr-2 h-4 w-4" />
-                    New Entry
-                </Button>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button>
+                      <PlusCircle className="mr-2 h-4 w-4" />
+                      New Entry
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Add New Trade</DialogTitle>
+                    </DialogHeader>
+                    <NewJournalEntryForm onSubmit={addTrade} onFinished={() => setIsDialogOpen(false)} />
+                  </DialogContent>
+                </Dialog>
             </div>
             <Card>
                 <CardHeader>
@@ -50,8 +90,8 @@ export default function JournalPage() {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {mockTrades.length > 0 ? (
-                                mockTrades.map((trade) => (
+                            {trades.length > 0 ? (
+                                trades.map((trade) => (
                                     <TableRow key={trade.id}>
                                         <TableCell>{trade.date}</TableCell>
                                         <TableCell>{trade.ticker}</TableCell>

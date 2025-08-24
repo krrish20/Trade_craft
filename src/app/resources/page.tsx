@@ -5,9 +5,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { glossaryTerms, preTradeChecklist, postTradeReview } from '@/content/resources';
-import { PositionSizeCalculator } from '@/components/PositionSizeCalculator';
-import { BookMarked, Calculator, ListChecks } from 'lucide-react';
+import { glossaryTerms, preTradeChecklist, postTradeReview, candlestickPatterns } from '@/content/resources';
+import { BookMarked, ListChecks, CandlestickChart } from 'lucide-react';
 
 export default function ResourcesPage() {
   return (
@@ -16,26 +15,23 @@ export default function ResourcesPage() {
             <div className="flex items-center gap-4">
                 <h1 className="text-3xl font-bold">Resources</h1>
             </div>
-            <p className="text-muted-foreground font-body">Your toolbox for success. Find definitions, checklists, and calculators here.</p>
+            <p className="text-muted-foreground font-body">Your toolbox for success. Find definitions, checklists, and patterns here.</p>
 
-            <Tabs defaultValue="calculators" className="w-full">
+            <Tabs defaultValue="glossary" className="w-full">
                 <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
-                    <TabsTrigger value="calculators">
-                        <Calculator className="mr-2 h-4 w-4" />
-                        Calculators
-                    </TabsTrigger>
                     <TabsTrigger value="glossary">
                         <BookMarked className="mr-2 h-4 w-4" />
                         Glossary
+                    </TabsTrigger>
+                    <TabsTrigger value="patterns">
+                        <CandlestickChart className="mr-2 h-4 w-4" />
+                        Candlestick Patterns
                     </TabsTrigger>
                     <TabsTrigger value="checklists">
                         <ListChecks className="mr-2 h-4 w-4" />
                         Checklists
                     </TabsTrigger>
                 </TabsList>
-                <TabsContent value="calculators" className="mt-6">
-                    <PositionSizeCalculator />
-                </TabsContent>
                 <TabsContent value="glossary" className="mt-6">
                     <Card>
                         <CardHeader>
@@ -49,6 +45,28 @@ export default function ResourcesPage() {
                                         <AccordionTrigger className="font-semibold text-left">{item.term}</AccordionTrigger>
                                         <AccordionContent className="font-body text-base">
                                             {item.definition}
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+                <TabsContent value="patterns" className="mt-6">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Candlestick Patterns</CardTitle>
+                            <CardDescription>A quick reference for common candlestick patterns.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Accordion type="single" collapsible className="w-full">
+                                {candlestickPatterns.map((item, index) => (
+                                    <AccordionItem value={`item-${index}`} key={index}>
+                                        <AccordionTrigger className="font-semibold text-left">{item.name}</AccordionTrigger>
+                                        <AccordionContent className="font-body text-base space-y-2">
+                                            <p><span className="font-semibold">Type:</span> {item.type}</p>
+                                            <p><span className="font-semibold">Indication:</span> {item.indication}</p>
+                                            <p>{item.description}</p>
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}

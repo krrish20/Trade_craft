@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookCopy, Home, User, Newspaper, BookText, Settings, LogOut } from "lucide-react";
+import { BookCopy, Home, User, BookText, Settings, LogOut, Calculator } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { useProgress } from "@/context/ProgressContext";
@@ -38,8 +38,8 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 <NavItem href="/journal" icon={BookText}>
                     Journal
                 </NavItem>
-                <NavItem href="/news" icon={Newspaper}>
-                    News
+                <NavItem href="/calculators" icon={Calculator}>
+                    Calculators
                 </NavItem>
                 <NavItem href="/resources" icon={BookCopy}>
                     Resources
@@ -78,6 +78,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
        <nav className="sm:hidden fixed bottom-0 left-0 right-0 bg-background border-t h-16 flex items-center justify-around">
           <NavItem href="/" icon={Home} isMobile>Dashboard</NavItem>
           <NavItem href="/journal" icon={BookText} isMobile>Journal</NavItem>
+          <NavItem href="/calculators" icon={Calculator} isMobile>Calculators</NavItem>
           <NavItem href="/resources" icon={BookCopy} isMobile>Resources</NavItem>
           <NavItem href="/profile" icon={User} isMobile>Profile</NavItem>
         </nav>

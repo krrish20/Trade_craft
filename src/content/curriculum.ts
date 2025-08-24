@@ -30,7 +30,16 @@ export const curriculum: Curriculum = [
             'data-ai-hint': 'financial market'
           }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l1',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'What is the primary function of a financial market?', choices: ['To set government economic policy', 'To facilitate the trading of financial instruments', 'To guarantee profits for all investors', 'To print money'], answer: 1, explain: 'Financial markets exist to bring buyers and sellers of financial instruments together, allowing for price discovery and exchange.' },
+            { id: 'q2', type: 'truefalse', prompt: 'An Initial Public Offering (IPO) takes place in the secondary market.', answer: false, explain: 'An IPO is when a company issues stock for the first time, which occurs in the primary market. The secondary market is for trading existing securities.' },
+            { id: 'q3', type: 'mcq', prompt: 'What are prices in a market primarily determined by?', choices: ['A central committee', 'The oldest trader', 'Supply and demand', 'Random chance'], answer: 2, explain: 'The interaction of buyers (demand) and sellers (supply) is the fundamental force that determines prices in a free market.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l2', 
@@ -56,7 +65,16 @@ export const curriculum: Curriculum = [
             'data-ai-hint': 'investment icons'
           }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l2',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'Buying a share of a company like Apple makes you a(n):', choices: ['Creditor', 'Employee', 'Owner', 'Manager'], answer: 2, explain: 'Owning stock (equity) means you own a small piece of the company.' },
+            { id: 'q2', type: 'mcq', prompt: 'Which asset class is known for being the largest and most liquid financial market in the world?', choices: ['Stocks', 'Commodities', 'Cryptocurrencies', 'Forex'], answer: 3, explain: 'The Foreign Exchange (Forex) market has the highest daily trading volume, making it the most liquid.' },
+            { id: 'q3', type: 'truefalse', prompt: 'Cryptocurrencies are centralized and controlled by governments.', answer: false, explain: 'A key feature of most cryptocurrencies is their decentralized nature, meaning they are not controlled by a single entity like a central bank or government.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l3', 
@@ -81,7 +99,16 @@ export const curriculum: Curriculum = [
             'data-ai-hint': 'market structure'
           }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l3',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'An individual trading from their laptop at home is known as a(n):', choices: ['Institutional Trader', 'Market Maker', 'Broker', 'Retail Trader'], answer: 3, explain: 'Retail traders are individual, non-professional traders who trade for their own personal accounts.' },
+            { id: 'q2', type: 'mcq', prompt: 'What is the primary role of a broker?', choices: ['To provide trading advice', 'To execute trade orders on behalf of clients', 'To create market liquidity', 'To regulate the market'], answer: 1, explain: 'Brokers are intermediaries that connect traders to the market and execute their buy and sell orders.' },
+            { id: 'q3', type: 'truefalse', prompt: 'Market makers make money by predicting the long-term direction of the market.', answer: false, explain: 'Market makers primarily profit from the bid-ask spread by simultaneously offering to buy and sell an asset, providing liquidity rather than taking long-term directional bets.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l4', 
@@ -106,7 +133,16 @@ export const curriculum: Curriculum = [
             'data-ai-hint': 'trading platform'
           }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l4',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'Which of the following is the most important factor for the safety of your funds?', choices: ['Low fees', 'A mobile app', 'Strong regulation', 'A wide selection of assets'], answer: 2, explain: 'Regulation by a reputable financial authority ensures the broker adheres to strict standards, which is the most critical factor for protecting your capital.' },
+            { id: 'q2', type: 'truefalse', prompt: 'A trading platform is the physical location where trades are made.', answer: false, explain: 'A trading platform is the software provided by the broker that you use to analyze markets and place trade orders.' },
+            { id: 'q3', type: 'mcq', prompt: 'Spreads, commissions, and overnight fees are examples of a broker\'s:', choices: ['Regulatory requirements', 'Trading tools', 'Fee structure', 'Asset classes'], answer: 2, explain: 'These are the common ways that brokers charge for their services and are part of their fee structure.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l5', 
@@ -131,7 +167,16 @@ export const curriculum: Curriculum = [
             'data-ai-hint': 'bid ask spread'
           }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l5',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'If you want to buy a stock, which price will you pay?', choices: ['The Bid Price', 'The Ask Price', 'The average of Bid and Ask', 'The last traded price'], answer: 1, explain: 'You always buy at the ask price, which is the price sellers are currently offering.' },
+            { id: 'q2', type: 'mcq', prompt: 'The difference between the bid and ask price is known as the:', choices: ['Commission', 'Slippage', 'Spread', 'Margin'], answer: 2, explain: 'The spread is the difference between the highest price a buyer will pay (bid) and the lowest price a seller will accept (ask).' },
+            { id: 'q3', type: 'truefalse', prompt: 'A smaller (tighter) spread is generally better for the trader.', answer: true, explain: 'A tighter spread means a lower transaction cost for entering and exiting a trade.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l6', 
@@ -153,10 +198,19 @@ export const curriculum: Curriculum = [
             type: 'image',
             src: 'https://placehold.co/800x400.png',
             alt: 'A large, clear diagram showing the parts of a bullish and bearish candlestick: open, high, low, close, body, and wicks.',
-            'data-ai-hint': 'candlestick chart'
+            'data-ai-hint': 'candlestick diagram'
           }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l6',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'OHLC stands for:', choices: ['Order High, Limit Close', 'Open High, Low Close', 'Official Hedge, Legal Contract', 'Over High, Low Commission'], answer: 1, explain: 'OHLC represents the four key data points for a price period: Open, High, Low, and Close.' },
+            { id: 'q2', type: 'truefalse', prompt: 'On a green (bullish) candlestick, the opening price is higher than the closing price.', answer: false, explain: 'On a bullish candle, the price increased during the period, so the close must be higher than the open.' },
+            { id: 'q3', type: 'mcq', prompt: 'The thin lines above and below the body of a candlestick are called:', choices: ['Tails', 'Bodies', 'Spreads', 'Wicks'], answer: 3, explain: 'The wicks (or shadows) represent the highest and lowest prices reached during the period, outside of the open-to-close range.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l7', 
@@ -181,7 +235,16 @@ export const curriculum: Curriculum = [
                 'data-ai-hint': 'trade order types'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l7',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'Which order type guarantees execution but not price?', choices: ['Limit Order', 'Stop Order', 'Market Order', 'Trailing Stop'], answer: 2, explain: 'A market order will be filled immediately at the best available price, but that price can change (slippage), so the price is not guaranteed.' },
+            { id: 'q2', type: 'mcq', prompt: 'If you want to buy a stock at a price that is *lower* than the current market price, what order should you use?', choices: ['Buy Market', 'Buy Stop', 'Buy Limit', 'Sell Limit'], answer: 2, explain: 'A buy limit order is placed below the current price and only executes if the price drops to that level or lower.' },
+            { id: 'q3', type: 'truefalse', prompt: 'A stop-loss order is primarily used to lock in profits.', answer: false, explain: 'A stop-loss order is a defensive order used to limit potential losses on a trade by automatically closing the position if it moves against you by a certain amount.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l8', 
@@ -203,10 +266,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'Side-by-side comparison of a Line, Bar, and Candlestick chart showing the same price data.',
-                'data-ai-hint': 'chart types'
+                'data-ai-hint': 'chart types comparison'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l8',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'On a standard price chart, what does the vertical (Y-axis) represent?', choices: ['Time', 'Volume', 'Price', 'Volatility'], answer: 2, explain: 'The Y-axis always represents the price of the asset.' },
+            { id: 'q2', type: 'mcq', prompt: 'Which chart type provides the most information at a glance (OHLC)?', choices: ['Line Chart', 'Area Chart', 'Candlestick Chart', 'Point & Figure Chart'], answer: 2, explain: 'Candlestick charts (along with bar charts) display the open, high, low, and close for the period, making them very information-dense.' },
+            { id: 'q3', type: 'truefalse', prompt: 'A line chart is created by connecting the opening prices of each period.', answer: false, explain: 'A standard line chart is drawn by connecting the closing prices of each period.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l9', 
@@ -228,10 +300,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'Three mini-charts clearly illustrating an uptrend, a downtrend, and a ranging market.',
-                'data-ai-hint': 'market trends'
+                'data-ai-hint': 'market trends diagram'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l9',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'A series of higher highs and higher lows defines a(n):', choices: ['Downtrend', 'Range', 'Uptrend', 'Consolidation'], answer: 2, explain: 'This specific pattern of rising peaks and troughs is the technical definition of an uptrend.' },
+            { id: 'q2', type: 'mcq', prompt: 'A market that is moving sideways between a floor and a ceiling is called a:', choices: ['Trending market', 'Ranging market', 'Volatile market', 'Liquid market'], answer: 1, explain: 'A ranging market is characterized by price action that is contained between a clear support and resistance level.' },
+            { id: 'q3', type: 'truefalse', prompt: 'In a downtrend, sellers are considered to be in control.', answer: true, explain: 'A downtrend, defined by lower highs and lower lows, indicates persistent selling pressure that overcomes buying pressure.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l10', 
@@ -253,10 +334,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'A chart with horizontal lines clearly drawn at key Support and Resistance levels, with price reacting to them.',
-                'data-ai-hint': 'support resistance'
+                'data-ai-hint': 'support resistance chart'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l10',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'A price level that acts as a "floor" where buying interest is strong is called:', choices: ['Resistance', 'Trendline', 'Support', 'A moving average'], answer: 2, explain: 'Support is the level where demand is expected to be strong enough to prevent the price from falling further.' },
+            { id: 'q2', type: 'mcq', prompt: 'When price breaks through a resistance level, that level can become:', choices: ['The new resistance', 'A support level', 'Invalid', 'The stop-loss'], answer: 1, explain: 'This is a key principle called "role reversal" or "polarity." Old resistance often becomes new support after a breakout.' },
+            { id: 'q3', type: 'truefalse', prompt: 'Support and resistance must always be an exact, single price point.', answer: false, explain: 'Support and resistance are more accurately thought of as zones or areas on a chart, not always a single precise line, due to the nuances of market liquidity.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l11', 
@@ -278,10 +368,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'A price chart with a volume histogram at the bottom, highlighting how volume increases on strong trend moves.',
-                'data-ai-hint': 'volume analysis'
+                'data-ai-hint': 'volume analysis chart'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l11',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'In a healthy uptrend, what should volume ideally be doing?', choices: ['Decreasing as price rises', 'Staying flat', 'Increasing as price rises', 'It is not related to price'], answer: 2, explain: 'Increasing volume on up-moves shows strong participation and conviction from buyers, confirming the trend.' },
+            { id: 'q2', type: 'truefalse', prompt: 'A breakout from a chart pattern on very low volume is a strong signal that the breakout will succeed.', answer: false, explain: 'Low volume on a breakout is a warning sign. It suggests a lack of conviction and increases the chance of a "fakeout" or failed breakout.' },
+            { id: 'q3', type: 'mcq', prompt: 'Volume is considered a:', choices: ['Leading indicator', 'Lagging indicator', 'Confirmation indicator', 'Price indicator'], answer: 2, explain: 'Volume confirms or contradicts what price is doing. It tells you about the strength or weakness of the current price action.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l12', 
@@ -303,10 +402,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'A chart showing a Moving Average (lagging) on the price and an RSI indicator (leading) in a separate pane below.',
-                'data-ai-hint': 'technical indicators'
+                'data-ai-hint': 'technical indicators chart'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l12',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'A Moving Average is an example of what type of indicator?', choices: ['Leading', 'Lagging', 'Volume-based', 'Sentiment'], answer: 1, explain: 'Moving Averages are based on past price data, so they "lag" the current price. They are used to confirm, not predict, trends.' },
+            { id: 'q2', type: 'mcq', prompt: 'Which category of indicator is designed to anticipate future price movements by measuring momentum?', choices: ['Trend indicators', 'Volatility indicators', 'Volume indicators', 'Leading indicators (Oscillators)'], answer: 3, explain: 'Leading indicators, like RSI or Stochastics, attempt to signal future reversals by identifying overbought or oversold conditions.' },
+            { id: 'q3', type: 'truefalse', prompt: 'You should always make trading decisions based on a single indicator signal.', answer: false, explain: 'Indicators are tools for analysis, not decision-makers. They should be used in confluence with price action and other forms of analysis to build a strong case for a trade.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l13', 
@@ -328,10 +436,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'An illustration of a checklist or a structured document representing a trading plan.',
-                'data-ai-hint': 'trading plan'
+                'data-ai-hint': 'trading plan document'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l13',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'What is the primary purpose of a trading plan?', choices: ['To guarantee profits', 'To eliminate all losses', 'To remove emotion and provide consistency', 'To impress other traders'], answer: 2, explain: 'A trading plan provides a framework for objective decision-making, which helps to manage emotions and ensure consistent application of your strategy.' },
+            { id: 'q2', type: 'mcq', prompt: 'Which of these is a critical component of a trading plan?', choices: ['Your favorite color', 'The phase of the moon', 'Your rules for risk management', 'Your friend\'s opinion'], answer: 2, explain: 'Defining how you will manage risk (e.g., how much to risk per trade) is one of the most important parts of any trading plan.' },
+            { id: 'q3', type: 'truefalse', prompt: 'Trading without a plan is a form of disciplined speculation.', answer: false, explain: 'Trading without a plan is essentially gambling, as decisions are made impulsively and without a statistical edge or consistent framework.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l14', 
@@ -356,7 +473,16 @@ export const curriculum: Curriculum = [
                 'data-ai-hint': 'trader psychology'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l14',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'Which two emotions are considered the primary drivers of bad trading decisions?', choices: ['Joy and Sadness', 'Fear and Greed', 'Confidence and Doubt', 'Excitement and Boredom'], answer: 1, explain: 'Fear and greed are the two most powerful emotions that traders must learn to manage to avoid impulsive and destructive behavior.' },
+            { id: 'q2', type: 'truefalse', prompt: 'Hesitating to take a valid trade signal because your last trade was a loss is an example of greed.', answer: false, explain: 'This is an example of fear—specifically, the fear of losing money again.' },
+            { id: 'q3', type: 'mcq', prompt: 'What are the two most important psychological traits for a successful trader?', choices: ['Aggressiveness and Speed', 'Optimism and Courage', 'Intelligence and Creativity', 'Discipline and Patience'], answer: 3, explain: 'Discipline allows a trader to follow their plan consistently, while patience allows them to wait for the best opportunities to present themselves.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l15', 
@@ -378,10 +504,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'A brain with several icons representing different cognitive biases.',
-                'data-ai-hint': 'cognitive bias'
+                'data-ai-hint': 'cognitive bias brain'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l15',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'Ignoring data that contradicts your trade idea and only paying attention to data that supports it is an example of:', choices: ['Loss Aversion', 'Recency Bias', 'Confirmation Bias', 'Hindsight Bias'], answer: 2, explain: 'Confirmation bias is the tendency to favor information that confirms your existing beliefs or hypotheses.' },
+            { id: 'q2', type: 'truefalse', prompt: 'Feeling more pain from a $100 loss than pleasure from a $100 gain is known as Loss Aversion.', answer: true, explain: 'Loss aversion is a well-documented cognitive bias where the psychological impact of a loss is significantly greater than that of an equivalent gain.' },
+            { id: 'q3', type: 'mcq', prompt: 'Becoming overconfident and taking too much risk after a series of winning trades is an effect of:', choices: ['Confirmation Bias', 'Recency Bias', 'Anchoring Bias', 'Gambler\'s Fallacy'], answer: 1, explain: 'Recency bias gives too much importance to recent events, leading a trader to believe their recent success will automatically continue.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l16', 
@@ -403,10 +538,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'A shield protecting a stack of coins, symbolizing capital preservation.',
-                'data-ai-hint': 'risk management'
+                'data-ai-hint': 'capital protection'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l16',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'What is the number one priority of a trader?', choices: ['Maximizing profit on every trade', 'Finding a perfect strategy', 'Protecting trading capital', 'Trading every day'], answer: 2, explain: 'A trader\'s primary job is risk management. Without capital, you cannot trade, so protecting it is paramount.' },
+            { id: 'q2', type: 'truefalse', prompt: 'The goal of risk management is to avoid all losing trades.', answer: false, explain: 'Losses are an unavoidable part of trading. The goal of risk management is to control the size of those losses so they do not catastrophically damage your account.' },
+            { id: 'q3', type: 'mcq', prompt: 'The most fundamental tool for managing risk on a single trade is the:', choices: ['Profit target', 'Market order', 'Stop-loss order', 'Limit order'], answer: 2, explain: 'A stop-loss order pre-defines your maximum acceptable loss, preventing a single trade from causing significant damage.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l17', 
@@ -428,10 +572,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'A diagram showing a trade entry, a stop loss (1R), and multiple take profit levels (1R, 2R, 3R).',
-                'data-ai-hint': 'risk reward'
+                'data-ai-hint': 'risk reward ratio'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l17',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'If you buy a stock at $50, set a stop-loss at $48, and a profit target at $56, what is the R-multiple of the potential reward?', choices: ['2R', '3R', '4R', '1R'], answer: 1, explain: 'Your risk (1R) is $50 - $48 = $2. Your potential reward is $56 - $50 = $6. The reward/risk multiple is $6 / $2 = 3. So, the potential reward is 3R.' },
+            { id: 'q2', type: 'truefalse', prompt: '"R" stands for the dollar amount of your expected reward.', answer: false, explain: '"R" stands for your initial Risk, the amount you stand to lose if your stop-loss is hit.' },
+            { id: 'q3', type: 'mcq', prompt: 'Why is thinking in R-multiples useful?', choices: ['It guarantees you will win', 'It makes trading seem more like a video game', 'It standardizes trades so you can objectively compare opportunities and performance', 'It helps you avoid all risk'], answer: 2, explain: 'R-multiples allow you to compare every trade on a like-for-like basis in terms of risk, helping you to make objective decisions and review performance.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l18', 
@@ -453,10 +606,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'An illustration showing three nested charts of different timeframes (Daily, 4-Hour, 15-Minute) for the same asset.',
-                'data-ai-hint': 'multiple timeframes'
+                'data-ai-hint': 'multiple timeframes chart'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l18',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'Which timeframe would be best for identifying the primary, long-term trend?', choices: ['1-Minute', '15-Minute', '1-Hour', 'Daily/Weekly'], answer: 3, explain: 'Higher timeframes like the daily and weekly charts are used to establish the overall strategic direction of the market.' },
+            { id: 'q2', type: 'mcq', prompt: 'The idea that chart patterns repeat on all timeframes is known as:', choices: ['Fractal geometry', 'Time dilation', 'Market theory', 'Periodicity'], answer: 0, explain: 'Markets are fractal in nature, meaning patterns and structures are self-similar across different scales or timeframes.' },
+            { id: 'q3', type: 'truefalse', prompt: 'Professional traders typically only look at one timeframe to make all their decisions.', answer: false, explain: 'Most professional traders use multiple timeframe analysis (e.g., higher for trend, middle for setup, lower for entry) to align their trades with the market\'s flow.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l19', 
@@ -478,10 +640,19 @@ export const curriculum: Curriculum = [
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'A timeline graphic showing the 24-hour day with the Tokyo, London, and New York sessions and their overlaps.',
-                'data-ai-hint': 'trading sessions'
+                'data-ai-hint': 'trading sessions clock'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l19',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'Which trading session is generally the quietest and has the lowest volatility?', choices: ['London', 'New York', 'Tokyo (Asian)', 'The overlap'], answer: 2, explain: 'The Tokyo session is typically the least volatile of the three main sessions.' },
+            { id: 'q2', type: 'mcq', prompt: 'When is market volatility and liquidity usually at its highest?', choices: ['During the middle of the Tokyo session', 'When the London and New York sessions overlap', 'On weekends', 'During market holidays'], answer: 1, explain: 'The overlap of the London and New York sessions brings together the two largest pools of liquidity, resulting in the most active trading period.' },
+            { id: 'q3', type: 'truefalse', prompt: 'All markets are only open from 9:30 AM to 4:00 PM EST.', answer: false, explain: 'This is true for the US stock market, but global markets like Forex and cryptocurrencies trade 24 hours a day during the week, divided into different regional sessions.' }
+          ]
+        } 
       },
       { 
         id: 'm1-l20', 
@@ -496,47 +667,66 @@ export const curriculum: Curriculum = [
         sections: [
             {
                 type: 'text',
-                tldr: "A trading journal is a detailed log of all your trades. It's your most powerful tool for improvement. By recording your entries, exits, reasons, and emotions, you can find what works and what doesn't, and hold yourself accountable to your plan.",
+                tldr: "A trading journal is a detailed log of all your trades. It's your most powerful tool for improvement. By recording your reasons, emotions, and the trade's outcome, you can find what works and what doesn't, and hold yourself accountable to your plan.",
                 body: "If you are serious about trading, a journal is not optional. It is the primary tool for performance review and professional development. A journal is where you meticulously record everything about your trades. It turns your trading from a series of random events into a database of actions and outcomes that you can analyze. \nWhat should you record for every trade? \n- **Date and Time** \n- **Asset Traded** \n- **Setup/Strategy Used:** Why did you take this trade? \n- **Entry and Exit Prices** \n- **Stop-Loss Price** \n- **Position Size** \n- **Outcome (in R-multiple and dollars)** \n- **A Screenshot of the Chart** \n- **Your Emotional State:** Were you calm, anxious, greedy? \nBy consistently reviewing your journal (e.g., every weekend), you will discover your most common mistakes, what your best trade setups look like, and whether you are truly following your plan. It's the ultimate accountability tool."
             },
             {
                 type: 'image',
                 src: 'https://placehold.co/800x400.png',
                 alt: 'An image of a clean, organized spreadsheet or notebook representing a trading journal.',
-                'data-ai-hint': 'trading journal'
+                'data-ai-hint': 'trading journal log'
             }
         ], 
-        quiz: { attempts: 3, passScore: 70, items: [] } 
+        quiz: {
+          id: 'm1-l20',
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'What is the most important reason to keep a trading journal?', choices: ['To show off your wins', 'To track your profits and losses', 'For performance review and identifying patterns in your behavior', 'To fulfill a regulatory requirement'], answer: 2, explain: 'A journal\'s primary purpose is to be a tool for self-improvement, allowing you to find your strengths, weaknesses, and common mistakes.' },
+            { id: 'q2', type: 'truefalse', prompt: 'You should only record your winning trades in your journal.', answer: false, explain: 'It is crucial to record ALL trades, especially the losers. Your losing trades often provide the most valuable lessons.' },
+            { id: 'q3', type: 'mcq', prompt: 'Besides technical data like entry/exit prices, what else is important to record?', choices: ['The weather', 'Your emotional state during the trade', 'The news headlines', 'Your computer\'s specs'], answer: 1, explain: 'Recording your emotions (fear, greed, patience, etc.) helps you identify psychological patterns that may be impacting your performance.' }
+          ]
+        } 
       }
     ],
-    bossQuiz: { id: 'b1', passScore: 80, items: [] }
+    bossQuiz: { id: 'b1', passScore: 80, items: [
+        { id: 'bq1-1', type: 'mcq', prompt: 'The price at which you can sell an asset is called the:', choices: ['Ask Price', 'Mid Price', 'Bid Price', 'Spread'], answer: 2, explain: 'The Bid price is the price buyers are willing to pay, so it is the price at which you can sell.' },
+        { id: 'bq1-2', type: 'truefalse', prompt: 'In a healthy uptrend, volume should decrease as the price makes new highs.', answer: false, explain: 'In a healthy uptrend, increasing volume on new highs confirms the strength of the buying pressure.' },
+        { id: 'bq1-3', 'type': 'mcq', prompt: 'Which order type is best suited to limit the loss on a position?', choices: ['Market Order', 'Limit Order', 'Take Profit Order', 'Stop-Loss Order'], answer: 3, explain: 'A stop-loss order is specifically designed to automatically exit a trade at a predetermined price to cap potential losses.' },
+        { id: 'bq1-4', type: 'mcq', prompt: 'If you buy a stock at $200 with a stop-loss at $195 and a target at $215, what is your reward/risk ratio in R-multiples?', choices: ['1R', '2R', '3R', '4R'], answer: 2, explain: 'Your risk (1R) is $5. Your potential reward is $15. $15 / $5 = 3. The trade is for 3R.' },
+        { id: 'bq1-5', type: 'mcq', prompt: 'A series of lower highs and lower lows indicates a(n):', choices: ['Uptrend', 'Downtrend', 'Range', 'Reversal'], answer: 1, explain: 'This is the technical definition of a downtrend, showing that sellers are in control.' },
+        { id: 'bq1-6', type: 'truefalse', prompt: 'A trader who gives too much weight to their last three losing trades, causing them to skip a valid setup, is exhibiting Confirmation Bias.', answer: false, explain: 'This is an example of Recency Bias, where recent events disproportionately influence the decision-making process.' },
+        { id: 'bq1-7', type: 'mcq', prompt: 'The primary job of a trader is to be a:', choices: ['Profit Maximizer', 'Fortune Teller', 'Risk Manager', 'Market Analyst'], answer: 2, explain: 'While analysis and profit are important, the foundational skill and primary job is managing risk to preserve capital.' },
+        { id: 'bq1-8', type: 'mcq', prompt: 'A green candlestick with a long lower wick and a small body at the bottom of a downtrend is likely a:', choices: ['Shooting Star', 'Hammer', 'Doji', 'Bearish Engulfing'], answer: 1, explain: 'This describes a Hammer, a classic bullish reversal signal.' },
+        { id: 'bq1-9', type: 'truefalse', prompt: 'A broker regulated by a major financial authority is less important than one that offers zero commission.', answer: false, explain: 'Security of funds through proper regulation is far more important than saving a small amount on commissions.' },
+        { id: 'bq1-10', type: 'mcq', prompt: 'When the London and New York sessions overlap, the market generally experiences:', choices: ['Low liquidity, low volatility', 'High liquidity, low volatility', 'Low liquidity, high volatility', 'High liquidity, high volatility'], answer: 3, explain: 'The overlap of the two largest financial centers creates the period of highest liquidity and volatility, offering many trading opportunities.' }
+    ]}
   },
   {
     id: 'module-2',
     title: 'Module 2: Core Technical Analysis',
     description: 'Deepen your understanding of chart analysis, indicators, and price action.',
     lessons: [
-      // 20 lessons for Module 2
-      { id: 'm2-l1', levelId: 'module-2', title: 'Mastering Trendlines', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l2', levelId: 'module-2', title: 'Channels and Parallel Lines', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l3', levelId: 'module-2', title: 'Single Candlestick Patterns', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l4', levelId: 'module-2', title: 'Dual Candlestick Patterns', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l5', levelId: 'module-2', title: 'Triple Candlestick Patterns', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l6', levelId: 'module-2', title: 'Moving Averages: SMA vs EMA', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l7', levelId: 'module-2', title: 'Using MAs as Dynamic S/R', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l8', levelId: 'module-2', title: 'MA Crossovers: Golden/Death Cross', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l9', levelId: 'module-2', title: 'Oscillators: Relative Strength Index (RSI)', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l10', levelId: 'module-2', title: 'Oscillators: MACD', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l11', levelId: 'module-2', title: 'Oscillators: Stochastics', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l12', levelId: 'module-2', title: 'Volume Profile Basics', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l13', levelId: 'module-2', title: 'Reversal Chart Patterns: H&S, Double Tops', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l14', levelId: 'module-2', title: 'Continuation Patterns: Flags, Pennants', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l15', levelId: 'module-2', title: 'Bilateral Patterns: Triangles, Wedges', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l16', levelId: 'module-2', title: 'Introduction to Fibonacci Retracements', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l17', levelId: 'module-2', title: 'Combining Indicators for Confirmation', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l18', levelId: 'module-2', title: 'Top-Down Analysis in Practice', time: 22, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l19', levelId: 'module-2', title: 'Introduction to Market Structure', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l20', levelId: 'module-2', title: 'Identifying Supply and Demand Zones', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } }
+      { id: 'm2-l1', levelId: 'module-2', title: 'Mastering Trendlines', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l1', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l2', levelId: 'module-2', title: 'Channels and Parallel Lines', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l2', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l3', levelId: 'module-2', title: 'Single Candlestick Patterns', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l3', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l4', levelId: 'module-2', title: 'Dual Candlestick Patterns', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l4', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l5', levelId: 'module-2', title: 'Triple Candlestick Patterns', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l5', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l6', levelId: 'module-2', title: 'Moving Averages: SMA vs EMA', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l6', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l7', levelId: 'module-2', title: 'Using MAs as Dynamic S/R', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l7', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l8', levelId: 'module-2', title: 'MA Crossovers: Golden/Death Cross', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l8', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l9', levelId: 'module-2', title: 'Oscillators: Relative Strength Index (RSI)', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l9', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l10', levelId: 'module-2', title: 'Oscillators: MACD', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l10', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l11', levelId: 'module-2', title: 'Oscillators: Stochastics', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l11', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l12', levelId: 'module-2', title: 'Volume Profile Basics', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l12', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l13', levelId: 'module-2', title: 'Reversal Chart Patterns: H&S, Double Tops', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l13', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l14', levelId: 'module-2', title: 'Continuation Patterns: Flags, Pennants', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l14', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l15', levelId: 'module-2', title: 'Bilateral Patterns: Triangles, Wedges', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l15', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l16', levelId: 'module-2', title: 'Introduction to Fibonacci Retracements', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l16', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l17', levelId: 'module-2', title: 'Combining Indicators for Confirmation', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l17', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l18', levelId: 'module-2', title: 'Top-Down Analysis in Practice', time: 22, objectives: [], sections: [], quiz: { id: 'm2-l18', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l19', levelId: 'module-2', title: 'Introduction to Market Structure', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l19', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm2-l20', levelId: 'module-2', title: 'Identifying Supply and Demand Zones', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l20', attempts: 3, passScore: 70, items: [] } }
     ],
     bossQuiz: { id: 'b2', passScore: 80, items: [] }
   },
@@ -545,27 +735,26 @@ export const curriculum: Curriculum = [
     title: 'Module 3: Strategy Development',
     description: 'Learn to build, test, and refine a complete trading strategy from scratch.',
     lessons: [
-      // 20 lessons for Module 3
-      { id: 'm3-l1', levelId: 'module-3', title: 'What is a Trading Edge?', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l2', levelId: 'module-3', title: 'Components of a Trading System', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l3', levelId: 'module-3', title: 'Trend-Following Strategies', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l4', levelId: 'module-3', title: 'Mean-Reversion Strategies', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l5', levelId: 'module-3', title: 'Range-Trading Strategies', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l6', levelId: 'module-3', title: 'Breakout Strategies', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l7', levelId: 'module-3', title: 'Defining Entry Triggers', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l8', levelId: 'module-3', title: 'Placing Logical Stop Losses', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l9', levelId: 'module-3', title: 'Setting Effective Profit Targets', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l10', levelId: 'module-3', title: 'Trade Management Techniques', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l11', levelId: 'module-3', title: 'Introduction to Backtesting', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l12', levelId: 'module-3', title: 'Manual vs. Automated Backtesting', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l13', levelId: 'module-3', title: 'Avoiding Curve-Fitting', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l14', levelId: 'module-3', title: 'Analyzing Backtesting Results', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l15', levelId: 'module-3', title: 'Paper Trading Your Strategy', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l16', levelId: 'module-3', title: 'Building Your Trading Plan Document', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l17', levelId: 'module-3', title: 'Developing a Pre-Trade Checklist', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l18', levelId: 'module-3', title: 'Creating a Post-Trade Review Process', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l19', levelId: 'module-3', title: 'Adapting to Changing Market Conditions', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm3-l20', levelId: 'module-3', title: 'From Strategy to Execution', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } }
+      { id: 'm3-l1', levelId: 'module-3', title: 'What is a Trading Edge?', time: 15, objectives: [], sections: [], quiz: { id: 'm3-l1', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l2', levelId: 'module-3', title: 'Components of a Trading System', time: 15, objectives: [], sections: [], quiz: { id: 'm3-l2', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l3', levelId: 'module-3', title: 'Trend-Following Strategies', time: 20, objectives: [], sections: [], quiz: { id: 'm3-l3', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l4', levelId: 'module-3', title: 'Mean-Reversion Strategies', time: 20, objectives: [], sections: [], quiz: { id: 'm3-l4', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l5', levelId: 'module-3', title: 'Range-Trading Strategies', time: 20, objectives: [], sections: [], quiz: { id: 'm3-l5', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l6', levelId: 'module-3', title: 'Breakout Strategies', time: 20, objectives: [], sections: [], quiz: { id: 'm3-l6', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l7', levelId: 'module-3', title: 'Defining Entry Triggers', time: 15, objectives: [], sections: [], quiz: { id: 'm3-l7', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l8', levelId: 'module-3', title: 'Placing Logical Stop Losses', time: 18, objectives: [], sections: [], quiz: { id: 'm3-l8', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l9', levelId: 'module-3', title: 'Setting Effective Profit Targets', time: 18, objectives: [], sections: [], quiz: { id: 'm3-l9', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l10', levelId: 'module-3', title: 'Trade Management Techniques', time: 20, objectives: [], sections: [], quiz: { id: 'm3-l10', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l11', levelId: 'module-3', title: 'Introduction to Backtesting', time: 20, objectives: [], sections: [], quiz: { id: 'm3-l11', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l12', levelId: 'module-3', title: 'Manual vs. Automated Backtesting', time: 15, objectives: [], sections: [], quiz: { id: 'm3-l12', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l13', levelId: 'module-3', title: 'Avoiding Curve-Fitting', time: 18, objectives: [], sections: [], quiz: { id: 'm3-l13', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l14', levelId: 'module-3', title: 'Analyzing Backtesting Results', time: 20, objectives: [], sections: [], quiz: { id: 'm3-l14', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l15', levelId: 'module-3', title: 'Paper Trading Your Strategy', time: 15, objectives: [], sections: [], quiz: { id: 'm3-l15', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l16', levelId: 'module-3', title: 'Building Your Trading Plan Document', time: 25, objectives: [], sections: [], quiz: { id: 'm3-l16', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l17', levelId: 'module-3', title: 'Developing a Pre-Trade Checklist', time: 15, objectives: [], sections: [], quiz: { id: 'm3-l17', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l18', levelId: 'module-3', title: 'Creating a Post-Trade Review Process', time: 15, objectives: [], sections: [], quiz: { id: 'm3-l18', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l19', levelId: 'module-3', title: 'Adapting to Changing Market Conditions', time: 18, objectives: [], sections: [], quiz: { id: 'm3-l19', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm3-l20', levelId: 'module-3', title: 'From Strategy to Execution', time: 15, objectives: [], sections: [], quiz: { id: 'm3-l20', attempts: 3, passScore: 70, items: [] } }
     ],
     bossQuiz: { id: 'b3', passScore: 80, items: [] }
   },
@@ -574,27 +763,26 @@ export const curriculum: Curriculum = [
     title: 'Module 4: Risk & Mindset',
     description: 'Master the two most critical elements of long-term success: risk management and trading psychology.',
     lessons: [
-      // 20 lessons for Module 4
-      { id: 'm4-l1', levelId: 'module-4', title: 'Deep Dive into Risk Management', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l2', levelId: 'module-4', title: 'Position Sizing Masterclass', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l3', levelId: 'module-4', title: 'Understanding Risk-to-Reward Ratio', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l4', levelId: 'module-4', title: 'Calculating Expectancy', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l5', levelId: 'module-4', title: 'The Concept of Drawdowns', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l6', levelId: 'module-4', title: 'The Risk of Ruin', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l7', levelId: 'module-4', title: 'Portfolio-Level Risk Management', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l8', levelId: 'module-4', title: 'Psychology: Fear and Greed', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l9', levelId: 'module-4', title: 'Psychology: Hope and Regret', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l10', levelId: 'module-4', title: 'Dealing with FOMO', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l11', levelId: 'module-4', title: 'Avoiding Revenge Trading', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l12', levelId: 'module-4', title: 'The Importance of Discipline', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l13', levelId: 'module-4', title: 'Developing Unwavering Patience', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l14', levelId: 'module-4', title: 'Thinking in Probabilities', time: 22, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l15', levelId: 'module-4', title: 'Embracing Uncertainty', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l16', levelId: 'module-4', title: 'The Trader\'s Mindset: Process over Outcome', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l17', levelId: 'module-4', title: 'Meditation and Mindfulness for Traders', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l18', levelId: 'module-4', title: 'Handling Losing Streaks', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l19', levelId: 'module-4', title: 'Handling Winning Streaks', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm4-l20', levelId: 'module-4', title: 'Journaling for Psychological Improvement', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } }
+      { id: 'm4-l1', levelId: 'module-4', title: 'Deep Dive into Risk Management', time: 15, objectives: [], sections: [], quiz: { id: 'm4-l1', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l2', levelId: 'module-4', title: 'Position Sizing Masterclass', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l2', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l3', levelId: 'module-4', title: 'Understanding Risk-to-Reward Ratio', time: 15, objectives: [], sections: [], quiz: { id: 'm4-l3', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l4', levelId: 'module-4', title: 'Calculating Expectancy', time: 18, objectives: [], sections: [], quiz: { id: 'm4-l4', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l5', levelId: 'module-4', title: 'The Concept of Drawdowns', time: 15, objectives: [], sections: [], quiz: { id: 'm4-l5', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l6', levelId: 'module-4', title: 'The Risk of Ruin', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l6', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l7', levelId: 'module-4', title: 'Portfolio-Level Risk Management', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l7', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l8', levelId: 'module-4', title: 'Psychology: Fear and Greed', time: 18, objectives: [], sections: [], quiz: { id: 'm4-l8', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l9', levelId: 'module-4', title: 'Psychology: Hope and Regret', time: 18, objectives: [], sections: [], quiz: { id: 'm4-l9', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l10', levelId: 'module-4', title: 'Dealing with FOMO', time: 15, objectives: [], sections: [], quiz: { id: 'm4-l10', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l11', levelId: 'module-4', title: 'Avoiding Revenge Trading', time: 15, objectives: [], sections: [], quiz: { id: 'm4-l11', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l12', levelId: 'module-4', title: 'The Importance of Discipline', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l12', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l13', levelId: 'module-4', title: 'Developing Unwavering Patience', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l13', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l14', levelId: 'module-4', title: 'Thinking in Probabilities', time: 22, objectives: [], sections: [], quiz: { id: 'm4-l14', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l15', levelId: 'module-4', title: 'Embracing Uncertainty', time: 18, objectives: [], sections: [], quiz: { id: 'm4-l15', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l16', levelId: 'module-4', title: 'The Trader\'s Mindset: Process over Outcome', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l16', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l17', levelId: 'module-4', title: 'Meditation and Mindfulness for Traders', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l17', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l18', levelId: 'module-4', title: 'Handling Losing Streaks', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l18', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l19', levelId: 'module-4', title: 'Handling Winning Streaks', time: 20, objectives: [], sections: [], quiz: { id: 'm4-l19', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm4-l20', levelId: 'module-4', title: 'Journaling for Psychological Improvement', time: 25, objectives: [], sections: [], quiz: { id: 'm4-l20', attempts: 3, passScore: 70, items: [] } }
     ],
     bossQuiz: { id: 'b4', passScore: 80, items: [] }
   },
@@ -603,27 +791,26 @@ export const curriculum: Curriculum = [
     title: 'Module 5: Advanced Market Dynamics',
     description: 'Explore sophisticated analytical techniques used by professional traders.',
     lessons: [
-      // 20 lessons for Module 5
-      { id: 'm5-l1', levelId: 'module-5', title: 'Advanced Market Structure', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l2', levelId: 'module-5', title: 'Confluence of Signals', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l3', levelId: 'module-5', title: 'Fibonacci Extensions and Projections', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l4', levelId: 'module-5', title: 'Advanced RSI: Divergence', time: 22, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l5', levelId: 'module-5', title: 'Advanced MACD Techniques', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l6', levelId: 'module-5', title: 'Bollinger Bands', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l7', levelId: 'module-5', title: 'Ichimoku Cloud', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l8', levelId: 'module-5', title: 'Introduction to Elliott Wave Theory', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l9', levelId: 'module-5', title: 'Impulse and Corrective Waves', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l10', levelId: 'module-5', title: 'Introduction to Wyckoff Method', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l11', levelId: 'module-5', title: 'Accumulation and Distribution Schematics', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l12', levelId: 'module-5', title: 'Fundamental Analysis: Economic Indicators', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l13', levelId: 'module-5', title: 'Fundamental Analysis: Earnings Reports', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l14', levelId: 'module-5', title: 'Sentiment Analysis: Put/Call Ratio', time: 18, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l15', levelId: 'module-5', title: 'Sentiment Analysis: Contrarian Thinking', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l16', levelId: 'module-5', title: 'Intermarket Analysis: Stocks and Bonds', time: 22, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l17', levelId: 'module-5', title: 'Intermarket Analysis: Commodities and Currencies', time: 22, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l18', levelId: 'module-5', title: 'Introduction to Order Flow', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l19', levelId: 'module-5', title: 'Reading the Depth of Market (DOM)', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm5-l20', levelId: 'module-5', title: 'Synthesizing Technical, Fundamental, and Sentiment Analysis', time: 30, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } }
+      { id: 'm5-l1', levelId: 'module-5', title: 'Advanced Market Structure', time: 20, objectives: [], sections: [], quiz: { id: 'm5-l1', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l2', levelId: 'module-5', title: 'Confluence of Signals', time: 18, objectives: [], sections: [], quiz: { id: 'm5-l2', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l3', levelId: 'module-5', title: 'Fibonacci Extensions and Projections', time: 20, objectives: [], sections: [], quiz: { id: 'm5-l3', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l4', levelId: 'module-5', title: 'Advanced RSI: Divergence', time: 22, objectives: [], sections: [], quiz: { id: 'm5-l4', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l5', levelId: 'module-5', title: 'Advanced MACD Techniques', time: 20, objectives: [], sections: [], quiz: { id: 'm5-l5', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l6', levelId: 'module-5', title: 'Bollinger Bands', time: 18, objectives: [], sections: [], quiz: { id: 'm5-l6', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l7', levelId: 'module-5', title: 'Ichimoku Cloud', time: 25, objectives: [], sections: [], quiz: { id: 'm5-l7', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l8', levelId: 'module-5', title: 'Introduction to Elliott Wave Theory', time: 25, objectives: [], sections: [], quiz: { id: 'm5-l8', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l9', levelId: 'module-5', title: 'Impulse and Corrective Waves', time: 25, objectives: [], sections: [], quiz: { id: 'm5-l9', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l10', levelId: 'module-5', title: 'Introduction to Wyckoff Method', time: 25, objectives: [], sections: [], quiz: { id: 'm5-l10', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l11', levelId: 'module-5', title: 'Accumulation and Distribution Schematics', time: 25, objectives: [], sections: [], quiz: { id: 'm5-l11', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l12', levelId: 'module-5', title: 'Fundamental Analysis: Economic Indicators', time: 20, objectives: [], sections: [], quiz: { id: 'm5-l12', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l13', levelId: 'module-5', title: 'Fundamental Analysis: Earnings Reports', time: 20, objectives: [], sections: [], quiz: { id: 'm5-l13', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l14', levelId: 'module-5', title: 'Sentiment Analysis: Put/Call Ratio', time: 18, objectives: [], sections: [], quiz: { id: 'm5-l14', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l15', levelId: 'module-5', title: 'Sentiment Analysis: Contrarian Thinking', time: 20, objectives: [], sections: [], quiz: { id: 'm5-l15', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l16', levelId: 'module-5', title: 'Intermarket Analysis: Stocks and Bonds', time: 22, objectives: [], sections: [], quiz: { id: 'm5-l16', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l17', levelId: 'module-5', title: 'Intermarket Analysis: Commodities and Currencies', time: 22, objectives: [], sections: [], quiz: { id: 'm5-l17', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l18', levelId: 'module-5', title: 'Introduction to Order Flow', time: 25, objectives: [], sections: [], quiz: { id: 'm5-l18', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l19', levelId: 'module-5', title: 'Reading the Depth of Market (DOM)', time: 25, objectives: [], sections: [], quiz: { id: 'm5-l19', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm5-l20', levelId: 'module-5', title: 'Synthesizing Technical, Fundamental, and Sentiment Analysis', time: 30, objectives: [], sections: [], quiz: { id: 'm5-l20', attempts: 3, passScore: 70, items: [] } }
     ],
     bossQuiz: { id: 'b5', passScore: 80, items: [] }
   },
@@ -632,27 +819,26 @@ export const curriculum: Curriculum = [
     title: 'Module 6: The Professional Trader',
     description: 'Transition from student to practitioner with advanced business and psychological training.',
     lessons: [
-      // 20 lessons for Module 6
-      { id: 'm6-l1', levelId: 'module-6', title: 'Developing a Daily Routine', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l2', levelId: 'module-6', title: 'Advanced Journaling and Performance Review', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l3', levelId: 'module-6', title: 'Essential Statistics for Traders', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l4', levelId: 'module-6', title: 'Understanding Your Equity Curve', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l5', levelId: 'module-6', title: 'Introduction to Options Trading', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l6', levelId: 'module-6', title: 'Basic Hedging Strategies', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l7', levelId: 'module-6', title: 'The Business Plan for Your Trading', time: 30, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l8', levelId: 'module-6', title: 'Understanding Taxes for Traders', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l9', levelId: 'module-6', title: 'Scaling Your Trading Size', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l10', levelId: 'module-6', title: 'Automated Trading: Pros and Cons', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l11', levelId: 'module-6', title: 'The Logic of Algorithmic Trading', time: 25, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l12', levelId: 'module-6', title: 'Advanced Cognitive Biases', time: 22, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l13', levelId: 'module-6', title: 'Achieving Flow State in Trading', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l14', levelId: 'module-6', title: 'Building Resilience as a Trader', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l15', levelId: 'module-6', title: 'The Concept of "Time in the Market"', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l16', levelId: 'module-6', title: 'Finding a Mentor and Community', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l17', levelId: 'module-6', title: 'Continuous Learning and Adaptation', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l18', levelId: 'module-6', title: 'Ethics and Professional Conduct', time: 15, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l19', levelId: 'module-6', title: 'Your Career as a Trader', time: 20, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } },
-      { id: 'm6-l20', levelId: 'module-6', title: 'Capstone: Your Trader Identity', time: 30, objectives: [], sections: [], quiz: { attempts: 3, passScore: 70, items: [] } }
+      { id: 'm6-l1', levelId: 'module-6', title: 'Developing a Daily Routine', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l1', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l2', levelId: 'module-6', title: 'Advanced Journaling and Performance Review', time: 25, objectives: [], sections: [], quiz: { id: 'm6-l2', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l3', levelId: 'module-6', title: 'Essential Statistics for Traders', time: 25, objectives: [], sections: [], quiz: { id: 'm6-l3', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l4', levelId: 'module-6', title: 'Understanding Your Equity Curve', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l4', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l5', levelId: 'module-6', title: 'Introduction to Options Trading', time: 25, objectives: [], sections: [], quiz: { id: 'm6-l5', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l6', levelId: 'module-6', title: 'Basic Hedging Strategies', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l6', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l7', levelId: 'module-6', title: 'The Business Plan for Your Trading', time: 30, objectives: [], sections: [], quiz: { id: 'm6-l7', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l8', levelId: 'module-6', title: 'Understanding Taxes for Traders', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l8', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l9', levelId: 'module-6', title: 'Scaling Your Trading Size', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l9', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l10', levelId: 'module-6', title: 'Automated Trading: Pros and Cons', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l10', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l11', levelId: 'module-6', title: 'The Logic of Algorithmic Trading', time: 25, objectives: [], sections: [], quiz: { id: 'm6-l11', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l12', levelId: 'module-6', title: 'Advanced Cognitive Biases', time: 22, objectives: [], sections: [], quiz: { id: 'm6-l12', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l13', levelId: 'module-6', title: 'Achieving Flow State in Trading', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l13', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l14', levelId: 'module-6', title: 'Building Resilience as a Trader', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l14', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l15', levelId: 'module-6', title: 'The Concept of "Time in the Market"', time: 15, objectives: [], sections: [], quiz: { id: 'm6-l15', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l16', levelId: 'module-6', title: 'Finding a Mentor and Community', time: 15, objectives: [], sections: [], quiz: { id: 'm6-l16', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l17', levelId: 'module-6', title: 'Continuous Learning and Adaptation', time: 15, objectives: [], sections: [], quiz: { id: 'm6-l17', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l18', levelId: 'module-6', title: 'Ethics and Professional Conduct', time: 15, objectives: [], sections: [], quiz: { id: 'm6-l18', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l19', levelId: 'module-6', title: 'Your Career as a Trader', time: 20, objectives: [], sections: [], quiz: { id: 'm6-l19', attempts: 3, passScore: 70, items: [] } },
+      { id: 'm6-l20', levelId: 'module-6', title: 'Capstone: Your Trader Identity', time: 30, objectives: [], sections: [], quiz: { id: 'm6-l20', attempts: 3, passScore: 70, items: [] } }
     ],
     bossQuiz: { id: 'b6', passScore: 80, items: [] }
   }
@@ -671,7 +857,7 @@ export const getLevel = (levelId: string) => {
 }
 
 export const getQuiz = (levelId: string, lessonId: string) => {
-  if (lessonId === 'boss') {
+  if (lessonId.startsWith('b')) { // Simplified check for boss quiz
     const level = getLevel(levelId);
     return level ? level.bossQuiz : null;
   }

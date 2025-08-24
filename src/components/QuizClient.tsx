@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Check, X } from 'lucide-react';
 
@@ -26,13 +27,19 @@ interface QuizClientProps {
 }
 
 export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
-  const { updateQuizScore } = useProgress();
+  const { updateQuizScore, completeLesson, progress } = useProgress();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<(number | boolean | null)[]>(new Array(quiz.items.length).fill(null));
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
   const [isPassed, setIsPassed] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    if (isPassed) {
+        completeLesson(quizId);
+    }
+  }, [isPassed, completeLesson, quizId]);
 
   const handleAnswerSelect = (answer: number | boolean) => {
     const newAnswers = [...selectedAnswers];
@@ -76,6 +83,25 @@ export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
     )
   }
 
+  const currentQuestion = quiz.items[currentQuestionIndex];
+  
+  if (!currentQuestion) {
+     return (
+      <Card className="max-w-2xl mx-auto text-center">
+        <CardHeader>
+            <CardTitle>{title}</CardTitle>
+            <CardDescription>Error</CardDescription>
+        </CardHeader>
+        <CardContent>
+            <p className="mb-4">Could not load the quiz questions. Please go back and try again.</p>
+            <Button asChild>
+                <Link href="/">Return to Dashboard</Link>
+            </Button>
+        </CardContent>
+      </Card>
+    )
+  }
+
   if (showResults) {
     return (
       <div className="max-w-2xl mx-auto">
@@ -87,7 +113,7 @@ export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
             <p className={`text-6xl font-bold ${isPassed ? 'text-green-500' : 'text-destructive'}`}>{score}%</p>
           </CardHeader>
           <CardContent>
-            <Alert variant={isPassed ? 'default' : 'destructive'} className="bg-opacity-20">
+            <Alert variant={isPassed ? 'default' : 'destructive'} className={cn(isPassed && 'border-green-500 bg-green-500/10')}>
               <AlertTitle>{isPassed ? 'Congratulations, you passed!' : 'Keep trying!'}</AlertTitle>
               <AlertDescription>
                 {isPassed ? `You've mastered this topic. Great job!` : `You need ${quiz.passScore}% to pass. Review the material and try again.`}
@@ -99,10 +125,10 @@ export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
                 <div key={item.id} className="p-4 border rounded-lg">
                   <p className="font-medium">{item.prompt}</p>
                   <p className={cn("text-sm", selectedAnswers[index] === item.answer ? 'text-green-600' : 'text-red-600')}>
-                    Your answer: {item.type === 'mcq' ? item.choices![selectedAnswers[index] as number] : String(selectedAnswers[index])}
+                    Your answer: {item.type === 'mcq' && item.choices ? item.choices[selectedAnswers[index] as number] : String(selectedAnswers[index])}
                     {selectedAnswers[index] === item.answer ? <Check className="inline ml-2 h-4 w-4" /> : <X className="inline ml-2 h-4 w-4" />}
                   </p>
-                  {selectedAnswers[index] !== item.answer && <p className="text-sm text-muted-foreground mt-1">Correct answer: {item.type === 'mcq' ? item.choices![item.answer as number] : String(item.answer)}</p>}
+                  {selectedAnswers[index] !== item.answer && <p className="text-sm text-muted-foreground mt-1">Correct answer: {item.type === 'mcq' && item.choices ? item.choices[item.answer as number] : String(item.answer)}</p>}
                   <p className="text-sm text-muted-foreground mt-2 font-body italic">Explanation: {item.explain}</p>
                 </div>
               ))}
@@ -113,6 +139,8 @@ export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
               setShowResults(false);
               setCurrentQuestionIndex(0);
               setSelectedAnswers(new Array(quiz.items.length).fill(null));
+              setIsPassed(false);
+              setScore(0);
             }}>Retry Quiz</Button>
             <Button asChild>
               <Link href="/">Back to Dashboard</Link>
@@ -122,8 +150,6 @@ export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
       </div>
     );
   }
-
-  const currentQuestion = quiz.items[currentQuestionIndex];
 
   return (
     <Card className="max-w-2xl mx-auto">
@@ -136,7 +162,7 @@ export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
         <p className="text-lg font-medium">{currentQuestion.prompt}</p>
         <div>
           {currentQuestion.type === 'mcq' && (
-            <RadioGroup onValueChange={(val) => handleAnswerSelect(parseInt(val))}>
+            <RadioGroup onValueChange={(val) => handleAnswerSelect(parseInt(val))} value={String(selectedAnswers[currentQuestionIndex])}>
               {currentQuestion.choices?.map((choice, index) => (
                 <div key={index} className="flex items-center space-x-2">
                   <RadioGroupItem value={String(index)} id={`q${index}`} />
@@ -146,7 +172,7 @@ export function QuizClient({ quiz, quizId, title }: QuizClientProps) {
             </RadioGroup>
           )}
           {currentQuestion.type === 'truefalse' && (
-            <RadioGroup onValueChange={(val) => handleAnswerSelect(val === 'true')}>
+            <RadioGroup onValueChange={(val) => handleAnswerSelect(val === 'true')} value={String(selectedAnswers[currentQuestionIndex])}>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="true" id="q-true" />
                 <Label htmlFor="q-true" className="font-normal text-base">True</Label>

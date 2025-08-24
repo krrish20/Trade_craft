@@ -1,11 +1,10 @@
+
 "use client";
 
-import { useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getLesson } from '@/content/curriculum';
-import { useProgress } from '@/context/ProgressContext';
 import { MainLayout } from '@/components/MainLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,18 +15,11 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 export default function LessonPage() {
   const router = useRouter();
   const params = useParams();
-  const { completeLesson } = useProgress();
 
   const levelId = Array.isArray(params.levelId) ? params.levelId[0] : params.levelId;
   const lessonId = Array.isArray(params.lessonId) ? params.lessonId[0] : params.lessonId;
   
   const lesson = getLesson(levelId, lessonId);
-
-  useEffect(() => {
-    if (lesson) {
-      completeLesson(lesson.id);
-    }
-  }, [lesson, completeLesson]);
 
   if (!lesson) {
     return (

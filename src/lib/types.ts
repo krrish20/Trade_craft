@@ -1,3 +1,4 @@
+
 export interface QuizItem {
   id: string;
   type: 'mcq' | 'truefalse';
@@ -13,6 +14,7 @@ export interface LessonSection {
   body?: string;
   src?: string;
   alt?: string;
+  'data-ai-hint'?: string;
   component?: string;
   props?: Record<string, any>;
   items?: string[];
@@ -26,6 +28,7 @@ export interface Lesson {
   objectives: string[];
   sections: LessonSection[];
   quiz: {
+    id: string;
     attempts: number;
     passScore: number;
     items: QuizItem[];

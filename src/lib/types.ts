@@ -1,4 +1,5 @@
 
+
 export interface QuizItem {
   id: string;
   type: 'mcq' | 'truefalse';
@@ -85,4 +86,13 @@ export interface Scenario {
     outcomes: {
         [key in ScenarioChoice]: ScenarioOutcome;
     };
+}
+
+
+// --- Trade Planner Types ---
+export interface TradeSetup {
+    id: string;
+    name: string;
+    description?: string;
+    conditions: { value: string }[];
 }

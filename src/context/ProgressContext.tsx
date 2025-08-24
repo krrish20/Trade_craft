@@ -4,7 +4,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import type { UserProgress } from '@/lib/types';
 import { curriculum } from '@/content/curriculum';
-import { preTradeChecklist, postTradeReview } from '@/content/resources';
 
 interface ProgressContextType {
   progress: UserProgress | null;
@@ -60,14 +59,11 @@ export const ProgressProvider = ({ children }: { children: ReactNode }) => {
     
     let score = 0;
     let streak = 0;
-    const fullChecklistSize = preTradeChecklist.length + postTradeReview.length;
-
+    
     // Calculate total score
     for (const date of dates) {
         const items = checklists[date];
-        if (items.length >= fullChecklistSize) {
-            score += 10;
-        }
+        score += items.length * 2; // Example scoring
     }
     
     // Calculate current streak
@@ -75,7 +71,7 @@ export const ProgressProvider = ({ children }: { children: ReactNode }) => {
     for (let i = 0; i < dates.length; i++) {
         const checklistDate = new Date(dates[i]);
         const diff = (currentDate.getTime() - checklistDate.getTime()) / (1000 * 3600 * 24);
-        if (diff === i && checklists[dates[i]].length >= fullChecklistSize) {
+        if (diff === i) {
             streak++;
         } else {
             break;

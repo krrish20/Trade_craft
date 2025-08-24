@@ -26,6 +26,8 @@ export const preTradeChecklist: ChecklistItem[] = [
     { id: 'risk-reward', label: 'Is the potential reward/risk ratio acceptable (e.g., >= 2R)?' },
     { id: 'position-sized', label: 'Have I calculated the correct position size based on my risk?' },
     { id: 'emotional-state', label: 'Am I calm, focused, and free from FOMO or revenge trading impulses?' },
+    { id: 'news-checked', label: 'Have I checked for any major economic news releases that could impact my trade?' },
+    { id: 'environment-check', label: 'Is my trading environment free from distractions?' }
 ];
 
 export const postTradeChecklist: ChecklistItem[] = [
@@ -34,6 +36,8 @@ export const postTradeChecklist: ChecklistItem[] = [
     { id: 'screenshot-taken', label: 'Did I take a screenshot of the chart for later review?' },
     { id: 'result-accepted', label: 'Have I accepted the outcome (win or loss) without emotion?' },
     { id: 'lesson-learned', label: 'What is the one key lesson from this trade?' },
+    { id: 'process-evaluation', label: 'Regardless of outcome, how well did I execute my process?' },
+    { id: 'weekly-review-prep', label: 'Is this trade tagged for discussion in my weekly performance review?' }
 ];
 
 

@@ -1,4 +1,4 @@
-import { getQuiz } from '@/content/curriculum';
+import { getQuiz, getLesson, getLevel } from '@/content/curriculum';
 import { QuizClient } from '@/components/QuizClient';
 import { MainLayout } from '@/components/MainLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -26,8 +26,17 @@ export default function QuizPage({ params }: { params: { levelId: string; lesson
     );
   }
 
-  const quizId = params.lessonId === 'boss' ? getQuiz(params.levelId, params.lessonId)!.id : params.lessonId;
-  const quizTitle = params.lessonId === 'boss' ? `Level ${params.levelId.split('-')[1]} Boss Quiz` : `Quiz: ${getQuiz(params.levelId, params.lessonId)!.title || ''}`;
+  const isBossQuiz = params.lessonId === 'boss';
+  const quizId = isBossQuiz ? getLevel(params.levelId)!.bossQuiz.id : params.lessonId;
+  
+  let quizTitle = '';
+  if (isBossQuiz) {
+    quizTitle = `Level ${params.levelId.split('-')[1]} Boss Quiz`;
+  } else {
+    const lesson = getLesson(params.levelId, params.lessonId);
+    quizTitle = `Quiz: ${lesson?.title || ''}`;
+  }
+
 
   return (
     <MainLayout>

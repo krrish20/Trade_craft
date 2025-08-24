@@ -24,6 +24,10 @@ function Dashboard() {
 
   return (
     <div className="space-y-6">
+      <div className="flex flex-col items-center text-center mb-4">
+        <Logo className="h-16 w-16 mb-2" />
+        <h1 className="text-2xl font-bold">Tradecraft Academy</h1>
+      </div>
       <Card>
         <CardHeader>
           <CardTitle>Your Progress</CardTitle>
@@ -90,7 +94,7 @@ export default function HomePage() {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="text-center">
-          <Logo />
+          <Logo className="h-16 w-16" />
           <p className="mt-4 text-muted-foreground">Loading your academy...</p>
         </div>
       </div>

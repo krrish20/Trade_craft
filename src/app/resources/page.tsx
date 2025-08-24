@@ -1,12 +1,88 @@
 
+"use client";
+
 import { MainLayout } from '@/components/MainLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useProgress } from '@/context/ProgressContext';
+import { glossaryTerms, preTradeChecklist, postTradeReview, candlestickPatterns, chartPatterns } from '@/content/resources';
+import { BookMarked, ListChecks, CandlestickChart, Shapes, Sparkles } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { glossaryTerms, preTradeChecklist, postTradeReview, candlestickPatterns, chartPatterns } from '@/content/resources';
-import { BookMarked, ListChecks, CandlestickChart, Shapes } from 'lucide-react';
+
+
+function DailyChecklist() {
+  const { progress, updateDailyChecklist } = useProgress();
+  const { toast } = useToast();
+
+  if (!progress) return null;
+
+  const today = new Date().toISOString().split('T')[0];
+  const todaysChecklist = progress.dailyChecklists?.[today] || [];
+
+  const handleCheck = (item: string) => {
+    updateDailyChecklist(item);
+  };
+  
+  const handleCompleteDay = () => {
+    toast({
+      title: "Checklist Logged!",
+      description: `You've solidified your discipline for ${today}. Keep it up!`,
+    });
+  }
+
+  const allPreTradeChecked = preTradeChecklist.every(item => todaysChecklist.includes(item));
+  const allPostTradeChecked = postTradeReview.every(item => todaysChecklist.includes(item));
+
+  return (
+    <div className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-6">
+            <Card>
+                <CardHeader>
+                    <CardTitle>Pre-Trade Checklist</CardTitle>
+                    <CardDescription>Run through this list before every trade.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    {preTradeChecklist.map((item, index) => (
+                        <div key={`pre-${index}`} className="flex items-start space-x-3">
+                            <Checkbox id={`pre-${index}`} className="mt-1" onCheckedChange={() => handleCheck(item)} checked={todaysChecklist.includes(item)} />
+                            <Label htmlFor={`pre-${index}`} className="font-normal font-body text-base cursor-pointer">
+                                {item}
+                            </Label>
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                    <CardTitle>Post-Trade Review</CardTitle>
+                    <CardDescription>Analyze your performance after every trade.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    {postTradeReview.map((item, index) => (
+                        <div key={`post-${index}`} className="flex items-start space-x-3">
+                             <Checkbox id={`post-${index}`} className="mt-1" onCheckedChange={() => handleCheck(item)} checked={todaysChecklist.includes(item)} />
+                            <Label htmlFor={`post-${index}`} className="font-normal font-body text-base cursor-pointer">
+                                {item}
+                            </Label>
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
+        </div>
+         <div className="flex justify-center">
+            <Button onClick={handleCompleteDay} disabled={!allPreTradeChecked || !allPostTradeChecked}>
+                <Sparkles className="mr-2 h-4 w-4" />
+                Log Today's Discipline
+            </Button>
+        </div>
+    </div>
+  );
+}
+
 
 export default function ResourcesPage() {
   return (
@@ -17,8 +93,12 @@ export default function ResourcesPage() {
             </div>
             <p className="text-muted-foreground font-body">Your toolbox for success. Find definitions, checklists, and patterns here.</p>
 
-            <Tabs defaultValue="glossary" className="w-full">
+            <Tabs defaultValue="checklists" className="w-full">
                 <TabsList className="grid w-full grid-cols-1 h-auto sm:grid-cols-2 md:grid-cols-4 md:h-10">
+                    <TabsTrigger value="checklists">
+                        <ListChecks className="mr-2 h-4 w-4" />
+                        Discipline Tracker
+                    </TabsTrigger>
                     <TabsTrigger value="glossary">
                         <BookMarked className="mr-2 h-4 w-4" />
                         Glossary
@@ -31,11 +111,10 @@ export default function ResourcesPage() {
                         <Shapes className="mr-2 h-4 w-4" />
                         Chart Patterns
                     </TabsTrigger>
-                    <TabsTrigger value="checklists">
-                        <ListChecks className="mr-2 h-4 w-4" />
-                        Checklists
-                    </TabsTrigger>
                 </TabsList>
+                <TabsContent value="checklists" className="mt-6">
+                    <DailyChecklist />
+                </TabsContent>
                 <TabsContent value="glossary" className="mt-6">
                     <Card>
                         <CardHeader>
@@ -100,42 +179,7 @@ export default function ResourcesPage() {
                         </CardContent>
                     </Card>
                 </TabsContent>
-                <TabsContent value="checklists" className="mt-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Pre-Trade Checklist</CardTitle>
-                                <CardDescription>Run through this list before every trade.</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                {preTradeChecklist.map((item, index) => (
-                                    <div key={index} className="flex items-start space-x-3">
-                                        <Checkbox id={`pre-${index}`} className="mt-1" />
-                                        <Label htmlFor={`pre-${index}`} className="font-normal font-body text-base cursor-pointer">
-                                            {item}
-                                        </Label>
-                                    </div>
-                                ))}
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Post-Trade Review</CardTitle>
-                                <CardDescription>Analyze your performance after every trade.</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                                {postTradeReview.map((item, index) => (
-                                    <div key={index} className="flex items-start space-x-3">
-                                        <Checkbox id={`post-${index}`} className="mt-1"/>
-                                        <Label htmlFor={`post-${index}`} className="font-normal font-body text-base cursor-pointer">
-                                            {item}
-                                        </Label>
-                                    </div>
-                                ))}
-                            </CardContent>
-                        </Card>
-                    </div>
-                </TabsContent>
+
             </Tabs>
         </div>
     </MainLayout>

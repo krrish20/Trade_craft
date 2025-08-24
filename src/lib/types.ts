@@ -58,4 +58,6 @@ export interface UserProgress {
   personalizedPath: string[]; // lesson ids
   estimatedDuration: string;
   createdAt: number;
+  dailyChecklists?: Record<string, string[]>; // e.g. { "2024-07-31": ["item1", "item2"] }
+  disciplineScore?: number;
 }

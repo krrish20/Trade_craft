@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useProgress } from '@/context/ProgressContext';
@@ -17,7 +18,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { useToast } from '@/hooks/use-toast';
-import { Download, Upload, Trash2, Award, Star, TrendingUp } from 'lucide-react';
+import { Download, Upload, Trash2, Award, Star, TrendingUp, ShieldCheck } from 'lucide-react';
 import { Certificate } from './Certificate';
 import { curriculum } from '@/content/curriculum';
 
@@ -60,7 +61,7 @@ export function ProfileClient() {
   };
   
   const totalLessons = curriculum.flatMap(l => l.lessons).length;
-  const isCompleted = progress.completedLessons.length === totalLessons && curriculum.every(level => {
+  const isCompleted = curriculum.every(level => {
       const bossQuizScore = progress.quizScores[level.bossQuiz.id] || 0;
       return bossQuizScore >= level.bossQuiz.passScore;
   });
@@ -72,7 +73,7 @@ export function ProfileClient() {
           <CardTitle className="text-3xl">{progress.name}'s Profile</CardTitle>
           <CardDescription>Your journey at Tradecraft Academy so far.</CardDescription>
         </CardHeader>
-        <CardContent className="grid md:grid-cols-3 gap-4">
+        <CardContent className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="p-4 bg-muted rounded-lg text-center">
                 <Star className="mx-auto h-8 w-8 text-primary mb-2" />
                 <p className="text-2xl font-bold">{progress.xp}</p>
@@ -82,6 +83,11 @@ export function ProfileClient() {
                 <TrendingUp className="mx-auto h-8 w-8 text-primary mb-2" />
                 <p className="text-2xl font-bold">{progress.completedLessons.length} / {totalLessons}</p>
                 <p className="text-sm text-muted-foreground">Lessons Completed</p>
+            </div>
+            <div className="p-4 bg-muted rounded-lg text-center">
+                <ShieldCheck className="mx-auto h-8 w-8 text-primary mb-2" />
+                <p className="text-2xl font-bold">{progress.disciplineScore || 0}</p>
+                <p className="text-sm text-muted-foreground">Discipline Score</p>
             </div>
              <div className="p-4 bg-muted rounded-lg text-center">
                 <Award className="mx-auto h-8 w-8 text-primary mb-2" />
@@ -112,7 +118,7 @@ export function ProfileClient() {
         <CardContent className="grid gap-4 sm:grid-cols-2">
             <Button onClick={handleExport} variant="outline"><Download className="mr-2 h-4 w-4" /> Export Progress</Button>
             <Button asChild variant="outline">
-                <label htmlFor="import-file" className="cursor-pointer">
+                <label htmlFor="import-file" className="cursor-pointer flex items-center justify-center">
                     <Upload className="mr-2 h-4 w-4" /> Import Progress
                     <input type="file" id="import-file" accept=".json" className="sr-only" onChange={handleImport} />
                 </label>

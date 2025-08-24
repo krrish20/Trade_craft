@@ -26,7 +26,7 @@ function Dashboard() {
     <div className="space-y-6">
       <div className="flex flex-col items-center text-center mb-4">
         <Logo className="h-16 w-16 mb-2" />
-        <h1 className="text-2xl font-bold">Tradecraft Academy</h1>
+        <h1 className="text-3xl font-bold">Tradecraft Academy</h1>
       </div>
       <Card>
         <CardHeader>

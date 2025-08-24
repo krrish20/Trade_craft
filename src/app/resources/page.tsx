@@ -34,8 +34,7 @@ function DailyChecklist() {
     });
   }
 
-  const allPreTradeChecked = preTradeChecklist.every(item => todaysChecklist.includes(item));
-  const allPostTradeChecked = postTradeReview.every(item => todaysChecklist.includes(item));
+  const isLogButtonEnabled = todaysChecklist.length > 0;
 
   return (
     <div className="space-y-6">
@@ -74,7 +73,7 @@ function DailyChecklist() {
             </Card>
         </div>
          <div className="flex justify-center">
-            <Button onClick={handleCompleteDay} disabled={!allPreTradeChecked || !allPostTradeChecked}>
+            <Button onClick={handleCompleteDay} disabled={!isLogButtonEnabled}>
                 <Sparkles className="mr-2 h-4 w-4" />
                 Log Today's Discipline
             </Button>
@@ -162,7 +161,7 @@ export default function ResourcesPage() {
                         <CardHeader>
                             <CardTitle>Chart Patterns</CardTitle>
                             <CardDescription>Common formations that can signal trading opportunities.</CardDescription>
-                        </CardHeader>
+                        </Header>
                         <CardContent>
                             <Accordion type="single" collapsible className="w-full">
                                 {chartPatterns.map((item, index) => (

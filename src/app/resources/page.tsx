@@ -32,7 +32,7 @@ function DailyChecklist() {
       title: "Checklist Logged!",
       description: `You've solidified your discipline for ${today}. Keep it up!`,
     });
-  }
+  };
 
   const isLogButtonEnabled = todaysChecklist.length > 0;
 

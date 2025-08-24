@@ -2,23 +2,9 @@
 import { MainLayout } from '@/components/MainLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { PositionSizeCalculator } from '@/components/PositionSizeCalculator';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ExpectancyCalculator } from '@/components/ExpectancyCalculator';
+import { RiskOfRuinCalculator } from '@/components/RiskOfRuinCalculator';
 import { Calculator } from 'lucide-react';
-
-// Placeholder for future calculators
-function ComingSoonCalculator({ name }: { name: string }) {
-    return (
-        <Card>
-            <CardHeader>
-                <CardTitle>{name}</CardTitle>
-                <CardDescription>This calculator is coming soon!</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <p className="text-muted-foreground">Check back later for more tools to help you on your trading journey.</p>
-            </CardContent>
-        </Card>
-    )
-}
 
 export default function CalculatorsPage() {
   return (
@@ -49,10 +35,10 @@ export default function CalculatorsPage() {
                     <PositionSizeCalculator />
                 </TabsContent>
                 <TabsContent value="expectancy" className="mt-6">
-                    <ComingSoonCalculator name="Expectancy Calculator" />
+                    <ExpectancyCalculator />
                 </TabsContent>
                 <TabsContent value="risk-of-ruin" className="mt-6">
-                    <ComingSoonCalculator name="Risk of Ruin Calculator" />
+                    <RiskOfRuinCalculator />
                 </TabsContent>
             </Tabs>
         </div>

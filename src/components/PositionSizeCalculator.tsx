@@ -17,8 +17,8 @@ const formSchema = z.object({
   riskPercentage: z.coerce.number().min(0.1, { message: "Must be at least 0.1"}).max(100, { message: "Must be between 0.1 and 100." }),
   entryPrice: z.coerce.number().positive({ message: "Must be a positive number." }),
   stopLossPrice: z.coerce.number().positive({ message: "Must be a positive number." }),
-}).refine(data => data.entryPrice > data.stopLossPrice, {
-    message: "Entry price must be higher than stop loss for a long trade.",
+}).refine(data => data.entryPrice !== data.stopLossPrice, {
+    message: "Entry and Stop Loss price cannot be the same.",
     path: ["stopLossPrice"],
 });
 
@@ -27,6 +27,7 @@ type FormValues = z.infer<typeof formSchema>;
 interface CalculationResult {
   riskAmount: number;
   positionSize: number;
+  tradeDirection: 'Long' | 'Short';
 }
 
 export function PositionSizeCalculator() {
@@ -44,25 +45,24 @@ export function PositionSizeCalculator() {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const riskAmount = data.accountCapital * (data.riskPercentage / 100);
-    const riskPerShare = data.entryPrice - data.stopLossPrice;
+    const riskPerShare = Math.abs(data.entryPrice - data.stopLossPrice);
+    const tradeDirection = data.entryPrice > data.stopLossPrice ? 'Long' : 'Short';
     
     if (riskPerShare <= 0) {
-        // This case is handled by the schema refine, but as a safeguard:
-        form.setError("stopLossPrice", { type: "custom", message: "Stop loss must be below entry price." });
         setResult(null);
         return;
     }
 
     const positionSize = riskAmount / riskPerShare;
     
-    setResult({ riskAmount, positionSize });
+    setResult({ riskAmount, positionSize, tradeDirection });
   };
 
   return (
     <Card>
       <CardHeader>
         <CardTitle>Position Size Calculator</CardTitle>
-        <CardDescription>Calculate your position size based on your account capital and risk tolerance. This calculator assumes a long position.</CardDescription>
+        <CardDescription>Calculate your position size for both long and short trades based on your capital and risk tolerance.</CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -131,6 +131,7 @@ export function PositionSizeCalculator() {
                 <AlertTitle className="font-bold">Calculation Result</AlertTitle>
                 <AlertDescription>
                   <div className="space-y-1 mt-2">
+                    <p><strong>Trade Direction:</strong> {result.tradeDirection}</p>
                     <p><strong>Max Risk per Trade:</strong> ${result.riskAmount.toFixed(2)}</p>
                     <p><strong>Position Size (Shares/Units):</strong> {result.positionSize.toFixed(4)}</p>
                     <p className="text-xs text-muted-foreground pt-2">This is not financial advice. The calculation does not account for slippage or commissions.</p>

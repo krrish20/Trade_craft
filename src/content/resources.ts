@@ -14,6 +14,28 @@ export interface Pattern {
   };
 }
 
+export interface ChecklistItem {
+    id: string;
+    label: string;
+}
+
+export const preTradeChecklist: ChecklistItem[] = [
+    { id: 'market-context', label: 'Have I assessed the overall market context and higher timeframe trend?' },
+    { id: 'plan-exists', label: 'Does this trade align with a predefined setup in my trading plan?' },
+    { id: 'risk-defined', label: 'Have I defined my exact entry, stop-loss, and target levels?' },
+    { id: 'risk-reward', label: 'Is the potential reward/risk ratio acceptable (e.g., >= 2R)?' },
+    { id: 'position-sized', label: 'Have I calculated the correct position size based on my risk?' },
+    { id: 'emotional-state', label: 'Am I calm, focused, and free from FOMO or revenge trading impulses?' },
+];
+
+export const postTradeChecklist: ChecklistItem[] = [
+    { id: 'followed-plan', label: 'Did I follow my trading plan exactly for entry, stop, and exit?' },
+    { id: 'journaled-trade', label: 'Have I recorded the trade in my journal with all required data?' },
+    { id: 'screenshot-taken', label: 'Did I take a screenshot of the chart for later review?' },
+    { id: 'result-accepted', label: 'Have I accepted the outcome (win or loss) without emotion?' },
+    { id: 'lesson-learned', label: 'What is the one key lesson from this trade?' },
+];
+
 
 export const glossaryTerms: GlossaryTerm[] = [
     { term: 'Ask Price', definition: 'The lowest price a seller is willing to accept for an asset. It\'s the price you pay when you buy.' },
@@ -83,7 +105,7 @@ export const chartPatterns: Pattern[] = [
     { 
         name: 'Bear Flag', 
         type: 'Bearish', 
-        description: 'A continuation pattern after a strong downtrend, consisting of a flagpole (the initial sharp move down) and a flag (a brief upward consolidation).',
+        description: 'A continuation pattern after a strong downtrend, consisting of a flagpole (the initial sharp move down) and a brief upward consolidation).',
         image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'bear flag chart' }
     },
 ];

@@ -60,22 +60,22 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
             </div>
         </nav>
       </aside>
-      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-64">
+      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-60">
         <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <div className="sm:hidden">
             <Link href="/" className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground">
                <Logo className="h-6 w-6 transition-all group-hover:scale-110" />
             </Link>
           </div>
-          <div className="ml-auto">
-            <h1 className="text-xl font-semibold">Welcome, {progress.name}</h1>
+          <div className="ml-auto sm:hidden">
+            <h1 className="text-lg font-semibold">Welcome, {progress.name}</h1>
           </div>
         </header>
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 mb-20 sm:mb-0">
           {children}
         </main>
       </div>
-       <nav className="sm:hidden fixed bottom-0 left-0 right-0 bg-background border-t h-16 flex items-center justify-around">
+       <nav className="sm:hidden fixed bottom-0 left-0 right-0 bg-background border-t h-16 flex items-center justify-around z-40">
           <NavItem href="/" icon={Home} isMobile>Dashboard</NavItem>
           <NavItem href="/journal" icon={BookText} isMobile>Journal</NavItem>
           <NavItem href="/calculators" icon={Calculator} isMobile>Calculators</NavItem>

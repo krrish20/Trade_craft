@@ -53,7 +53,7 @@ export default function JournalPage() {
   return (
     <MainLayout>
         <div className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-bold">Trading Journal</h1>
                     <p className="text-muted-foreground font-body">Your logbook for continuous improvement.</p>
@@ -82,24 +82,24 @@ export default function JournalPage() {
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead>Date</TableHead>
+                                <TableHead className="hidden sm:table-cell">Date</TableHead>
                                 <TableHead>Ticker</TableHead>
                                 <TableHead>Direction</TableHead>
                                 <TableHead>Outcome</TableHead>
-                                <TableHead>Notes</TableHead>
+                                <TableHead className="hidden md:table-cell">Notes</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             {trades.length > 0 ? (
                                 trades.map((trade) => (
                                     <TableRow key={trade.id}>
-                                        <TableCell>{trade.date}</TableCell>
+                                        <TableCell className="hidden sm:table-cell">{trade.date}</TableCell>
                                         <TableCell>{trade.ticker}</TableCell>
                                         <TableCell>{trade.direction}</TableCell>
                                         <TableCell className={trade.outcome.startsWith('+') ? 'text-green-500' : 'text-red-500'}>
                                             {trade.outcome}
                                         </TableCell>
-                                        <TableCell className="max-w-xs truncate">{trade.notes}</TableCell>
+                                        <TableCell className="max-w-xs truncate hidden md:table-cell">{trade.notes}</TableCell>
                                     </TableRow>
                                 ))
                             ) : (

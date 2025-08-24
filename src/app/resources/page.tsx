@@ -18,7 +18,7 @@ export default function ResourcesPage() {
             <p className="text-muted-foreground font-body">Your toolbox for success. Find definitions, checklists, and patterns here.</p>
 
             <Tabs defaultValue="glossary" className="w-full">
-                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-4">
+                <TabsList className="grid w-full grid-cols-1 h-auto sm:grid-cols-2 md:grid-cols-4 md:h-10">
                     <TabsTrigger value="glossary">
                         <BookMarked className="mr-2 h-4 w-4" />
                         Glossary

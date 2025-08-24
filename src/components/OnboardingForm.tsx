@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -84,7 +85,7 @@ export function OnboardingForm() {
     <div className="flex min-h-screen items-center justify-center bg-muted/40 p-4">
       <Card className="w-full max-w-2xl">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-4">
+          <div className="mx-auto mb-4 animate-float">
              <Image src="/images/illustrations/hero.svg" alt="Trading illustration" width={200} height={150} className="w-48 h-auto" />
           </div>
           <CardTitle className="text-3xl font-bold">Welcome to Tradecraft Academy</CardTitle>

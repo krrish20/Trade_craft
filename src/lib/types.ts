@@ -1,0 +1,58 @@
+export interface QuizItem {
+  id: string;
+  type: 'mcq' | 'truefalse';
+  prompt: string;
+  choices?: string[];
+  answer: number | boolean;
+  explain: string;
+}
+
+export interface LessonSection {
+  type: 'text' | 'image' | 'interactive' | 'cheatsheet';
+  tldr?: string;
+  body?: string;
+  src?: string;
+  alt?: string;
+  component?: string;
+  props?: Record<string, any>;
+  items?: string[];
+}
+
+export interface Lesson {
+  id: string;
+  levelId: string;
+  title: string;
+  time: number; // estimated minutes
+  objectives: string[];
+  sections: LessonSection[];
+  quiz: {
+    attempts: number;
+    passScore: number;
+    items: QuizItem[];
+  };
+}
+
+export interface Level {
+  id: string;
+  title: string;
+  description: string;
+  lessons: Lesson[];
+  bossQuiz: {
+    id: string;
+    passScore: number;
+    items: QuizItem[];
+  };
+}
+
+export type Curriculum = Level[];
+
+export interface UserProgress {
+  name: string;
+  xp: number;
+  completedLessons: string[]; // lesson ids
+  quizScores: Record<string, number>; // quiz id (lesson or boss) -> best score
+  badges: string[];
+  personalizedPath: string[]; // lesson ids
+  estimatedDuration: string;
+  createdAt: number;
+}

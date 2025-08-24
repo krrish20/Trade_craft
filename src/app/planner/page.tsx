@@ -7,8 +7,8 @@ export default function PlannerPage() {
     <MainLayout>
         <div className="space-y-4">
              <div>
-                <h1 className="text-3xl font-bold">Trade Planner</h1>
-                <p className="text-muted-foreground font-body">Define your high-probability setups. Build the discipline to only trade your edge.</p>
+                <h1 className="text-3xl font-bold">Trade Planner & Checklists</h1>
+                <p className="text-muted-foreground font-body">Define your edge, build discipline, and execute flawlessly.</p>
             </div>
             <TradePlannerClient />
         </div>

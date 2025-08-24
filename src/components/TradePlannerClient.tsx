@@ -30,7 +30,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
+import { ChecklistGuide } from './ChecklistGuide';
+import { preTradeChecklist, postTradeChecklist } from '@/content/resources';
+import { Separator } from './ui/separator';
 
 const conditionSchema = z.object({
   value: z.string().min(1, 'Condition cannot be empty'),
@@ -72,6 +75,18 @@ export function TradePlannerClient() {
 
   return (
     <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle>Daily Checklists</CardTitle>
+          <CardDescription>Your daily ritual for disciplined trading. Complete before and after your session.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ChecklistGuide preTrade={preTradeChecklist} postTrade={postTradeChecklist} />
+        </CardContent>
+      </Card>
+      
+      <Separator />
+
       {!isAdding ? (
         <div className="flex justify-end">
             <Button onClick={() => setIsAdding(true)}>

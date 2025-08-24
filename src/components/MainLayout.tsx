@@ -51,9 +51,6 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 <NavItem href="/resources" icon={BookCheck}>
                     Resources
                 </NavItem>
-                <NavItem href="/checklists" icon={ClipboardCheck}>
-                    Checklists
-                </NavItem>
             </div>
 
             <Separator />

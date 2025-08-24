@@ -38,8 +38,8 @@ export function PositionSizeCalculator() {
     defaultValues: {
       accountCapital: 10000,
       riskPercentage: 1,
-      entryPrice: undefined,
-      stopLossPrice: undefined,
+      entryPrice: '' as any,
+      stopLossPrice: '' as any,
     },
   });
 

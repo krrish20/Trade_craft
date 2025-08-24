@@ -75,18 +75,6 @@ export function TradePlannerClient() {
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Daily Checklists</CardTitle>
-          <CardDescription>Your daily ritual for disciplined trading. Complete before and after your session.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChecklistGuide preTrade={preTradeChecklist} postTrade={postTradeChecklist} />
-        </CardContent>
-      </Card>
-      
-      <Separator />
-
       {!isAdding ? (
         <div className="flex justify-end">
             <Button onClick={() => setIsAdding(true)}>
@@ -219,6 +207,18 @@ export function TradePlannerClient() {
                     ))}
                 </Accordion>
             )}
+        </CardContent>
+      </Card>
+
+      <Separator />
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Daily Checklists</CardTitle>
+          <CardDescription>Your daily ritual for disciplined trading. Complete before and after your session.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ChecklistGuide preTrade={preTradeChecklist} postTrade={postTradeChecklist} />
         </CardContent>
       </Card>
     </div>

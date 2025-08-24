@@ -24,7 +24,7 @@ const formSchema = z.object({
   ticker: z.string().min(1, 'Ticker is required').toUpperCase(),
   direction: z.enum(['Long', 'Short']),
   outcome: z.string().min(1, 'Outcome is required (e.g., +2R, -1R)'),
-  notes: z.string().optional(),
+  notes: z.string().min(10, 'Please provide a brief rationale for your trade.'),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -132,9 +132,9 @@ export function NewJournalEntryForm({ onSubmit, onFinished }: NewJournalEntryFor
           name="notes"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Notes</FormLabel>
+              <FormLabel>Trade Rationale / Notes</FormLabel>
               <FormControl>
-                <Textarea placeholder="e.g., Followed my plan, exited due to FOMO..." {...field} />
+                <Textarea placeholder="Why am I taking this trade? What is my edge? e.g., 'Broke out of bull flag on high volume, confluence with 20 EMA.'" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

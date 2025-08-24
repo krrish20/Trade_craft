@@ -5,8 +5,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { glossaryTerms, preTradeChecklist, postTradeReview, candlestickPatterns } from '@/content/resources';
-import { BookMarked, ListChecks, CandlestickChart } from 'lucide-react';
+import { glossaryTerms, preTradeChecklist, postTradeReview, candlestickPatterns, chartPatterns } from '@/content/resources';
+import { BookMarked, ListChecks, CandlestickChart, Shapes } from 'lucide-react';
 
 export default function ResourcesPage() {
   return (
@@ -18,14 +18,18 @@ export default function ResourcesPage() {
             <p className="text-muted-foreground font-body">Your toolbox for success. Find definitions, checklists, and patterns here.</p>
 
             <Tabs defaultValue="glossary" className="w-full">
-                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
+                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-4">
                     <TabsTrigger value="glossary">
                         <BookMarked className="mr-2 h-4 w-4" />
                         Glossary
                     </TabsTrigger>
-                    <TabsTrigger value="patterns">
+                    <TabsTrigger value="candlesticks">
                         <CandlestickChart className="mr-2 h-4 w-4" />
                         Candlestick Patterns
+                    </TabsTrigger>
+                    <TabsTrigger value="charts">
+                        <Shapes className="mr-2 h-4 w-4" />
+                        Chart Patterns
                     </TabsTrigger>
                     <TabsTrigger value="checklists">
                         <ListChecks className="mr-2 h-4 w-4" />
@@ -52,7 +56,7 @@ export default function ResourcesPage() {
                         </CardContent>
                     </Card>
                 </TabsContent>
-                <TabsContent value="patterns" className="mt-6">
+                <TabsContent value="candlesticks" className="mt-6">
                     <Card>
                         <CardHeader>
                             <CardTitle>Candlestick Patterns</CardTitle>
@@ -61,6 +65,28 @@ export default function ResourcesPage() {
                         <CardContent>
                             <Accordion type="single" collapsible className="w-full">
                                 {candlestickPatterns.map((item, index) => (
+                                    <AccordionItem value={`item-${index}`} key={index}>
+                                        <AccordionTrigger className="font-semibold text-left">{item.name}</AccordionTrigger>
+                                        <AccordionContent className="font-body text-base space-y-2">
+                                            <p><span className="font-semibold">Type:</span> {item.type}</p>
+                                            <p><span className="font-semibold">Indication:</span> {item.indication}</p>
+                                            <p>{item.description}</p>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+                <TabsContent value="charts" className="mt-6">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Chart Patterns</CardTitle>
+                            <CardDescription>Common formations that can signal trading opportunities.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Accordion type="single" collapsible className="w-full">
+                                {chartPatterns.map((item, index) => (
                                     <AccordionItem value={`item-${index}`} key={index}>
                                         <AccordionTrigger className="font-semibold text-left">{item.name}</AccordionTrigger>
                                         <AccordionContent className="font-body text-base space-y-2">

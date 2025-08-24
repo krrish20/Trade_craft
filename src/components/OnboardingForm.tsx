@@ -24,7 +24,7 @@ import { useProgress } from "@/context/ProgressContext";
 import { personalizedStudyPath } from "@/ai/flows/personalized-study-path";
 import { curriculumJSON } from "@/content/curriculum";
 import { Loader2 } from "lucide-react";
-import Image from 'next/image';
+import { Logo } from "./Logo";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -86,7 +86,7 @@ export function OnboardingForm() {
       <Card className="w-full max-w-2xl">
         <CardHeader className="text-center">
           <div className="mx-auto mb-4 animate-float">
-             <Image src="/images/illustrations/hero.svg" alt="Trading illustration" width={200} height={150} className="w-48 h-auto" />
+             <Logo className="w-24 h-auto" />
           </div>
           <CardTitle className="text-3xl font-bold">Welcome to Tradecraft Academy</CardTitle>
           <CardDescription className="font-body text-lg">

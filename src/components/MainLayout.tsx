@@ -1,8 +1,9 @@
+
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit } from "lucide-react";
+import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { useProgress } from "@/context/ProgressContext";
@@ -44,6 +45,9 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 <NavItem href="/calculators" icon={Calculator}>
                     Calculators
                 </NavItem>
+                <NavItem href="/resources" icon={BookCheck}>
+                    Resources
+                </NavItem>
             </div>
 
             <Separator />
@@ -79,7 +83,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
           <NavItem href="/" icon={Home} isMobile>Dashboard</NavItem>
           <NavItem href="/journal" icon={BookText} isMobile>Journal</NavItem>
           <NavItem href="/trainer" icon={BrainCircuit} isMobile>Trainer</NavItem>
-          <NavItem href="/calculators" icon={Calculator} isMobile>Calculators</NavItem>
+          <NavItem href="/resources" icon={BookCheck} isMobile>Resources</NavItem>
           <NavItem href="/profile" icon={User} isMobile>Profile</NavItem>
         </nav>
     </div>

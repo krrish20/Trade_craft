@@ -90,7 +90,7 @@ export function ScenarioTrainer() {
                     {outcome.isCorrect ? <CheckCircle className="h-4 w-4" /> : <XCircle className="h-4 w-4" />}
                     <AlertTitle>
                         {`Your Choice: ${selectedChoice?.charAt(0).toUpperCase() + selectedChoice!.slice(1)} - ${outcome.isCorrect ? "Correct Analysis" : "Incorrect Analysis"}`}
-                    </Aler_title>
+                    </AlertTitle>
                     <AlertDescription className="space-y-2 mt-2">
                         <p className="font-semibold">{outcome.title}</p>
                         <p className="font-body">{outcome.explanation}</p>

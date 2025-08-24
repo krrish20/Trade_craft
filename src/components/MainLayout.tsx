@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck } from "lucide-react";
+import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck, ClipboardCheck } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { useProgress } from "@/context/ProgressContext";
@@ -47,6 +47,9 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 </NavItem>
                 <NavItem href="/resources" icon={BookCheck}>
                     Resources
+                </NavItem>
+                <NavItem href="/checklists" icon={ClipboardCheck}>
+                    Checklists
                 </NavItem>
             </div>
 

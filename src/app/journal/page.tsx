@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { MainLayout } from '@/components/MainLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { PlusCircle } from 'lucide-react';
+import { PlusCircle, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -21,12 +21,17 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { NewJournalEntryForm } from '@/components/NewJournalEntryForm';
+import { JournalAnalytics } from '@/components/JournalAnalytics';
+
 
 // This is mock data. In a real app, this would come from user storage.
 const mockTrades = [
   { id: 1, date: '2024-07-28', ticker: 'AAPL', direction: 'Long', outcome: '+2.5R', notes: 'Followed plan perfectly.' },
   { id: 2, date: '2024-07-27', ticker: 'TSLA', direction: 'Short', outcome: '-1.0R', notes: 'Entered too early, FOMO.' },
   { id: 3, date: '2024-07-26', ticker: 'NVDA', direction: 'Long', outcome: '+3.0R', notes: 'Great trend continuation trade.' },
+  { id: 4, date: '2024-07-25', ticker: 'GOOG', direction: 'Long', outcome: '-1.0R', notes: 'Revenge trade after the TSLA loss. Bad discipline.' },
+  { id: 5, date: '2024-07-24', ticker: 'AAPL', direction: 'Long', outcome: '+1.5R', notes: 'Good entry, but I exited too early out of fear.' },
+
 ];
 
 export interface Trade {
@@ -34,15 +39,16 @@ export interface Trade {
   date: string;
   ticker: string;
   direction: 'Long' | 'Short';
-  outcome: string;
+  outcome: string; // e.g. "+2.5R" or "-1.0R"
   notes: string;
 }
 
 export default function JournalPage() {
   const [trades, setTrades] = useState<Trade[]>(mockTrades);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isAnalysisOpen, setIsAnalysisOpen] = useState(false);
 
-  const addTrade = (newTradeData: Omit<Trade, 'id'>) => {
+  const addTrade = (newTradeData: Omit<Trade, 'id'|'outcomeR'>) => {
     const newTrade: Trade = {
       id: trades.length > 0 ? Math.max(...trades.map(t => t.id)) + 1 : 1,
       ...newTradeData
@@ -58,20 +64,37 @@ export default function JournalPage() {
                     <h1 className="text-3xl font-bold">Trading Journal</h1>
                     <p className="text-muted-foreground font-body">Your logbook for continuous improvement.</p>
                 </div>
-                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                  <DialogTrigger asChild>
-                    <Button>
-                      <PlusCircle className="mr-2 h-4 w-4" />
-                      New Entry
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>Add New Trade</DialogTitle>
-                    </DialogHeader>
-                    <NewJournalEntryForm onSubmit={addTrade} onFinished={() => setIsDialogOpen(false)} />
-                  </DialogContent>
-                </Dialog>
+                <div className="flex gap-2">
+                   <Dialog open={isAnalysisOpen} onOpenChange={setIsAnalysisOpen}>
+                      <DialogTrigger asChild>
+                         <Button variant="outline">
+                            <Bot className="mr-2 h-4 w-4" />
+                            Analyze My Journal
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-2xl">
+                        <DialogHeader>
+                          <DialogTitle>AI Journal Analysis</DialogTitle>
+                        </DialogHeader>
+                        <JournalAnalytics trades={trades} />
+                      </DialogContent>
+                    </Dialog>
+
+                    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                      <DialogTrigger asChild>
+                        <Button>
+                          <PlusCircle className="mr-2 h-4 w-4" />
+                          New Entry
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Add New Trade</DialogTitle>
+                        </DialogHeader>
+                        <NewJournalEntryForm onSubmit={addTrade} onFinished={() => setIsDialogOpen(false)} />
+                      </DialogContent>
+                    </Dialog>
+                </div>
             </div>
             <Card>
                 <CardHeader>

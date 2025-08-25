@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck, ClipboardCheck, DraftingCompass, Menu, Newspaper } from "lucide-react";
+import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck, ClipboardCheck, DraftingCompass, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
 
@@ -22,7 +22,6 @@ const allNavItems = [
     { href: "/journal", icon: BookText, label: "Journal" },
     { href: "/planner", icon: DraftingCompass, label: "Trade Planner" },
     { href: "/trainer", icon: BrainCircuit, label: "Decision Trainer" },
-    { href: "/news", icon: Newspaper, label: "Market News" },
     { href: "/calculators", icon: Calculator, label: "Calculators" },
     { href: "/resources", icon: BookCheck, label: "Resources" },
 ];

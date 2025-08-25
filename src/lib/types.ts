@@ -103,24 +103,3 @@ export interface ChecklistItem {
     label: string;
     isDefault: boolean;
 }
-
-// --- News Types ---
-export interface TickerSentiment {
-  ticker: string;
-  relevanceScore: number;
-  sentimentScore: number;
-  sentimentLabel: 'Bullish' | 'Somewhat-Bullish' | 'Neutral' | 'Somewhat-Bearish' | 'Bearish';
-}
-
-export interface NewsArticle {
-  title: string;
-  url: string;
-  summary: string;
-  imageUrl: string;
-  source: string;
-  timePublished: string;
-  authors: string[];
-  topics: string[];
-  overallSentimentLabel: string;
-  tickerSentiment: TickerSentiment[];
-}

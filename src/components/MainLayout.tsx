@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { useProgress } from "@/context/ProgressContext";
 import { Logo } from "./Logo";
 import { Separator } from "./ui/separator";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -38,67 +39,67 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-background">
-      <aside className="fixed inset-y-0 left-0 z-10 hidden w-64 flex-col border-r bg-background sm:flex">
-        <div className="flex h-20 items-center justify-center px-6">
-            <Link
-                href="/"
-                className="group flex items-center gap-2"
-            >
-                <Logo className="h-10 w-10 text-primary transition-transform group-hover:scale-110" />
-                <span className="text-xl font-bold">Tradecraft</span>
+    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+      <aside className="fixed inset-y-0 left-0 z-10 hidden w-full border-r bg-muted/40 md:block">
+        <div className="flex h-full max-h-screen flex-col gap-2">
+          <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
+            <Link href="/" className="group flex items-center gap-2 font-semibold">
+              <Logo className="h-10 w-10 text-primary transition-transform group-hover:scale-110" />
+              <span className="text-xl font-bold">Tradecraft</span>
             </Link>
-        </div>
-        <nav className="flex flex-1 flex-col gap-4 p-4">
-            <div className="flex-1 space-y-1">
-                <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Menu</p>
-                {allNavItems.map(item => (
-                     <NavItem key={item.href} href={item.href} icon={item.icon}>
-                        {item.label}
-                    </NavItem>
-                ))}
-            </div>
-
-            <div className="mt-auto space-y-1">
-                <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Account</p>
-                 {accountNavItems.map(item => (
-                     <NavItem key={item.href} href={item.href} icon={item.icon}>
-                        {item.label}
-                    </NavItem>
-                ))}
-            </div>
-        </nav>
-      </aside>
-      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-64">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background/80 px-4 backdrop-blur-sm sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-          <div className="sm:hidden">
-             <MobileMenu />
           </div>
-          <div className="ml-auto flex items-center gap-4">
-             <p className="text-sm font-medium">Welcome, {progress.name}</p>
+          <div className="flex-1">
+            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+              <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Menu</p>
+              {allNavItems.map(item => (
+                   <NavItem key={item.href} href={item.href} icon={item.icon}>
+                      {item.label}
+                  </NavItem>
+              ))}
+            </nav>
+          </div>
+          <div className="mt-auto p-4">
+            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+               <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Account</p>
+               {accountNavItems.map(item => (
+                   <NavItem key={item.href} href={item.href} icon={item.icon}>
+                      {item.label}
+                  </NavItem>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <div className="flex flex-col md:pl-[220px] lg:pl-[280px]">
+        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+          <div className="w-full flex-1">
+             <div className="ml-auto flex items-center justify-end gap-4">
+               <p className="text-sm font-medium">Welcome, {progress.name}</p>
+             </div>
           </div>
         </header>
-        <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 mb-20 sm:mb-0">
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           {children}
         </main>
       </div>
-       <nav className="sm:hidden fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t h-16 flex items-center justify-around z-40">
-          <NavItem href="/" icon={Home} isMobile>Dashboard</NavItem>
-          <NavItem href="/journal" icon={BookText} isMobile>Journal</NavItem>
-          <NavItem href="/trainer" icon={BrainCircuit} isMobile>Trainer</NavItem>
-          <NavItem href="/resources" icon={BookCheck} isMobile>Resources</NavItem>
-           <MobileMenu />
-        </nav>
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t h-16 flex items-center justify-around z-40">
+        <NavItem href="/" icon={Home} isMobile>Dashboard</NavItem>
+        <NavItem href="/journal" icon={BookText} isMobile>Journal</NavItem>
+        <NavItem href="/trainer" icon={BrainCircuit} isMobile>Trainer</NavItem>
+        <NavItem href="/resources" icon={BookCheck} isMobile>Resources</NavItem>
+        <MobileMenu />
+      </nav>
     </div>
   );
 }
+
 
 function MobileMenu() {
     const pathname = usePathname();
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary sm:hidden">
+                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary shrink-0">
                     <MoreHorizontal className="h-5 w-5" />
                     <span className="sr-only">More</span>
                 </Button>
@@ -144,7 +145,7 @@ function NavItem({ href, icon: Icon, children, isMobile = false }: { href: strin
       <Link
         href={href}
         className={cn(
-          "flex flex-col items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary p-2",
+          "flex flex-col items-center justify-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary p-2 flex-1",
           isActive && "text-primary"
         )}
       >
@@ -158,8 +159,8 @@ function NavItem({ href, icon: Icon, children, isMobile = false }: { href: strin
     <Link
       href={href}
       className={cn(
-        "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-muted",
-        isActive && "bg-primary text-primary-foreground font-semibold"
+        "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
+        isActive && "bg-primary text-primary-foreground"
       )}
     >
       <Icon className="h-4 w-4" />

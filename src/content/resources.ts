@@ -69,31 +69,31 @@ export const chartPatterns: Pattern[] = [
         name: 'Head and Shoulders', 
         type: 'Bearish', 
         description: 'A reversal pattern that signals the end of an uptrend. It consists of a left shoulder, a higher peak (the head), and a right shoulder.',
-        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'head shoulders pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1621452298282-359546a14364?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'head shoulders pattern' }
     },
     { 
         name: 'Inverse Head and Shoulders', 
         type: 'Bullish', 
         description: 'A reversal pattern signaling the end of a downtrend. It\'s the inverted version of the Head and Shoulders pattern.',
-        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'inverse head shoulders' }
+        image: { src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'inverse head shoulders' }
     },
     { 
         name: 'Double Top', 
         type: 'Bearish', 
         description: 'A reversal pattern where the price makes two consecutive peaks at roughly the same level, signaling a potential move lower.',
-        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'double top pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'double top pattern' }
     },
     { 
         name: 'Double Bottom', 
         type: 'Bullish', 
         description: 'A reversal pattern with two consecutive troughs at roughly the same level, indicating a potential move higher.',
-        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'double bottom pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1640286599599-4a243538411a?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'double bottom pattern' }
     },
     { 
         name: 'Ascending Triangle', 
         type: 'Bullish', 
         description: 'A continuation pattern with a horizontal resistance level and a rising trendline of support. Often breaks to the upside.',
-        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'ascending triangle chart' }
+        image: { src: 'https://images.unsplash.com/photo-1628216834553-8b78a48740f3?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'ascending triangle chart' }
     },
     { 
         name: 'Descending Triangle', 
@@ -105,13 +105,13 @@ export const chartPatterns: Pattern[] = [
         name: 'Bull Flag', 
         type: 'Bullish', 
         description: 'A continuation pattern that occurs after a strong uptrend. It consists of a flagpole (the initial sharp move up) and a flag (a period of consolidation).',
-        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bull flag chart' }
+        image: { src: 'https://images.unsplash.com/photo-1599658880122-ba28f6b98935?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bull flag chart' }
     },
     { 
         name: 'Bear Flag', 
         type: 'Bearish', 
         description: 'A continuation pattern after a strong downtrend, consisting of a flagpole (the initial sharp move down) and a brief upward consolidation).',
-        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bear flag chart' }
+        image: { src: 'https://images.unsplash.com/photo-1639755243236-5838531758f3?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bear flag chart' }
     },
 ];
 
@@ -120,13 +120,13 @@ export const candlestickPatterns: Pattern[] = [
         name: 'Hammer', 
         type: 'Bullish', 
         description: 'A single candle pattern with a short body, little to no upper wick, and a long lower wick. Appears in a downtrend and signals a potential reversal.',
-        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'hammer candlestick' }
+        image: { src: 'https://images.unsplash.com/photo-1549492423-400259a5cd31?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'hammer candlestick' }
     },
     { 
         name: 'Shooting Star', 
         type: 'Bearish', 
         description: 'A single candle pattern with a short body, a long upper wick, and little to no lower wick. Appears in an uptrend and signals a potential reversal.',
-        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'shooting star candlestick' }
+        image: { src: 'https://images.unsplash.com/photo-1586953208448-b95a14da4492?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'shooting star candlestick' }
     },
     { 
         name: 'Bullish Engulfing', 
@@ -138,30 +138,30 @@ export const candlestickPatterns: Pattern[] = [
         name: 'Bearish Engulfing', 
         type: 'Bearish', 
         description: 'A two-candle pattern where a small bullish candle is followed by a larger bearish candle that completely engulfs the previous one. Signals strong selling pressure.',
-        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bearish engulfing pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1509233732431-5054bee37a93?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bearish engulfing pattern' }
     },
     { 
         name: 'Doji', 
         type: 'Neutral', 
         description: 'A candle with a very small or non-existent body, where the open and close prices are nearly identical. Represents indecision in the market.',
-        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'doji candlestick' }
+        image: { src: 'https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'doji candlestick' }
     },
     { 
         name: 'Morning Star', 
         type: 'Bullish', 
         description: 'A three-candle bottom reversal pattern, consisting of a large bearish candle, a small indecisive candle, and a large bullish candle.',
-        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'morning star pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1554672485-6a59121a4f4e?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'morning star pattern' }
     },
     { 
         name: 'Evening Star', 
         type: 'Bearish', 
         description: 'A three-candle top reversal pattern, consisting of a large bullish candle, a small indecisive candle, and a large bearish candle.',
-        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'evening star pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1664335905803-3439e76a6d25?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'evening star pattern' }
     },
      { 
         name: 'Tweezer Bottoms', 
         type: 'Bullish', 
         description: 'A two-candle reversal pattern where two consecutive candles have matching lows. Indicates that support is holding.',
-        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'tweezer bottom candlestick' }
+        image: { src: 'https://images.unsplash.com/photo-1542626991-a23188554655?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'tweezer bottom candlestick' }
     },
 ];

@@ -88,19 +88,19 @@ export const scenarios: Scenario[] = [
   },
   {
     id: 'scn-4',
-    title: 'Range-Bound Trading',
-    setup: "A stock has been trading sideways for a month between a clear support level at $50 and resistance at $60. The price has just touched the $50 support level for the third time and formed a small bullish hammer candle.",
+    title: 'The Range-Bound Market',
+    setup: 'A major index has been trading between a well-defined support at 4,400 and resistance at 4,500 for the past month. The price has just bounced off the 4,400 support level for the third time.',
     image: {
-      src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart of a stock trading in a horizontal range.',
       'data-ai-hint': 'ranging market chart'
     },
-    decisionPoint: 'What is the most logical action to take?',
+    decisionPoint: 'A bullish hammer candlestick forms at the support level. What is the most logical action?',
     outcomes: {
       long: {
         isCorrect: true,
         title: 'Correct: Buy the Support.',
-        explanation: 'In a range-bound market, the strategy is to buy at support and sell at resistance. The price rejecting the support level for the third time, confirmed by a bullish hammer, is a high-probability signal to go long, targeting the resistance at $60. The stop-loss would go just below the low of the hammer.',
+        explanation: 'In a range-bound market, the strategy is to buy at support and sell at resistance. The price rejecting the support level for the third time, confirmed by a bullish hammer, is a high-probability signal to go long, targeting the resistance at 4,500. The stop-loss would go just below the low of the hammer.',
       },
       short: {
         isCorrect: false,
@@ -117,9 +117,9 @@ export const scenarios: Scenario[] = [
   {
     id: 'scn-5',
     title: 'The Failed Breakdown',
-    setup: "In a larger uptrend, a commodity has pulled back and is now testing a key support level. The price briefly dips below the support level for a few hours, tricking breakout sellers into going short.",
+    setup: 'In a larger uptrend, a commodity has pulled back and is now testing a key support level. The price briefly dips below the support level for a few hours, tricking breakout sellers into going short.',
     image: {
-      src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a price dipping below support and then quickly reclaiming it.',
       'data-ai-hint': 'failed breakdown pattern'
     },
@@ -144,29 +144,29 @@ export const scenarios: Scenario[] = [
   },
   {
     id: 'scn-6',
-    title: 'News Event Spike',
-    setup: 'An unexpected positive news announcement causes a stock to gap up 10% at the market open, on massive volume. It is now trading far above any recent price levels.',
+    title: 'The Earnings Gap',
+    setup: 'A company reports earnings that are much better than expected. The next morning, the stock gaps up 15% at the market open, on massive volume.',
     image: {
       src: 'https://images.unsplash.com/photo-1640286599599-4a243538411a?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a large price gap upwards on a news event.',
       'data-ai-hint': 'news gap up chart'
     },
-    decisionPoint: 'The initial frenzy seems to be settling, and the price is moving sideways. What should you do?',
+    decisionPoint: 'The stock trades sideways for the first 30 minutes, forming a tight consolidation. What should you do?',
     outcomes: {
       long: {
-        isCorrect: false,
-        title: 'Risky Move: Chasing the Gap.',
-        explanation: "Buying after a huge gap up is known as chasing. While the news is positive, the risk/reward is very poor. You have no logical place to put a stop-loss, and the stock could easily pull back to fill some of the gap, leading to a large loss. It's an emotional FOMO trade.",
+        isCorrect: true,
+        title: 'Correct (with caution): Buy the Breakout.',
+        explanation: 'This is a "gap and go" strategy. The strong earnings provide a fundamental reason for the new price. A long entry on a breakout above the initial 30-minute consolidation, with a stop below that range, is a valid way to play the strong upward momentum.',
       },
       short: {
         isCorrect: false,
         title: 'Incorrect: Do Not Fight the News.',
-        explanation: 'Shorting a stock that has gapped up on legitimate, strong positive news is fighting a tidal wave. The underlying reason for the move is bullish, and trying to short it is a very low-probability strategy that can lead to massive losses.',
+        explanation: 'Shorting a stock that has gapped up on legitimate, strong positive news is fighting a tidal wave. The underlying reason for the move is bullish, and trying to short it for a "gap fill" is a very low-probability strategy that can lead to massive losses.',
       },
       wait: {
         isCorrect: true,
-        title: 'Professional Decision: Wait and Observe.',
-        explanation: 'The best move is to wait. Let the initial volatility die down. A professional trader will wait for a new, low-risk pattern to form, such as a flag or a pullback to a new support level. Let the market show its hand before you commit capital. The initial event is over; now you wait for a proper setup.',
+        title: 'Also Correct: Wait for a Deeper Pullback.',
+        explanation: 'A perfectly valid and often safer strategy is to wait. Let the initial volatility die down. Instead of playing the initial breakout, you can wait for the stock to pull back and test a new support level (like the 9 EMA on the 5-minute chart) later in the day. This often provides a better risk/reward entry.',
       },
     },
   },
@@ -249,7 +249,7 @@ export const scenarios: Scenario[] = [
       },
       wait: {
         isCorrect: true,
-        title: 'Correct Analysis: Wait for Confirmation.',
+        title: 'Also Correct: Wait for Confirmation.',
         explanation: 'This is also a perfectly valid professional approach. The divergence is a warning, not a sell signal. Waiting for price confirmation, like a break of a key support level or a lower low, before shorting is a prudent way to avoid jumping the gun. This reduces the risk of the divergence failing.',
       },
     },
@@ -259,7 +259,7 @@ export const scenarios: Scenario[] = [
     title: 'The Gap Fill',
     setup: 'Due to overnight news, a stock gapped down from a close of $150 to an open of $140. It sold off a little more to $138, then started to find buyers.',
     image: {
-      src: 'https://images.unsplash.com/photo-1640286599599-4a243538411a?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1599658880122-ba28f6b98935?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a price gap down and then starting to reverse.',
       'data-ai-hint': 'price gap fill'
     },
@@ -315,7 +315,7 @@ export const scenarios: Scenario[] = [
     title: 'The EMA Crossover Signal',
     setup: 'On the daily chart, the 50-period EMA for a stock has just crossed above the 200-period EMA. This event is known as a "Golden Cross".',
     image: {
-      src: 'https://images.unsplash.com/photo-1628216834553-8b78a48740f3?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1621452298282-359546a14364?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a 50 EMA crossing above a 200 EMA (Golden Cross).',
       'data-ai-hint': 'golden cross chart'
     },
@@ -371,7 +371,7 @@ export const scenarios: Scenario[] = [
     title: 'The Double Top Reversal',
     setup: 'After a strong uptrend, a stock rallies to a high of $300 and pulls back. It then rallies again but fails to break $300, stalling at $299 before turning lower. This forms a "Double Top" pattern.',
     image: {
-      src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a double top bearish reversal pattern.',
       'data-ai-hint': 'double top pattern'
     },
@@ -399,7 +399,7 @@ export const scenarios: Scenario[] = [
     title: 'The Undefined Setup',
     setup: 'You open your charts and see a stock you follow has moved up a bit. It is not near any major support or resistance level. It is not overbought or oversold. No clear chart pattern has formed.',
     image: {
-      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1542626991-a23188554655?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart with ambiguous price action in the middle of nowhere.',
       'data-ai-hint': 'ambiguous price chart'
     },
@@ -427,7 +427,7 @@ export const scenarios: Scenario[] = [
     title: 'Ignoring Higher Timeframe Trend',
     setup: 'The weekly chart of a forex pair is in a powerful, clear uptrend. However, on the 15-minute chart, a small head and shoulders pattern (a bearish reversal pattern) has formed.',
     image: {
-      src: 'https://images.unsplash.com/photo-1639755243236-5838531758f3?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1664335905803-3439e76a6d25?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'A small bearish pattern on a lower timeframe within a larger uptrend.',
       'data-ai-hint': 'timeframe conflict chart'
     },
@@ -455,7 +455,7 @@ export const scenarios: Scenario[] = [
     title: 'The Parabolic Short Squeeze',
     setup: 'A heavily shorted stock starts to rise. As it moves up, short sellers are forced to buy back their shares to cover their positions. This buying pressure causes the price to accelerate upwards, forcing more shorts to cover.',
     image: {
-      src: 'https://images.unsplash.com/photo-1628216834553-8b78a48740f3?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'A chart showing a parabolic move upwards driven by a short squeeze.',
       'data-ai-hint': 'short squeeze chart'
     },
@@ -483,7 +483,7 @@ export const scenarios: Scenario[] = [
     title: 'The Liquidity Grab',
     setup: 'A stock is in an uptrend and has formed a clear swing low (support) at $80. Many traders have placed their stop-loss orders just below this level.',
     image: {
-      src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing price briefly dipping below a key low to trigger stops.',
       'data-ai-hint': 'liquidity grab stop hunt'
     },
@@ -511,7 +511,7 @@ export const scenarios: Scenario[] = [
     title: 'The Doji of Indecision',
     setup: 'After a very strong, multi-day uptrend, the latest daily candle is a Doji. A Doji is a candle with a very small body, meaning the open and close price were almost the same.',
     image: {
-      src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1509233732431-5054bee37a93?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'A chart showing a doji candlestick at the top of an uptrend.',
       'data-ai-hint': 'doji candlestick uptrend'
     },
@@ -539,7 +539,7 @@ export const scenarios: Scenario[] = [
     title: 'The Break and Retest',
     setup: 'A currency pair has been in a downtrend, defined by a clear descending trendline. The price has just broken out *above* this trendline with a strong bullish candle.',
     image: {
-      src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1554672485-6a59121a4f4e?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a breakout of a trendline and a subsequent retest.',
       'data-ai-hint': 'break retest trendline'
     },

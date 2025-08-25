@@ -121,12 +121,12 @@ export function OnboardingForm() {
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-background p-4 relative overflow-hidden">
        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-       <Card className="w-full max-w-xl p-2 sm:p-6 bg-card/80 backdrop-blur-sm border-0 shadow-2xl shadow-primary/10">
+       <Card className="w-full max-w-xl p-4 sm:p-6 bg-card/80 backdrop-blur-sm border-0 shadow-2xl shadow-primary/10">
           <CardHeader>
-             <div className="flex items-center justify-between">
+             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                   <Logo className="w-12 h-12 text-primary" />
-                   <CardTitle className="text-xl font-bold tracking-tighter">Tradecraft Academy Setup</CardTitle>
+                   <Logo className="w-10 h-10 text-primary" />
+                   <CardTitle className="text-lg sm:text-xl font-bold tracking-tighter">Tradecraft Academy Setup</CardTitle>
                 </div>
                 <div className="text-sm text-muted-foreground">
                     Step {currentStep + 1} of {formSchemas.length}
@@ -152,7 +152,7 @@ export function OnboardingForm() {
                         name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-2xl font-semibold">What should we call you?</FormLabel>
+                            <FormLabel className="text-xl sm:text-2xl font-semibold">What should we call you?</FormLabel>
                             <FormControl className="mt-4">
                               <Input placeholder="e.g., Alex" {...field} className="h-12 text-lg" />
                             </FormControl>
@@ -167,7 +167,7 @@ export function OnboardingForm() {
                         name="skillLevel"
                         render={({ field }) => (
                           <FormItem className="space-y-3">
-                            <FormLabel className="text-2xl font-semibold">What's your current skill level?</FormLabel>
+                            <FormLabel className="text-xl sm:text-2xl font-semibold">What's your current skill level?</FormLabel>
                             <FormControl className="mt-4">
                               <RadioGroup
                                 onValueChange={field.onChange}
@@ -205,7 +205,7 @@ export function OnboardingForm() {
                             name="timeCommitment"
                             render={({ field }) => (
                             <FormItem>
-                                <FormLabel className="text-2xl font-semibold">How much time can you commit daily?</FormLabel>
+                                <FormLabel className="text-xl sm:text-2xl font-semibold">How much time can you commit daily?</FormLabel>
                                 <FormControl className="mt-4">
                                 <Input placeholder="e.g., 1 hour per day" {...field} className="h-12 text-lg" />
                                 </FormControl>

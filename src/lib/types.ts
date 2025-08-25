@@ -34,7 +34,6 @@ export interface Lesson {
     passScore: number;
     items: QuizItem[];
   };
-  youtubeLink?: string;
 }
 
 export interface Level {
@@ -96,4 +95,10 @@ export interface TradeSetup {
     name: string;
     description?: string;
     conditions: { value: string }[];
+}
+
+export interface ChecklistItem {
+    id: string;
+    label: string;
+    isDefault: boolean;
 }

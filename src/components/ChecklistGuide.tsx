@@ -1,65 +1,54 @@
 
 "use client";
 
-import type { ChecklistItem } from '@/content/resources';
+import type { ChecklistItem } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useProgress } from '@/context/ProgressContext';
 import { Checkbox } from './ui/checkbox';
 import { Label } from './ui/label';
+import { Button } from './ui/button';
+import { Trash2 } from 'lucide-react';
 
 interface ChecklistGuideProps {
-  preTrade: ChecklistItem[];
-  postTrade: ChecklistItem[];
+  title: string;
+  description: string;
+  items: ChecklistItem[];
+  listKey: 'preTrade' | 'postTrade';
+  onDeleteItem: (id: string, listKey: 'preTrade' | 'postTrade') => void;
 }
 
-export function ChecklistGuide({ preTrade, postTrade }: ChecklistGuideProps) {
+export function ChecklistGuide({ title, description, items, listKey, onDeleteItem }: ChecklistGuideProps) {
   const { progress, updateDailyChecklist } = useProgress();
   const today = new Date().toISOString().split('T')[0];
   const todaysItems = progress?.dailyChecklists?.[today] || [];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-            <CardHeader>
-                <CardTitle>Pre-Trade Checklist</CardTitle>
-                <CardDescription>Your mental warm-up. Ensure every trade is well-planned.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                {preTrade.map(item => (
-                    <div key={item.id} className="flex items-center space-x-3">
-                        <Checkbox 
-                            id={item.id} 
-                            checked={todaysItems.includes(item.id)}
-                            onCheckedChange={() => updateDailyChecklist(item.id)}
-                        />
-                        <Label htmlFor={item.id} className="text-sm font-normal leading-snug cursor-pointer">
-                            {item.label}
-                        </Label>
-                    </div>
-                ))}
-            </CardContent>
-        </Card>
-
-        <Card>
-            <CardHeader>
-                <CardTitle>Post-Trade Checklist</CardTitle>
-                <CardDescription>Your mental cool-down. Learn from every outcome.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                {postTrade.map(item => (
-                    <div key={item.id} className="flex items-center space-x-3">
-                        <Checkbox 
-                            id={item.id} 
-                            checked={todaysItems.includes(item.id)}
-                            onCheckedChange={() => updateDailyChecklist(item.id)}
-                        />
-                        <Label htmlFor={item.id} className="text-sm font-normal leading-snug cursor-pointer">
-                            {item.label}
-                        </Label>
-                    </div>
-                ))}
-            </CardContent>
-        </Card>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {items.map(item => (
+          <div key={item.id} className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <Checkbox
+                id={`${listKey}-${item.id}`}
+                checked={todaysItems.includes(item.id)}
+                onCheckedChange={() => updateDailyChecklist(item.id)}
+              />
+              <Label htmlFor={`${listKey}-${item.id}`} className="text-sm font-normal leading-snug cursor-pointer">
+                {item.label}
+              </Label>
+            </div>
+            {!item.isDefault && (
+              <Button variant="ghost" size="icon" onClick={() => onDeleteItem(item.id, listKey)}>
+                <Trash2 className="h-4 w-4 text-destructive" />
+              </Button>
+            )}
+          </div>
+        ))}
+      </CardContent>
+    </Card>
   );
 }

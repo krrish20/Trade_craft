@@ -103,23 +103,6 @@ export default function LessonPage() {
           })}
         </article>
         
-        {lesson.youtubeLink && (
-            <Card>
-                <CardHeader>
-                    <CardTitle>Further Learning</CardTitle>
-                    <CardDescription>Watch this video for more context on the topic.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                     <Button asChild>
-                        <a href={lesson.youtubeLink} target="_blank" rel="noopener noreferrer">
-                            <Youtube className="mr-2 h-5 w-5" />
-                            Watch on YouTube
-                        </a>
-                    </Button>
-                </CardContent>
-            </Card>
-        )}
-
         <div className="mt-12 flex justify-end">
           <Button asChild size="lg">
             <Link href={`/quiz/${levelId}/${lessonId}`}>

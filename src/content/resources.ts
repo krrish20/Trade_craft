@@ -17,27 +17,28 @@ export interface Pattern {
 export interface ChecklistItem {
     id: string;
     label: string;
+    isDefault: boolean;
 }
 
-export const preTradeChecklist: ChecklistItem[] = [
-    { id: 'market-context', label: 'Have I assessed the overall market context and higher timeframe trend?' },
-    { id: 'plan-exists', label: 'Does this trade align with a predefined setup in my trading plan?' },
-    { id: 'risk-defined', label: 'Have I defined my exact entry, stop-loss, and target levels?' },
-    { id: 'risk-reward', label: 'Is the potential reward/risk ratio acceptable (e.g., >= 2R)?' },
-    { id: 'position-sized', label: 'Have I calculated the correct position size based on my risk?' },
-    { id: 'emotional-state', label: 'Am I calm, focused, and free from FOMO or revenge trading impulses?' },
-    { id: 'news-checked', label: 'Have I checked for any major economic news releases that could impact my trade?' },
-    { id: 'environment-check', label: 'Is my trading environment free from distractions?' }
+export const defaultPreTradeChecklist: ChecklistItem[] = [
+    { id: 'market-context', label: 'Have I assessed the overall market context and higher timeframe trend?', isDefault: true },
+    { id: 'plan-exists', label: 'Does this trade align with a predefined setup in my trading plan?', isDefault: true },
+    { id: 'risk-defined', label: 'Have I defined my exact entry, stop-loss, and target levels?', isDefault: true },
+    { id: 'risk-reward', label: 'Is the potential reward/risk ratio acceptable (e.g., >= 2R)?', isDefault: true },
+    { id: 'position-sized', label: 'Have I calculated the correct position size based on my risk?', isDefault: true },
+    { id: 'emotional-state', label: 'Am I calm, focused, and free from FOMO or revenge trading impulses?', isDefault: true },
+    { id: 'news-checked', label: 'Have I checked for any major economic news releases that could impact my trade?', isDefault: true },
+    { id: 'environment-check', label: 'Is my trading environment free from distractions?', isDefault: true }
 ];
 
-export const postTradeChecklist: ChecklistItem[] = [
-    { id: 'followed-plan', label: 'Did I follow my trading plan exactly for entry, stop, and exit?' },
-    { id: 'journaled-trade', label: 'Have I recorded the trade in my journal with all required data?' },
-    { id: 'screenshot-taken', label: 'Did I take a screenshot of the chart for later review?' },
-    { id: 'result-accepted', label: 'Have I accepted the outcome (win or loss) without emotion?' },
-    { id: 'lesson-learned', label: 'What is the one key lesson from this trade?' },
-    { id: 'process-evaluation', label: 'Regardless of outcome, how well did I execute my process?' },
-    { id: 'weekly-review-prep', label: 'Is this trade tagged for discussion in my weekly performance review?' }
+export const defaultPostTradeChecklist: ChecklistItem[] = [
+    { id: 'followed-plan', label: 'Did I follow my trading plan exactly for entry, stop, and exit?', isDefault: true },
+    { id: 'journaled-trade', label: 'Have I recorded the trade in my journal with all required data?', isDefault: true },
+    { id: 'screenshot-taken', label: 'Did I take a screenshot of the chart for later review?', isDefault: true },
+    { id: 'result-accepted', label: 'Have I accepted the outcome (win or loss) without emotion?', isDefault: true },
+    { id: 'lesson-learned', label: 'What is the one key lesson from this trade?', isDefault: true },
+    { id: 'process-evaluation', label: 'Regardless of outcome, how well did I execute my process?', isDefault: true },
+    { id: 'weekly-review-prep', label: 'Is this trade tagged for discussion in my weekly performance review?', isDefault: true }
 ];
 
 

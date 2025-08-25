@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { MainLayout } from '@/components/MainLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { PlusCircle, Bot } from 'lucide-react';
+import { PlusCircle, Bot, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -21,6 +21,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
 import { NewJournalEntryForm } from '@/components/NewJournalEntryForm';
 import { JournalAnalytics } from '@/components/JournalAnalytics';
 
@@ -56,6 +68,10 @@ export default function JournalPage() {
     };
     setTrades(prevTrades => [newTrade, ...prevTrades]);
   };
+  
+  const deleteTrade = (tradeId: number) => {
+    setTrades(prevTrades => prevTrades.filter(t => t.id !== tradeId));
+  }
 
   return (
     <MainLayout>
@@ -111,6 +127,7 @@ export default function JournalPage() {
                                 <TableHead>Direction</TableHead>
                                 <TableHead>Outcome</TableHead>
                                 <TableHead className="hidden md:table-cell">Notes</TableHead>
+                                <TableHead className="text-right">Actions</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -124,11 +141,34 @@ export default function JournalPage() {
                                             {trade.outcome}
                                         </TableCell>
                                         <TableCell className="max-w-xs truncate hidden md:table-cell">{trade.notes}</TableCell>
+                                        <TableCell className="text-right">
+                                            <AlertDialog>
+                                                <AlertDialogTrigger asChild>
+                                                    <Button variant="ghost" size="icon">
+                                                        <Trash2 className="h-4 w-4 text-destructive" />
+                                                    </Button>
+                                                </AlertDialogTrigger>
+                                                <AlertDialogContent>
+                                                    <AlertDialogHeader>
+                                                        <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                                                        <AlertDialogDescription>
+                                                            This action cannot be undone. This will permanently delete this journal entry.
+                                                        </AlertDialogDescription>
+                                                    </AlertDialogHeader>
+                                                    <AlertDialogFooter>
+                                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                        <AlertDialogAction onClick={() => deleteTrade(trade.id)}>
+                                                            Delete
+                                                        </AlertDialogAction>
+                                                    </AlertDialogFooter>
+                                                </AlertDialogContent>
+                                            </AlertDialog>
+                                        </TableCell>
                                     </TableRow>
                                 ))
                             ) : (
                                 <TableRow>
-                                    <TableCell colSpan={5} className="text-center">No trades logged yet.</TableCell>
+                                    <TableCell colSpan={6} className="text-center">No trades logged yet.</TableCell>
                                 </TableRow>
                             )}
                         </TableBody>

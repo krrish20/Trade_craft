@@ -12,7 +12,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'What is a Market?', 
         time: 10, 
-        youtubeLink: 'https://www.youtube.com/watch?v=sS93E-251eI',
         objectives: [
           "Define what a financial market is.",
           "Understand the purpose and function of markets.",
@@ -47,7 +46,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Asset Classes: Stocks, Forex, Crypto', 
         time: 15, 
-        youtubeLink: 'https://www.youtube.com/watch?v=A3g5C4-p9cQ',
         objectives: [
           "Identify three major asset classes.",
           "Describe the basic characteristics of stocks (equities).",
@@ -83,7 +81,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Market Participants and Their Roles', 
         time: 10, 
-        youtubeLink: 'https://www.youtube.com/watch?v=T0I7a840k1k',
         objectives: [
           "Differentiate between retail and institutional traders.",
           "Understand the role of a broker.",
@@ -118,7 +115,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Choosing a Broker and Trading Platform', 
         time: 12, 
-        youtubeLink: 'https://www.youtube.com/watch?v=A-Zo94l5nkk',
         objectives: [
           "List key factors to consider when choosing a broker.",
           "Understand the purpose of a trading platform.",
@@ -153,7 +149,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Understanding Bid, Ask, and Spread', 
         time: 10, 
-        youtubeLink: 'https://www.youtube.com/watch?v=L9oB9228_p8',
         objectives: [
           "Define 'Bid' price.",
           "Define 'Ask' price.",
@@ -188,7 +183,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Anatomy of a Candlestick (OHLC)', 
         time: 15, 
-        youtubeLink: 'https://www.youtube.com/watch?v=M2s62tq_iPA',
         objectives: [
           "Identify the four data points of a candlestick (OHLC).",
           "Differentiate between a bullish and a bearish candlestick.",
@@ -223,7 +217,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Basic Order Types: Market, Limit, Stop', 
         time: 15, 
-        youtubeLink: 'https://www.youtube.com/watch?v=FCI621i1hG4',
         objectives: [
             "Explain how a 'Market' order works.",
             "Explain how a 'Limit' order works.",
@@ -258,7 +251,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Introduction to Charting', 
         time: 10, 
-        youtubeLink: 'https://www.youtube.com/watch?v=RLyS_Qy1v2g',
         objectives: [
             "Understand the purpose of a price chart.",
             "Identify the X-axis (time) and Y-axis (price).",
@@ -293,7 +285,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Identifying Trends: Uptrend, Downtrend, Range', 
         time: 15, 
-        youtubeLink: 'https://www.youtube.com/watch?v=x_q2C1y4JAA',
         objectives: [
             "Define an 'Uptrend'.",
             "Define a 'Downtrend'.",
@@ -328,7 +319,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Core Concept: Support and Resistance', 
         time: 18, 
-        youtubeLink: 'https://www.youtube.com/watch?v=Xv-z_s81-e0',
         objectives: [
             "Define Support as a price 'floor'.",
             "Define Resistance as a price 'ceiling'.",
@@ -363,7 +353,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'The Role of Volume in Analysis', 
         time: 12, 
-        youtubeLink: 'https://www.youtube.com/watch?v=F0gMA5vXy78',
         objectives: [
             "Define trading volume.",
             "Understand how volume confirms trends.",
@@ -398,7 +387,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Introduction to Technical Indicators', 
         time: 10, 
-        youtubeLink: 'https://www.youtube.com/watch?v=eB4tUASV3yA',
         objectives: [
             "Explain what a technical indicator is.",
             "Differentiate between leading and lagging indicators.",
@@ -433,7 +421,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'What is a Trading Plan and Why You Need One', 
         time: 20, 
-        youtubeLink: 'https://www.youtube.com/watch?v=0kAl6hS8YcA',
         objectives: [
             "Define a trading plan.",
             "List the essential components of a trading plan.",
@@ -468,7 +455,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Psychology 101: The Mind of a Trader', 
         time: 15, 
-        youtubeLink: 'https://www.youtube.com/watch?v=Jp2Y8yD_35E',
         objectives: [
             "Acknowledge that trading is a mental game.",
             "Identify the two primary emotions in trading: fear and greed.",
@@ -503,7 +489,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Common Cognitive Biases', 
         time: 15, 
-        youtubeLink: 'https://www.youtube.com/watch?v=S60-gMv2hgA',
         objectives: [
             "Define 'Confirmation Bias'.",
             "Define 'Recency Bias'.",
@@ -538,7 +523,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Introduction to Risk Management', 
         time: 15, 
-        youtubeLink: 'https://www.youtube.com/watch?v=G4-B4M_2KqM',
         objectives: [
             "Define risk management.",
             "Understand the #1 rule: protect your capital.",
@@ -573,7 +557,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'The Concept of R-Multiples', 
         time: 10, 
-        youtubeLink: 'https://www.youtube.com/watch?v=uStO_iI2-I8',
         objectives: [
             "Define 'R' as your initial risk.",
             "Calculate the R-multiple of a potential trade.",
@@ -608,7 +591,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Timeframes and Their Significance', 
         time: 12, 
-        youtubeLink: 'https://www.youtube.com/watch?v=S5pVd2a3-f0',
         objectives: [
             "Differentiate between high, medium, and low timeframes.",
             "Understand how different timeframes are used (e.g., trend, setup, entry).",
@@ -643,7 +625,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'What are Trading Sessions?', 
         time: 10, 
-        youtubeLink: 'https://www.youtube.com/watch?v=F0gMA5vXy78',
         objectives: [
             "Identify the three major global trading sessions (Tokyo, London, New York).",
             "Understand that market volatility changes during different sessions.",
@@ -678,7 +659,6 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Setting Up Your Trading Journal', 
         time: 15, 
-        youtubeLink: 'https://www.youtube.com/watch?v=HB5AC3hEZEk',
         objectives: [
             "Understand the purpose of a trading journal.",
             "List the key data points to record for each trade.",

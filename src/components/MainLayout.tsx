@@ -40,7 +40,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <aside className="fixed inset-y-0 left-0 z-10 hidden w-full border-r bg-card md:block">
+      <aside className="hidden border-r bg-card md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-20 items-center border-b px-4 lg:px-6">
             <Link href="/" className="group flex items-center gap-3 font-semibold">
@@ -48,7 +48,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
               <span className="text-2xl font-bold">Tradecraft</span>
             </Link>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 overflow-y-auto">
             <nav className="grid items-start px-2 text-base font-medium lg:px-4">
               <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Menu</p>
               {allNavItems.map(item => (
@@ -70,13 +70,12 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </aside>
-      <div className="flex flex-col md:pl-[220px] lg:pl-[280px]">
+      <div className="flex flex-col">
         <header className="flex h-14 items-center gap-4 border-b bg-card/80 px-4 lg:h-[60px] lg:px-6 md:hidden">
-          <div className="w-full flex-1">
-             <div className="ml-auto flex items-center justify-end gap-4">
-               <p className="text-sm font-medium">Welcome, {progress.name}</p>
-             </div>
-          </div>
+            <div className="flex-1">
+                <p className="text-sm font-medium">Welcome, {progress.name}</p>
+            </div>
+            <MobileMenu />
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 mb-16 md:mb-0">
           {children}
@@ -87,7 +86,31 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
         <NavItem href="/journal" icon={BookText} isMobile>Journal</NavItem>
         <NavItem href="/trainer" icon={BrainCircuit} isMobile>Trainer</NavItem>
         <NavItem href="/resources" icon={BookCheck} isMobile>Resources</NavItem>
-        <MobileMenu />
+        <Sheet>
+            <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary shrink-0">
+                    <MoreHorizontal className="h-5 w-5" />
+                    <span className="sr-only">More</span>
+                </Button>
+            </SheetTrigger>
+            <SheetContent side="bottom" className="h-auto">
+                 <nav className="grid gap-6 text-lg font-medium mt-4">
+                    <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Menu</p>
+                    {allNavItems.map(item => (
+                        <MobileNavItem key={item.href} href={item.href} icon={item.icon}>
+                            {item.label}
+                        </MobileNavItem>
+                    ))}
+                    <Separator />
+                     <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Account</p>
+                    {accountNavItems.map(item => (
+                         <MobileNavItem key={item.href} href={item.href} icon={item.icon}>
+                            {item.label}
+                        </MobileNavItem>
+                    ))}
+                </nav>
+            </SheetContent>
+        </Sheet>
       </nav>
     </div>
   );
@@ -95,7 +118,6 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
 
 
 function MobileMenu() {
-    const pathname = usePathname();
     return (
         <Sheet>
             <SheetTrigger asChild>
@@ -108,26 +130,16 @@ function MobileMenu() {
                  <nav className="grid gap-6 text-lg font-medium mt-4">
                     <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Menu</p>
                     {allNavItems.map(item => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={cn("flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground", pathname === item.href && "text-foreground")}
-                        >
-                            <item.icon className="h-5 w-5" />
+                        <MobileNavItem key={item.href} href={item.href} icon={item.icon}>
                             {item.label}
-                        </Link>
+                        </MobileNavItem>
                     ))}
                     <Separator />
                      <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Account</p>
                     {accountNavItems.map(item => (
-                         <Link
-                            key={item.href}
-                            href={item.href}
-                            className={cn("flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground", pathname === item.href && "text-foreground")}
-                        >
-                            <item.icon className="h-5 w-5" />
+                         <MobileNavItem key={item.href} href={item.href} icon={item.icon}>
                             {item.label}
-                        </Link>
+                        </MobileNavItem>
                     ))}
                 </nav>
             </SheetContent>
@@ -135,6 +147,19 @@ function MobileMenu() {
     )
 }
 
+function MobileNavItem({ href, icon: Icon, children }: { href: string; icon: React.ElementType; children: React.ReactNode; }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+  return (
+    <Link
+        href={href}
+        className={cn("flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground", isActive && "text-foreground")}
+    >
+        <Icon className="h-5 w-5" />
+        {children}
+    </Link>
+  )
+}
 
 function NavItem({ href, icon: Icon, children, isMobile = false }: { href: string; icon: React.ElementType; children: React.ReactNode; isMobile?: boolean }) {
   const pathname = usePathname();

@@ -18,7 +18,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useProgress } from "@/context/ProgressContext";
 import { personalizedStudyPath } from "@/ai/flows/personalized-study-path";
@@ -83,19 +82,20 @@ export function OnboardingForm() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-lg border-0 bg-transparent sm:border sm:bg-card">
-        <CardHeader className="text-center">
-          <div className="mx-auto mb-4">
-             <Logo className="w-24 h-24 text-primary animate-float" />
-          </div>
-          <CardTitle className="text-3xl font-bold">Welcome to Tradecraft</CardTitle>
-          <CardDescription className="text-lg text-muted-foreground">
-            Let's build your personalized learning path.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+      <div className="w-full max-w-4xl">
+        <div className="text-center">
+            <div className="mx-auto mb-6">
+                <Logo className="w-24 h-24 text-primary animate-float" />
+            </div>
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">Welcome to Tradecraft</h1>
+            <p className="mt-2 text-lg text-muted-foreground">
+                Let's build your personalized learning path to mastery.
+            </p>
+        </div>
+
+        <div className="mt-10">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-md mx-auto">
               <FormField
                 control={form.control}
                 name="name"
@@ -173,8 +173,8 @@ export function OnboardingForm() {
               </Button>
             </form>
           </Form>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }

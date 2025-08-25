@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Providers } from '@/components/Providers';
 import './globals.css';
@@ -11,6 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Tradecraft Academy',
   description: 'Master trading from beginner to advanced with a structured, offline-first curriculum.',
+  manifest: '/manifest.ts'
 };
 
 export default function RootLayout({

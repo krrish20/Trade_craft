@@ -5,7 +5,7 @@ import { useProgress } from '@/context/ProgressContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { cn } from '@/lib/utils';
-import { Flame, CalendarCheck } from 'lucide-react';
+import { Flame, CalendarCheck, Award } from 'lucide-react';
 import { eachDayOfInterval, format, startOfWeek, endOfWeek, subDays } from 'date-fns';
 
 export function ConsistencyChart() {
@@ -131,6 +131,3 @@ export function ConsistencyChart() {
     </Card>
   );
 }
-
-// Dummy Award icon if not imported
-const Award = ({className}: {className?: string}) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 17 17 23 15.79 13.88"/></svg>;

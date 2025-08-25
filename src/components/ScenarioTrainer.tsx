@@ -43,7 +43,7 @@ export function ScenarioTrainer() {
   return (
     <Card>
       <CardHeader>
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <div className="space-y-1">
              <CardTitle>{scenario.title}</CardTitle>
              <CardDescription>Scenario {currentScenarioIndex + 1} of {scenarios.length}</CardDescription>
@@ -74,7 +74,7 @@ export function ScenarioTrainer() {
         {!showOutcome && (
             <div className="text-center space-y-4">
                 <p className="text-lg font-semibold">{scenario.decisionPoint}</p>
-                <div className="flex justify-center gap-4">
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <Button onClick={() => handleSelectChoice('long')} variant="default" className="bg-green-600 hover:bg-green-700">Enter Long</Button>
                     <Button onClick={() => handleSelectChoice('short')} variant="destructive">Enter Short</Button>
                     <Button onClick={() => handleSelectChoice('wait')} variant="secondary">Stay Out / Wait</Button>

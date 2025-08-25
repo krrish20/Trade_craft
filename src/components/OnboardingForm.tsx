@@ -24,6 +24,7 @@ import { personalizedStudyPath } from "@/ai/flows/personalized-study-path";
 import { curriculumJSON } from "@/content/curriculum";
 import { Loader2 } from "lucide-react";
 import { Logo } from "./Logo";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -81,21 +82,21 @@ export function OnboardingForm() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="w-full max-w-4xl">
-        <div className="text-center">
-            <div className="mx-auto mb-6">
-                <Logo className="w-24 h-24 text-primary animate-float" />
+    <div className="flex min-h-screen w-full items-center justify-center bg-background p-4 relative overflow-hidden">
+       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+       <Card className="w-full max-w-md p-4 sm:p-6 bg-card/80 backdrop-blur-sm border-0 shadow-2xl shadow-primary/10">
+          <CardHeader className="text-center">
+             <div className="mx-auto mb-4">
+                <Logo className="w-20 h-20 text-primary animate-float" />
             </div>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">Welcome to Tradecraft</h1>
-            <p className="mt-2 text-lg text-muted-foreground">
-                Let's build your personalized learning path to mastery.
-            </p>
-        </div>
-
-        <div className="mt-10">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-md mx-auto">
+            <CardTitle className="text-3xl font-bold tracking-tighter">Welcome to Tradecraft</CardTitle>
+            <CardDescription className="text-lg text-muted-foreground">
+                Let's build your personalized learning path.
+            </CardDescription>
+        </CardHeader>
+        <CardContent>
+           <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
                 control={form.control}
                 name="name"
@@ -173,8 +174,14 @@ export function OnboardingForm() {
               </Button>
             </form>
           </Form>
-        </div>
-      </div>
+        </CardContent>
+       </Card>
+      <style jsx global>{`
+        .bg-grid-pattern {
+            background-image: linear-gradient(hsl(var(--border)) 1px, transparent 1px), linear-gradient(to right, hsl(var(--border)) 1px, hsl(var(--background)) 1px);
+            background-size: 2rem 2rem;
+        }
+      `}</style>
     </div>
   );
 }

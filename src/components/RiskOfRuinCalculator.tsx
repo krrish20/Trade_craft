@@ -13,10 +13,10 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Calculator, AlertTriangle } from 'lucide-react';
 
 const formSchema = z.object({
-  winRate: z.coerce.number().min(0.1).max(99.9),
-  riskRewardRatio: z.coerce.number().positive(),
-  riskPerTrade: z.coerce.number().min(0.1).max(100),
-  maxLosingStreak: z.coerce.number().int().min(1),
+  winRate: z.coerce.number().min(1, 'Win rate must be at least 1%').max(99, 'Win rate cannot exceed 99%'),
+  avgWinLossRatio: z.coerce.number().positive('Ratio must be a positive number.'),
+  riskPerTrade: z.coerce.number().min(0.1, "Risk must be at least 0.1%").max(100, "Risk cannot exceed 100%"),
+  capitalAtRisk: z.coerce.number().min(1, "Must be at least 1%").max(100, "Cannot exceed 100%"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -25,6 +25,30 @@ interface CalculationResult {
   riskOfRuin: number;
 }
 
+// Function to calculate Risk of Ruin using a standard formula
+// RoR = ((1 - Edge) / (1 + Edge)) ^ CapitalUnits
+// Edge = (WinRate * AvgWin) - (LossRate * AvgLoss)
+function calculateRiskOfRuin(winRate: number, avgWinLossRatio: number, riskPerTrade: number, capitalAtRisk: number): number {
+  const p = winRate / 100; // Probability of winning
+  const l = 1 - p;         // Probability of losing
+  const w = avgWinLossRatio; // Average win is W times the average loss
+  const l_amount = 1; // We can normalize average loss to 1 unit
+  const w_amount = w * l_amount;
+
+  const edge = (p * w_amount) - (l * l_amount);
+
+  if (edge <= 0) {
+    return 100; // If there is no positive expectancy, ruin is certain.
+  }
+  
+  const capitalUnits = capitalAtRisk / riskPerTrade;
+  
+  const riskOfRuin = Math.pow(((1 - edge) / (1 + edge)), capitalUnits);
+
+  return Math.min(riskOfRuin * 100, 100);
+}
+
+
 export function RiskOfRuinCalculator() {
   const [result, setResult] = useState<CalculationResult | null>(null);
 
@@ -32,45 +56,22 @@ export function RiskOfRuinCalculator() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       winRate: 50,
-      riskRewardRatio: 1.5,
+      avgWinLossRatio: 1.5,
       riskPerTrade: 2,
-      maxLosingStreak: 10,
+      capitalAtRisk: 20,
     },
   });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    // Note: This is a simplified model. True risk of ruin is complex.
-    // Perry J. Kaufman's formula for RoR: ((1 - Edge) / (1 + Edge)) ^ Capital_Units
-    // A simpler approximation can be derived.
-    // Let's use a common, though simplified, formula for this example.
-    const p = data.winRate / 100;
-    const l = 1 - p;
-    const r = data.riskRewardRatio;
-    
-    // An edge is required
-    if (p * r - l <= 0) {
-        setResult({ riskOfRuin: 100 });
-        return;
-    }
-    
-    // Using a formula based on gambler's ruin problem. This can be complex.
-    // Let's use a more intuitive approach for this example.
-    const probOfLosingStreak = Math.pow(l, data.maxLosingStreak);
-    const capitalLost = data.riskPerTrade / 100 * data.maxLosingStreak;
-    
-    // This is not a standard RoR formula, but a conceptual placeholder
-    // A real one would involve more complex math.
-    // For a simplified educational tool, let's calculate ruin based on a max losing streak.
-    const ruinProb = Math.pow((l / p), (100 / data.riskPerTrade));
-    
-    setResult({ riskOfRuin: Math.min(ruinProb * 100, 100) });
+    const riskOfRuin = calculateRiskOfRuin(data.winRate, data.avgWinLossRatio, data.riskPerTrade, data.capitalAtRisk);
+    setResult({ riskOfRuin });
   };
 
   return (
     <Card>
       <CardHeader>
         <CardTitle>Risk of Ruin Calculator</CardTitle>
-        <CardDescription>Estimate the probability of losing a significant portion of your capital.</CardDescription>
+        <CardDescription>Estimate the probability of losing a specific percentage of your capital based on your trading system's parameters. This is a crucial metric for long-term survival.</CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -90,10 +91,10 @@ export function RiskOfRuinCalculator() {
             />
             <FormField
               control={form.control}
-              name="riskRewardRatio"
+              name="avgWinLossRatio"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Average Risk/Reward Ratio</FormLabel>
+                  <FormLabel>Average Win / Average Loss Ratio</FormLabel>
                   <FormControl>
                     <Input type="number" placeholder="1.5" step="0.1" {...field} />
                   </FormControl>
@@ -106,7 +107,7 @@ export function RiskOfRuinCalculator() {
               name="riskPerTrade"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Risk per Trade (%)</FormLabel>
+                  <FormLabel>Risk per Trade (% of Capital)</FormLabel>
                   <FormControl>
                     <Input type="number" placeholder="2" step="0.5" {...field} />
                   </FormControl>
@@ -116,12 +117,12 @@ export function RiskOfRuinCalculator() {
             />
              <FormField
               control={form.control}
-              name="maxLosingStreak"
+              name="capitalAtRisk"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Account Drawdown to Define Ruin (%)</FormLabel>
                   <FormControl>
-                     <Input type="number" placeholder="30" step="1" {...field} />
+                     <Input type="number" placeholder="20" step="1" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -139,9 +140,9 @@ export function RiskOfRuinCalculator() {
                 <AlertTitle className="font-bold">Risk of Ruin Estimate</AlertTitle>
                 <AlertDescription>
                   <div className="space-y-1 mt-2">
-                     <p className="text-lg">Your estimated risk of ruin is <strong className="text-xl">{result.riskOfRuin.toFixed(2)}%</strong>.</p>
+                     <p className="text-lg">Your estimated risk of reaching a {form.getValues('capitalAtRisk')}% drawdown is <strong className="text-xl">{result.riskOfRuin.toFixed(2)}%</strong>.</p>
                     <p className="text-xs text-muted-foreground pt-2">
-                      This is an estimate of losing your defined drawdown percentage. A high percentage suggests your risk per trade may be too high for your system's edge.
+                      This calculation is a statistical estimate. A high percentage suggests your risk per trade may be too high for your system's edge. Consider reducing risk to improve your long-term survival odds.
                     </p>
                   </div>
                 </AlertDescription>

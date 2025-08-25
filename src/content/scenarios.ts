@@ -7,7 +7,7 @@ export const scenarios: Scenario[] = [
     title: 'Breakout or Fakeout?',
     setup: "A major stock index has been in a clear uptrend for several weeks. It's now consolidating in a tight, horizontal range just below a key all-time high. Volume has been diminishing during the consolidation.",
     image: {
-        src: 'https://placehold.co/800x400.png',
+        src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&h=400&auto=format&fit=crop',
         alt: 'Chart showing a price consolidating in a tight range below a major resistance level.',
         'data-ai-hint': 'breakout consolidation chart'
     },
@@ -35,7 +35,7 @@ export const scenarios: Scenario[] = [
     title: 'Downtrend Pullback',
     setup: "A currency pair is in a clear downtrend on the daily chart, making lower lows and lower highs. Price has just pulled back to a key resistance level which also lines up with the 50-period EMA (Exponential Moving Average).",
     image: {
-        src: 'https://placehold.co/800x400.png',
+        src: 'https://images.unsplash.com/photo-1640286599599-4a243538411a?q=80&w=800&h=400&auto=format&fit=crop',
         alt: 'Chart showing a downtrend with a pullback to a resistance level and a moving average.',
         'data-ai-hint': 'downtrend pullback resistance'
     },
@@ -63,7 +63,7 @@ export const scenarios: Scenario[] = [
     title: 'The Overextended Stock',
     setup: "A popular tech stock has been on a parabolic run, gaining over 50% in three weeks with almost no pullback. It is now far above its 20 and 50-period moving averages. The RSI indicator on the daily chart has been above 85 for five consecutive days.",
     image: {
-        src: 'https://placehold.co/800x400.png',
+        src: 'https://images.unsplash.com/photo-1628216834553-8b78a48740f3?q=80&w=800&h=400&auto=format&fit=crop',
         alt: 'A chart showing a parabolic uptrend with an overbought RSI indicator.',
         'data-ai-hint': 'parabolic uptrend overbought'
     },
@@ -91,7 +91,7 @@ export const scenarios: Scenario[] = [
     title: 'Range-Bound Trading',
     setup: "A stock has been trading sideways for a month between a clear support level at $50 and resistance at $60. The price has just touched the $50 support level for the third time and formed a small bullish hammer candle.",
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart of a stock trading in a horizontal range.',
       'data-ai-hint': 'ranging market chart'
     },
@@ -119,7 +119,7 @@ export const scenarios: Scenario[] = [
     title: 'The Failed Breakdown',
     setup: "In a larger uptrend, a commodity has pulled back and is now testing a key support level. The price briefly dips below the support level for a few hours, tricking breakout sellers into going short.",
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a price dipping below support and then quickly reclaiming it.',
       'data-ai-hint': 'failed breakdown pattern'
     },
@@ -147,7 +147,7 @@ export const scenarios: Scenario[] = [
     title: 'News Event Spike',
     setup: 'An unexpected positive news announcement causes a stock to gap up 10% at the market open, on massive volume. It is now trading far above any recent price levels.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1640286599599-4a243538411a?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a large price gap upwards on a news event.',
       'data-ai-hint': 'news gap up chart'
     },
@@ -175,7 +175,7 @@ export const scenarios: Scenario[] = [
     title: 'Volume Climax Reversal',
     setup: 'After a long, sustained downtrend, a stock suddenly experiences a day of massive, capitulatory volume. The price drops sharply in the morning on this huge volume but then reverses and closes near the high of the day, forming a bullish hammer candle.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1628216834553-8b78a48740f3?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a capitulation volume spike at the bottom of a downtrend.',
       'data-ai-hint': 'volume climax bottom'
     },
@@ -203,7 +203,7 @@ export const scenarios: Scenario[] = [
     title: 'Support and Resistance Flip',
     setup: 'A cryptocurrency has been in a downtrend and was held down by a strong resistance level at $100. After several attempts, it finally breaks out above $100 with conviction and rallies to $120.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a resistance level being broken and then retested as support.',
       'data-ai-hint': 'resistance support flip'
     },
@@ -231,7 +231,7 @@ export const scenarios: Scenario[] = [
     title: 'Bearish Divergence on RSI',
     setup: 'A stock is in an uptrend. It makes a new price high at $200. The RSI indicator also makes a high. The stock then pulls back and rallies again to make a *higher* price high at $210.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1639755243236-5838531758f3?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart with price making a higher high while the RSI indicator makes a lower high.',
       'data-ai-hint': 'rsi bearish divergence'
     },
@@ -259,7 +259,7 @@ export const scenarios: Scenario[] = [
     title: 'The Gap Fill',
     setup: 'Due to overnight news, a stock gapped down from a close of $150 to an open of $140. It sold off a little more to $138, then started to find buyers.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1640286599599-4a243538411a?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a price gap down and then starting to reverse.',
       'data-ai-hint': 'price gap fill'
     },
@@ -287,7 +287,7 @@ export const scenarios: Scenario[] = [
     title: 'The Low-Volume Breakout',
     setup: 'A cryptocurrency has formed a perfect ascending triangle pattern over several days, a typically bullish pattern. The resistance is at $2.00.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart of an ascending triangle breaking out on low volume.',
       'data-ai-hint': 'low volume breakout'
     },
@@ -315,7 +315,7 @@ export const scenarios: Scenario[] = [
     title: 'The EMA Crossover Signal',
     setup: 'On the daily chart, the 50-period EMA for a stock has just crossed above the 200-period EMA. This event is known as a "Golden Cross".',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1628216834553-8b78a48740f3?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a 50 EMA crossing above a 200 EMA (Golden Cross).',
       'data-ai-hint': 'golden cross chart'
     },
@@ -343,7 +343,7 @@ export const scenarios: Scenario[] = [
     title: 'Inside a Choppy Range',
     setup: 'For the past two weeks, a forex pair has been trading in a very choppy, unpredictable sideways range. There is no clear support or resistance, just erratic price swings.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a very messy and choppy price range.',
       'data-ai-hint': 'choppy market range'
     },
@@ -371,7 +371,7 @@ export const scenarios: Scenario[] = [
     title: 'The Double Top Reversal',
     setup: 'After a strong uptrend, a stock rallies to a high of $300 and pulls back. It then rallies again but fails to break $300, stalling at $299 before turning lower. This forms a "Double Top" pattern.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a double top bearish reversal pattern.',
       'data-ai-hint': 'double top pattern'
     },
@@ -399,7 +399,7 @@ export const scenarios: Scenario[] = [
     title: 'The Undefined Setup',
     setup: 'You open your charts and see a stock you follow has moved up a bit. It is not near any major support or resistance level. It is not overbought or oversold. No clear chart pattern has formed.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart with ambiguous price action in the middle of nowhere.',
       'data-ai-hint': 'ambiguous price chart'
     },
@@ -427,7 +427,7 @@ export const scenarios: Scenario[] = [
     title: 'Ignoring Higher Timeframe Trend',
     setup: 'The weekly chart of a forex pair is in a powerful, clear uptrend. However, on the 15-minute chart, a small head and shoulders pattern (a bearish reversal pattern) has formed.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1639755243236-5838531758f3?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'A small bearish pattern on a lower timeframe within a larger uptrend.',
       'data-ai-hint': 'timeframe conflict chart'
     },
@@ -455,7 +455,7 @@ export const scenarios: Scenario[] = [
     title: 'The Parabolic Short Squeeze',
     setup: 'A heavily shorted stock starts to rise. As it moves up, short sellers are forced to buy back their shares to cover their positions. This buying pressure causes the price to accelerate upwards, forcing more shorts to cover.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1628216834553-8b78a48740f3?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'A chart showing a parabolic move upwards driven by a short squeeze.',
       'data-ai-hint': 'short squeeze chart'
     },
@@ -483,7 +483,7 @@ export const scenarios: Scenario[] = [
     title: 'The Liquidity Grab',
     setup: 'A stock is in an uptrend and has formed a clear swing low (support) at $80. Many traders have placed their stop-loss orders just below this level.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing price briefly dipping below a key low to trigger stops.',
       'data-ai-hint': 'liquidity grab stop hunt'
     },
@@ -511,7 +511,7 @@ export const scenarios: Scenario[] = [
     title: 'The Doji of Indecision',
     setup: 'After a very strong, multi-day uptrend, the latest daily candle is a Doji. A Doji is a candle with a very small body, meaning the open and close price were almost the same.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'A chart showing a doji candlestick at the top of an uptrend.',
       'data-ai-hint': 'doji candlestick uptrend'
     },
@@ -539,7 +539,7 @@ export const scenarios: Scenario[] = [
     title: 'The Break and Retest',
     setup: 'A currency pair has been in a downtrend, defined by a clear descending trendline. The price has just broken out *above* this trendline with a strong bullish candle.',
     image: {
-      src: 'https://placehold.co/800x400.png',
+      src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a breakout of a trendline and a subsequent retest.',
       'data-ai-hint': 'break retest trendline'
     },

@@ -69,49 +69,49 @@ export const chartPatterns: Pattern[] = [
         name: 'Head and Shoulders', 
         type: 'Bearish', 
         description: 'A reversal pattern that signals the end of an uptrend. It consists of a left shoulder, a higher peak (the head), and a right shoulder.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'head shoulders pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'head shoulders pattern' }
     },
     { 
         name: 'Inverse Head and Shoulders', 
         type: 'Bullish', 
         description: 'A reversal pattern signaling the end of a downtrend. It\'s the inverted version of the Head and Shoulders pattern.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'inverse head shoulders' }
+        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'inverse head shoulders' }
     },
     { 
         name: 'Double Top', 
         type: 'Bearish', 
         description: 'A reversal pattern where the price makes two consecutive peaks at roughly the same level, signaling a potential move lower.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'double top pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'double top pattern' }
     },
     { 
         name: 'Double Bottom', 
         type: 'Bullish', 
         description: 'A reversal pattern with two consecutive troughs at roughly the same level, indicating a potential move higher.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'double bottom pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'double bottom pattern' }
     },
     { 
         name: 'Ascending Triangle', 
         type: 'Bullish', 
         description: 'A continuation pattern with a horizontal resistance level and a rising trendline of support. Often breaks to the upside.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'ascending triangle chart' }
+        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'ascending triangle chart' }
     },
     { 
         name: 'Descending Triangle', 
         type: 'Bearish', 
         description: 'A continuation pattern with a horizontal support level and a falling trendline of resistance. Often breaks to the downside.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'descending triangle chart' }
+        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'descending triangle chart' }
     },
     { 
         name: 'Bull Flag', 
         type: 'Bullish', 
         description: 'A continuation pattern that occurs after a strong uptrend. It consists of a flagpole (the initial sharp move up) and a flag (a period of consolidation).',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'bull flag chart' }
+        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bull flag chart' }
     },
     { 
         name: 'Bear Flag', 
         type: 'Bearish', 
         description: 'A continuation pattern after a strong downtrend, consisting of a flagpole (the initial sharp move down) and a brief upward consolidation).',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'bear flag chart' }
+        image: { src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bear flag chart' }
     },
 ];
 
@@ -120,48 +120,48 @@ export const candlestickPatterns: Pattern[] = [
         name: 'Hammer', 
         type: 'Bullish', 
         description: 'A single candle pattern with a short body, little to no upper wick, and a long lower wick. Appears in a downtrend and signals a potential reversal.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'hammer candlestick' }
+        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'hammer candlestick' }
     },
     { 
         name: 'Shooting Star', 
         type: 'Bearish', 
         description: 'A single candle pattern with a short body, a long upper wick, and little to no lower wick. Appears in an uptrend and signals a potential reversal.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'shooting star candlestick' }
+        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'shooting star candlestick' }
     },
     { 
         name: 'Bullish Engulfing', 
         type: 'Bullish', 
         description: 'A two-candle pattern where a small bearish candle is followed by a larger bullish candle that completely engulfs the previous one. Signals strong buying pressure.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'bullish engulfing pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bullish engulfing pattern' }
     },
     { 
         name: 'Bearish Engulfing', 
         type: 'Bearish', 
         description: 'A two-candle pattern where a small bullish candle is followed by a larger bearish candle that completely engulfs the previous one. Signals strong selling pressure.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'bearish engulfing pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'bearish engulfing pattern' }
     },
     { 
         name: 'Doji', 
         type: 'Neutral', 
         description: 'A candle with a very small or non-existent body, where the open and close prices are nearly identical. Represents indecision in the market.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'doji candlestick' }
+        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'doji candlestick' }
     },
     { 
         name: 'Morning Star', 
         type: 'Bullish', 
         description: 'A three-candle bottom reversal pattern, consisting of a large bearish candle, a small indecisive candle, and a large bullish candle.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'morning star pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'morning star pattern' }
     },
     { 
         name: 'Evening Star', 
         type: 'Bearish', 
         description: 'A three-candle top reversal pattern, consisting of a large bullish candle, a small indecisive candle, and a large bearish candle.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'evening star pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'evening star pattern' }
     },
      { 
         name: 'Tweezer Bottoms', 
         type: 'Bullish', 
         description: 'A two-candle reversal pattern where two consecutive candles have matching lows. Indicates that support is holding.',
-        image: { src: 'https://placehold.co/600x400.png', 'data-ai-hint': 'tweezer bottom candlestick' }
+        image: { src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'tweezer bottom candlestick' }
     },
 ];

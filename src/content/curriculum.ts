@@ -25,7 +25,7 @@ export const curriculum: Curriculum = [
           },
           {
             type: 'image',
-            src: 'https://placehold.co/800x400.png',
+            src: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=800&h=400&auto=format&fit=crop',
             alt: 'Abstract representation of a bustling financial market with charts and graphs.',
             'data-ai-hint': 'financial market'
           }
@@ -60,7 +60,7 @@ export const curriculum: Curriculum = [
           },
           {
             type: 'image',
-            src: 'https://placehold.co/800x400.png',
+            src: 'https://images.unsplash.com/photo-1621452298282-359546a14364?q=80&w=800&h=400&auto=format&fit=crop',
             alt: 'Icons representing stocks, forex currency pairs, and cryptocurrency coins.',
             'data-ai-hint': 'investment icons'
           }
@@ -94,7 +94,7 @@ export const curriculum: Curriculum = [
           },
           {
             type: 'image',
-            src: 'https://placehold.co/800x400.png',
+            src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&h=400&auto=format&fit=crop',
             alt: 'Diagram showing the relationship between retail traders, brokers, and the larger market.',
             'data-ai-hint': 'market structure'
           }
@@ -128,7 +128,7 @@ export const curriculum: Curriculum = [
           },
           {
             type: 'image',
-            src: 'https://placehold.co/800x400.png',
+            src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&h=400&auto=format&fit=crop',
             alt: 'Screenshot of a generic, clean trading platform interface.',
             'data-ai-hint': 'trading platform'
           }
@@ -162,7 +162,7 @@ export const curriculum: Curriculum = [
           },
           {
             type: 'image',
-            src: 'https://placehold.co/800x400.png',
+            src: 'https://images.unsplash.com/photo-1640286599599-4a243538411a?q=80&w=800&h=400&auto=format&fit=crop',
             alt: 'Diagram clearly showing the Bid price, the Ask price, and the Spread in between.',
             'data-ai-hint': 'bid ask spread'
           }
@@ -196,7 +196,7 @@ export const curriculum: Curriculum = [
           },
           {
             type: 'image',
-            src: 'https://placehold.co/800x400.png',
+            src: 'https://images.unsplash.com/photo-1684369175838-34828a135467?q=80&w=800&h=400&auto=format&fit=crop',
             alt: 'A large, clear diagram showing the parts of a bullish and bearish candlestick: open, high, low, close, body, and wicks.',
             'data-ai-hint': 'candlestick diagram'
           }
@@ -230,7 +230,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1640286599599-4a243538411a?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A chart with examples of where Market, Limit, and Stop orders would be placed.',
                 'data-ai-hint': 'trade order types'
             }
@@ -264,7 +264,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'Side-by-side comparison of a Line, Bar, and Candlestick chart showing the same price data.',
                 'data-ai-hint': 'chart types comparison'
             }
@@ -298,7 +298,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1599658880122-ba28f6b98935?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'Three mini-charts clearly illustrating an uptrend, a downtrend, and a ranging market.',
                 'data-ai-hint': 'market trends diagram'
             }
@@ -332,7 +332,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A chart with horizontal lines clearly drawn at key Support and Resistance levels, with price reacting to them.',
                 'data-ai-hint': 'support resistance chart'
             }
@@ -366,7 +366,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1628216834553-8b78a48740f3?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A price chart with a volume histogram at the bottom, highlighting how volume increases on strong trend moves.',
                 'data-ai-hint': 'volume analysis chart'
             }
@@ -400,7 +400,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A chart showing a Moving Average (lagging) on the price and an RSI indicator (leading) in a separate pane below.',
                 'data-ai-hint': 'technical indicators chart'
             }
@@ -434,7 +434,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1542626991-a23188554655?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'An illustration of a checklist or a structured document representing a trading plan.',
                 'data-ai-hint': 'trading plan document'
             }
@@ -468,7 +468,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A silhouette of a head with a calm side and a chaotic side, representing trading psychology.',
                 'data-ai-hint': 'trader psychology'
             }
@@ -502,7 +502,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1509233732431-5054bee37a93?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A brain with several icons representing different cognitive biases.',
                 'data-ai-hint': 'cognitive bias brain'
             }
@@ -536,7 +536,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1554672485-6a59121a4f4e?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A shield protecting a stack of coins, symbolizing capital preservation.',
                 'data-ai-hint': 'capital protection'
             }
@@ -570,7 +570,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1664335905803-3439e76a6d25?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A diagram showing a trade entry, a stop loss (1R), and multiple take profit levels (1R, 2R, 3R).',
                 'data-ai-hint': 'risk reward ratio'
             }
@@ -604,7 +604,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1639755243236-5838531758f3?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'An illustration showing three nested charts of different timeframes (Daily, 4-Hour, 15-Minute) for the same asset.',
                 'data-ai-hint': 'multiple timeframes chart'
             }
@@ -638,7 +638,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1549492423-400259a5cd31?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'A timeline graphic showing the 24-hour day with the Tokyo, London, and New York sessions and their overlaps.',
                 'data-ai-hint': 'trading sessions clock'
             }
@@ -672,7 +672,7 @@ export const curriculum: Curriculum = [
             },
             {
                 type: 'image',
-                src: 'https://placehold.co/800x400.png',
+                src: 'https://images.unsplash.com/photo-1586953208448-b95a14da4492?q=80&w=800&h=400&auto=format&fit=crop',
                 alt: 'An image of a clean, organized spreadsheet or notebook representing a trading journal.',
                 'data-ai-hint': 'trading journal log'
             }

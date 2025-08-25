@@ -69,7 +69,7 @@ export const chartPatterns: Pattern[] = [
         name: 'Head and Shoulders', 
         type: 'Bearish', 
         description: 'A reversal pattern that signals the end of an uptrend. It consists of a left shoulder, a higher peak (the head), and a right shoulder.',
-        image: { src: 'https://images.unsplash.com/photo-1621452298282-359546a14364?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'head shoulders pattern' }
+        image: { src: 'https://images.unsplash.com/photo-1624555130581-2d9248b4c255?q=80&w=600&h=400&auto=format&fit=crop', 'data-ai-hint': 'head shoulders pattern' }
     },
     { 
         name: 'Inverse Head and Shoulders', 

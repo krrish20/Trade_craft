@@ -315,7 +315,7 @@ export const scenarios: Scenario[] = [
     title: 'The EMA Crossover Signal',
     setup: 'On the daily chart, the 50-period EMA for a stock has just crossed above the 200-period EMA. This event is known as a "Golden Cross".',
     image: {
-      src: 'https://images.unsplash.com/photo-1621452298282-359546a14364?q=80&w=800&h=400&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1624555130581-2d9248b4c255?q=80&w=800&h=400&auto=format&fit=crop',
       alt: 'Chart showing a 50 EMA crossing above a 200 EMA (Golden Cross).',
       'data-ai-hint': 'golden cross chart'
     },

@@ -8,6 +8,7 @@ import { Checkbox } from './ui/checkbox';
 import { Label } from './ui/label';
 import { Button } from './ui/button';
 import { Trash2 } from 'lucide-react';
+import React from 'react';
 
 interface ChecklistGuideProps {
   title: string;
@@ -15,9 +16,10 @@ interface ChecklistGuideProps {
   items: ChecklistItem[];
   listKey: 'preTrade' | 'postTrade';
   onDeleteItem: (id: string, listKey: 'preTrade' | 'postTrade') => void;
+  children?: React.ReactNode;
 }
 
-export function ChecklistGuide({ title, description, items, listKey, onDeleteItem }: ChecklistGuideProps) {
+export function ChecklistGuide({ title, description, items, listKey, onDeleteItem, children }: ChecklistGuideProps) {
   const { progress, updateDailyChecklist } = useProgress();
   const today = new Date().toISOString().split('T')[0];
   const todaysItems = progress?.dailyChecklists?.[today] || [];
@@ -48,6 +50,7 @@ export function ChecklistGuide({ title, description, items, listKey, onDeleteIte
             )}
           </div>
         ))}
+        {children && <div className="pt-4 border-t">{children}</div>}
       </CardContent>
     </Card>
   );

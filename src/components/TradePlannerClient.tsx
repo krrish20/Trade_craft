@@ -234,7 +234,7 @@ export function TradePlannerClient() {
             onDeleteItem={deleteChecklistItem}
         >
              <Form {...preTradeForm}>
-                <form onSubmit={preTradeForm.handleSubmit((data) => onAddChecklistItem(data, 'preTrade'))} className="flex gap-2 pt-4">
+                <form onSubmit={preTradeForm.handleSubmit((data) => onAddChecklistItem(data, 'preTrade'))} className="flex gap-2">
                     <FormField
                     control={preTradeForm.control}
                     name="newItem"
@@ -259,7 +259,7 @@ export function TradePlannerClient() {
             onDeleteItem={deleteChecklistItem}
         >
              <Form {...postTradeForm}>
-                <form onSubmit={postTradeForm.handleSubmit((data) => onAddChecklistItem(data, 'postTrade'))} className="flex gap-2 pt-4">
+                <form onSubmit={postTradeForm.handleSubmit((data) => onAddChecklistItem(data, 'postTrade'))} className="flex gap-2">
                     <FormField
                     control={postTradeForm.control}
                     name="newItem"

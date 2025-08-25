@@ -3,10 +3,10 @@
 
 import type { NewsArticle } from '@/lib/types';
 
-const API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
 const BASE_URL = 'https://www.alphavantage.co/query';
 
 export async function fetchMarketNews(tickers?: string[], topics?: string[]): Promise<NewsArticle[]> {
+  const API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
   if (!API_KEY) {
     throw new Error('Alpha Vantage API key is not configured.');
   }
@@ -40,8 +40,8 @@ export async function fetchMarketNews(tickers?: string[], topics?: string[]): Pr
 
     if (data.Information) {
         console.warn('Alpha Vantage API Info:', data.Information);
-        // This could be a rate limit message, return empty array to avoid crashing.
-        return [];
+        // This could be a rate limit message, return empty array to avoid crashing if there's no feed.
+        if (!data.feed) return [];
     }
 
     if (!data.feed) {

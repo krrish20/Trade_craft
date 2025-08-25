@@ -25,7 +25,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 href="/"
                 className="group flex items-center gap-2"
             >
-                <Logo className="h-8 w-8 text-primary transition-transform group-hover:scale-110" />
+                <Logo className="h-10 w-10 text-primary transition-transform group-hover:scale-110" />
                 <span className="text-xl font-bold">Tradecraft</span>
             </Link>
         </div>
@@ -52,7 +52,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 </NavItem>
             </div>
 
-            <div className="space-y-1">
+            <div className="mt-auto space-y-1">
                 <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Account</p>
                 <NavItem href="/profile" icon={User}>
                     Profile
@@ -70,7 +70,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
         <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background/80 px-4 backdrop-blur-sm sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <div className="sm:hidden">
             <Link href="/" className="group flex items-center gap-2">
-               <Logo className="h-7 w-7 text-primary" />
+               <Logo className="h-8 w-8 text-primary" />
             </Link>
           </div>
           <div className="ml-auto flex items-center gap-4">
@@ -81,7 +81,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
           {children}
         </main>
       </div>
-       <nav className="sm:hidden fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-sm border-t h-16 flex items-center justify-around z-40">
+       <nav className="sm:hidden fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t h-16 flex items-center justify-around z-40">
           <NavItem href="/" icon={Home} isMobile>Dashboard</NavItem>
           <NavItem href="/journal" icon={BookText} isMobile>Journal</NavItem>
           <NavItem href="/trainer" icon={BrainCircuit} isMobile>Trainer</NavItem>
@@ -101,7 +101,7 @@ function NavItem({ href, icon: Icon, children, isMobile = false }: { href: strin
       <Link
         href={href}
         className={cn(
-          "flex flex-col items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-primary",
+          "flex flex-col items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary p-2",
           isActive && "text-primary"
         )}
       >
@@ -116,7 +116,7 @@ function NavItem({ href, icon: Icon, children, isMobile = false }: { href: strin
       href={href}
       className={cn(
         "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-muted",
-        isActive && "bg-accent text-primary-foreground font-semibold"
+        isActive && "bg-primary text-primary-foreground font-semibold"
       )}
     >
       <Icon className="h-4 w-4" />

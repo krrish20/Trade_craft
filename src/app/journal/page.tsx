@@ -58,16 +58,16 @@ export default function JournalPage() {
 
   return (
     <MainLayout>
-        <div className="space-y-4">
+        <div className="space-y-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-bold">Trading Journal</h1>
                     <p className="text-muted-foreground font-body">Your logbook for continuous improvement.</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex w-full sm:w-auto gap-2">
                    <Dialog open={isAnalysisOpen} onOpenChange={setIsAnalysisOpen}>
                       <DialogTrigger asChild>
-                         <Button variant="outline">
+                         <Button variant="outline" className="w-full">
                             <Bot className="mr-2 h-4 w-4" />
                             Analyze My Journal
                         </Button>
@@ -82,7 +82,7 @@ export default function JournalPage() {
 
                     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                       <DialogTrigger asChild>
-                        <Button>
+                        <Button className="w-full">
                           <PlusCircle className="mr-2 h-4 w-4" />
                           New Entry
                         </Button>

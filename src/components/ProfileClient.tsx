@@ -71,28 +71,27 @@ export function ProfileClient() {
       <Card>
         <CardHeader>
           <CardTitle className="text-3xl">{progress.name}'s Profile</CardTitle>
-          <CardDescription>Your journey at Tradecraft Academy so far.</CardDescription>
         </CardHeader>
-        <CardContent className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 bg-muted rounded-lg text-center">
-                <Star className="mx-auto h-8 w-8 text-primary mb-2" />
+        <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 bg-muted rounded-lg text-center flex flex-col items-center justify-center">
+                <Star className="h-8 w-8 text-primary mb-2" />
                 <p className="text-2xl font-bold">{progress.xp}</p>
-                <p className="text-sm text-muted-foreground">Experience Points</p>
+                <p className="text-sm text-muted-foreground">XP</p>
             </div>
-            <div className="p-4 bg-muted rounded-lg text-center">
+            <div className="p-4 bg-muted rounded-lg text-center flex flex-col items-center justify-center">
                 <TrendingUp className="mx-auto h-8 w-8 text-primary mb-2" />
-                <p className="text-2xl font-bold">{progress.completedLessons.length} / {totalLessons}</p>
-                <p className="text-sm text-muted-foreground">Lessons Completed</p>
+                <p className="text-2xl font-bold">{progress.completedLessons.length}/{totalLessons}</p>
+                <p className="text-sm text-muted-foreground">Lessons</p>
             </div>
-            <div className="p-4 bg-muted rounded-lg text-center">
+            <div className="p-4 bg-muted rounded-lg text-center flex flex-col items-center justify-center">
                 <ShieldCheck className="mx-auto h-8 w-8 text-primary mb-2" />
                 <p className="text-2xl font-bold">{progress.disciplineScore || 0}</p>
-                <p className="text-sm text-muted-foreground">Discipline Score</p>
+                <p className="text-sm text-muted-foreground">Discipline</p>
             </div>
-             <div className="p-4 bg-muted rounded-lg text-center">
+             <div className="p-4 bg-muted rounded-lg text-center flex flex-col items-center justify-center">
                 <Award className="mx-auto h-8 w-8 text-primary mb-2" />
                 <p className="text-2xl font-bold">{progress.badges.length}</p>
-                <p className="text-sm text-muted-foreground">Badges Earned</p>
+                <p className="text-sm text-muted-foreground">Badges</p>
             </div>
         </CardContent>
       </Card>

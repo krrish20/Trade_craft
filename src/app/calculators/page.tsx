@@ -16,7 +16,7 @@ export default function CalculatorsPage() {
             <p className="text-muted-foreground font-body">Essential tools for risk management and trade planning.</p>
 
             <Tabs defaultValue="position-size" className="w-full">
-                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
+                <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 h-auto sm:h-10">
                     <TabsTrigger value="position-size">
                         <Calculator className="mr-2 h-4 w-4" />
                         Position Size

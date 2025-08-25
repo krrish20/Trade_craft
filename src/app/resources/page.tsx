@@ -11,7 +11,7 @@ import { Book, GanttChartSquare, CandlestickChart } from 'lucide-react';
 export default function ResourcesPage() {
   return (
     <MainLayout>
-      <div className="space-y-4">
+      <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold">Resource Center</h1>
           <p className="text-muted-foreground font-body">
@@ -20,7 +20,7 @@ export default function ResourcesPage() {
         </div>
 
         <Tabs defaultValue="glossary" className="w-full">
-          <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
+          <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 h-auto sm:h-10">
             <TabsTrigger value="glossary">
               <Book className="mr-2 h-4 w-4" />
               Glossary

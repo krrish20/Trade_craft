@@ -18,7 +18,7 @@ export function ChecklistGuide({ preTrade, postTrade }: ChecklistGuideProps) {
   const todaysItems = progress?.dailyChecklists?.[today] || [];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
             <CardHeader>
                 <CardTitle>Pre-Trade Checklist</CardTitle>
@@ -32,7 +32,7 @@ export function ChecklistGuide({ preTrade, postTrade }: ChecklistGuideProps) {
                             checked={todaysItems.includes(item.id)}
                             onCheckedChange={() => updateDailyChecklist(item.id)}
                         />
-                        <Label htmlFor={item.id} className="text-sm font-normal leading-snug">
+                        <Label htmlFor={item.id} className="text-sm font-normal leading-snug cursor-pointer">
                             {item.label}
                         </Label>
                     </div>
@@ -53,7 +53,7 @@ export function ChecklistGuide({ preTrade, postTrade }: ChecklistGuideProps) {
                             checked={todaysItems.includes(item.id)}
                             onCheckedChange={() => updateDailyChecklist(item.id)}
                         />
-                        <Label htmlFor={item.id} className="text-sm font-normal leading-snug">
+                        <Label htmlFor={item.id} className="text-sm font-normal leading-snug cursor-pointer">
                             {item.label}
                         </Label>
                     </div>

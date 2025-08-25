@@ -1,5 +1,6 @@
 
 
+
 export interface QuizItem {
   id: string;
   type: 'mcq' | 'truefalse';
@@ -101,4 +102,25 @@ export interface ChecklistItem {
     id: string;
     label: string;
     isDefault: boolean;
+}
+
+// --- News Types ---
+export interface TickerSentiment {
+  ticker: string;
+  relevanceScore: number;
+  sentimentScore: number;
+  sentimentLabel: 'Bullish' | 'Somewhat-Bullish' | 'Neutral' | 'Somewhat-Bearish' | 'Bearish';
+}
+
+export interface NewsArticle {
+  title: string;
+  url: string;
+  summary: string;
+  imageUrl: string;
+  source: string;
+  timePublished: string;
+  authors: string[];
+  topics: string[];
+  overallSentimentLabel: string;
+  tickerSentiment: TickerSentiment[];
 }

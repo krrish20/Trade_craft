@@ -21,6 +21,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Download, Upload, Trash2, Award, Star, TrendingUp, ShieldCheck } from 'lucide-react';
 import { Certificate } from './Certificate';
 import { curriculum } from '@/content/curriculum';
+import { ConsistencyChart } from './ConsistencyChart';
 
 export function ProfileClient() {
   const { progress, resetProgress, importProgress } = useProgress();
@@ -95,6 +96,8 @@ export function ProfileClient() {
             </div>
         </CardContent>
       </Card>
+      
+      <ConsistencyChart />
       
       {isCompleted ? (
         <Certificate name={progress.name} date={new Date(progress.createdAt)} />

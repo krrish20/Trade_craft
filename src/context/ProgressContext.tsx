@@ -54,29 +54,51 @@ export const ProgressProvider = ({ children }: { children: ReactNode }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const calculateDisciplineScore = (checklists: Record<string, string[]>): { score: number, streak: number } => {
-    const dates = Object.keys(checklists).sort().reverse();
+    const dates = Object.keys(checklists).sort();
     if (dates.length === 0) return { score: 0, streak: 0 };
     
     let score = 0;
-    let streak = 0;
     
-    // Calculate total score
+    // Calculate total score by summing lengths of all checklists
     for (const date of dates) {
         const items = checklists[date];
-        score += items.length * 2; // Example scoring
+        if (Array.isArray(items)) {
+          score += items.length;
+        }
     }
     
     // Calculate current streak
-    let currentDate = new Date(dates[0]);
-    for (let i = 0; i < dates.length; i++) {
-        const checklistDate = new Date(dates[i]);
-        const diff = (currentDate.getTime() - checklistDate.getTime()) / (1000 * 3600 * 24);
-        if (diff === i) {
-            streak++;
-        } else {
-            break;
+    let streak = 0;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const sortedDates = dates.map(d => {
+        const date = new Date(d);
+        date.setHours(0,0,0,0);
+        return date;
+    }).sort((a,b) => b.getTime() - a.getTime());
+
+    const uniqueDates = [...new Set(sortedDates.map(d => d.getTime()))].map(t => new Date(t));
+
+    if (uniqueDates.length === 0) return { score, streak: 0 };
+
+    const mostRecentDate = uniqueDates[0];
+    const diffFromToday = (today.getTime() - mostRecentDate.getTime()) / (1000 * 3600 * 24);
+
+    if (diffFromToday <= 1) { // Allow for today or yesterday
+        streak = 1;
+        for (let i = 0; i < uniqueDates.length - 1; i++) {
+            const current = uniqueDates[i];
+            const previous = uniqueDates[i+1];
+            const diff = (current.getTime() - previous.getTime()) / (1000 * 3600 * 24);
+            if (diff === 1) {
+                streak++;
+            } else {
+                break;
+            }
         }
     }
+
 
     return { score, streak };
   };
@@ -85,14 +107,16 @@ export const ProgressProvider = ({ children }: { children: ReactNode }) => {
       const { score, streak } = calculateDisciplineScore(currentProgress.dailyChecklists || {});
       const newBadges = [...currentProgress.badges];
       
-      if (streak >= 5 && !newBadges.includes(BADGES.RISK_MASTER_5.id)) newBadges.push(BADGES.RISK_MASTER_5.id);
-      if (streak >= 10 && !newBadges.includes(BADGES.RULE_FOLLOWER_10.id)) newBadges.push(BADGES.RULE_FOLLOWER_10.id);
-      if (streak >= 30 && !newBadges.includes(BADGES.DISCIPLINE_GURU_30.id)) newBadges.push(BADGES.DISCIPLINE_GURU_30.id);
+      const badgeExists = (id: string) => newBadges.some(b => b === id);
+
+      if (streak >= 5 && !badgeExists(BADGES.RISK_MASTER_5.id)) newBadges.push(BADGES.RISK_MASTER_5.id);
+      if (streak >= 10 && !badgeExists(BADGES.RULE_FOLLOWER_10.id)) newBadges.push(BADGES.RULE_FOLLOWER_10.id);
+      if (streak >= 30 && !badgeExists(BADGES.DISCIPLINE_GURU_30.id)) newBadges.push(BADGES.DISCIPLINE_GURU_30.id);
 
       curriculum.forEach(level => {
           const badgeId = `module-${level.id.split('-')[1]}-complete`;
           const bossQuizScore = currentProgress.quizScores[level.bossQuiz.id] || 0;
-          if (bossQuizScore >= level.bossQuiz.passScore && !newBadges.includes(badgeId)) {
+          if (bossQuizScore >= level.bossQuiz.passScore && !badgeExists(badgeId)) {
               newBadges.push(badgeId);
           }
       });
@@ -100,7 +124,7 @@ export const ProgressProvider = ({ children }: { children: ReactNode }) => {
       return {
           ...currentProgress,
           disciplineScore: score,
-          badges: newBadges
+          badges: [...new Set(newBadges)] // Ensure uniqueness
       };
   }, []);
 

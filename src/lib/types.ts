@@ -34,6 +34,7 @@ export interface Lesson {
     passScore: number;
     items: QuizItem[];
   };
+  youtubeLink?: string;
 }
 
 export interface Level {

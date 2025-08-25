@@ -8,7 +8,7 @@ import { getLesson } from '@/content/curriculum';
 import { MainLayout } from '@/components/MainLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, CheckCircle, Lightbulb, BookOpen } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Lightbulb, BookOpen, Youtube } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export default function LessonPage() {
@@ -102,6 +102,23 @@ export default function LessonPage() {
             }
           })}
         </article>
+        
+        {lesson.youtubeLink && (
+            <Card>
+                <CardHeader>
+                    <CardTitle>Further Learning</CardTitle>
+                    <CardDescription>Watch this video for more context on the topic.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                     <Button asChild>
+                        <a href={lesson.youtubeLink} target="_blank" rel="noopener noreferrer">
+                            <Youtube className="mr-2 h-5 w-5" />
+                            Watch on YouTube
+                        </a>
+                    </Button>
+                </CardContent>
+            </Card>
+        )}
 
         <div className="mt-12 flex justify-end">
           <Button asChild size="lg">

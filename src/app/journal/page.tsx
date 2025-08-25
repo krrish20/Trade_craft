@@ -122,11 +122,11 @@ export default function JournalPage() {
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead className="hidden sm:table-cell">Date</TableHead>
+                                <TableHead className="hidden md:table-cell">Date</TableHead>
                                 <TableHead>Ticker</TableHead>
                                 <TableHead>Direction</TableHead>
                                 <TableHead>Outcome</TableHead>
-                                <TableHead className="hidden md:table-cell">Notes</TableHead>
+                                <TableHead className="hidden lg:table-cell">Notes</TableHead>
                                 <TableHead className="text-right">Actions</TableHead>
                             </TableRow>
                         </TableHeader>
@@ -134,13 +134,13 @@ export default function JournalPage() {
                             {trades.length > 0 ? (
                                 trades.map((trade) => (
                                     <TableRow key={trade.id}>
-                                        <TableCell className="hidden sm:table-cell">{trade.date}</TableCell>
+                                        <TableCell className="hidden md:table-cell">{trade.date}</TableCell>
                                         <TableCell>{trade.ticker}</TableCell>
                                         <TableCell>{trade.direction}</TableCell>
                                         <TableCell className={trade.outcome.startsWith('+') ? 'text-green-500' : 'text-red-500'}>
                                             {trade.outcome}
                                         </TableCell>
-                                        <TableCell className="max-w-xs truncate hidden md:table-cell">{trade.notes}</TableCell>
+                                        <TableCell className="max-w-xs truncate hidden lg:table-cell">{trade.notes}</TableCell>
                                         <TableCell className="text-right">
                                             <AlertDialog>
                                                 <AlertDialogTrigger asChild>

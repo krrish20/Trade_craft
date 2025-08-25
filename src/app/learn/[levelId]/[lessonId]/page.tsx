@@ -8,8 +8,7 @@ import { getLesson } from '@/content/curriculum';
 import { MainLayout } from '@/components/MainLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, CheckCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Lightbulb, BookOpen } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export default function LessonPage() {
@@ -37,64 +36,77 @@ export default function LessonPage() {
 
   return (
     <MainLayout>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto space-y-8">
         <Link href="/" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4">
           <ArrowLeft className="h-4 w-4" />
           Back to Dashboard
         </Link>
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-4xl font-bold">{lesson.title}</CardTitle>
-            <CardDescription className="font-body text-lg">
+        
+        <header className="space-y-4">
+            <p className="text-primary font-semibold flex items-center gap-2">
+                <BookOpen className="h-5 w-5" />
+                Lesson
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">{lesson.title}</h1>
+            <p className="text-lg text-muted-foreground">
               Estimated time: {lesson.time} minutes
-            </CardDescription>
-            <div className="flex flex-wrap gap-2 pt-2">
-              {lesson.objectives.map((obj, i) => (
-                <Badge variant="secondary" key={i} className="font-normal">{obj}</Badge>
-              ))}
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-6 font-body text-base leading-relaxed">
-            {lesson.sections.map((section, index) => {
-              switch (section.type) {
-                case 'text':
-                  return (
-                    <div key={index}>
-                      {section.tldr && (
-                         <Alert className="mb-4">
-                          <AlertTitle className="font-semibold">TL;DR</AlertTitle>
-                          <AlertDescription>{section.tldr}</AlertDescription>
-                        </Alert>
-                      )}
-                      <p>{section.body}</p>
+            </p>
+        </header>
+
+        <Card className="bg-card/50">
+            <CardHeader>
+                <CardTitle>Learning Objectives</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+                {lesson.objectives.map((obj, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                        <p className="text-muted-foreground">{obj}</p>
                     </div>
-                  );
-                case 'image':
-                  return section.src ? (
-                    <div key={index} className="my-6">
-                      <Image
-                        src={section.src}
-                        alt={section.alt || 'Lesson image'}
-                        width={800}
-                        height={400}
-                        className="rounded-lg border object-cover"
-                        data-ai-hint={section['data-ai-hint'] as string | undefined}
-                      />
-                      {section.alt && <p className="text-center text-sm text-muted-foreground mt-2">{section.alt}</p>}
-                    </div>
-                  ) : null;
-                // Add cases for 'interactive' and 'cheatsheet' here later
-                default:
-                  return null;
-              }
-            })}
-          </CardContent>
+                ))}
+            </CardContent>
         </Card>
 
-        <div className="mt-6 flex justify-end">
+        <article className="prose prose-lg prose-invert">
+          {lesson.sections.map((section, index) => {
+            switch (section.type) {
+              case 'text':
+                return (
+                  <div key={index}>
+                    {section.tldr && (
+                       <Alert className="mb-6 bg-blue-500/10 border-blue-500/30">
+                        <Lightbulb className="h-5 w-5 text-blue-400" />
+                        <AlertTitle className="font-semibold text-blue-400">TL;DR</AlertTitle>
+                        <AlertDescription className="text-blue-400/80">{section.tldr}</AlertDescription>
+                      </Alert>
+                    )}
+                    <p>{section.body}</p>
+                  </div>
+                );
+              case 'image':
+                return section.src ? (
+                  <div key={index} className="my-8">
+                    <Image
+                      src={section.src}
+                      alt={section.alt || 'Lesson image'}
+                      width={800}
+                      height={400}
+                      className="rounded-lg border-2 border-border object-cover shadow-lg"
+                      data-ai-hint={section['data-ai-hint'] as string | undefined}
+                    />
+                    {section.alt && <p className="text-center text-sm text-muted-foreground mt-2 italic">{section.alt}</p>}
+                  </div>
+                ) : null;
+              default:
+                return null;
+            }
+          })}
+        </article>
+
+        <div className="mt-12 flex justify-end">
           <Button asChild size="lg">
             <Link href={`/quiz/${levelId}/${lessonId}`}>
-              Take the Quiz <CheckCircle className="ml-2 h-5 w-5" />
+              Test Your Knowledge <CheckCircle className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>

@@ -4,12 +4,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck, ClipboardCheck, DraftingCompass, MoreHorizontal } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
 import { useProgress } from "@/context/ProgressContext";
 import { Logo } from "./Logo";
 import { Separator } from "./ui/separator";
-import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -40,16 +40,16 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <aside className="fixed inset-y-0 left-0 z-10 hidden w-full border-r bg-muted/40 md:block">
+      <aside className="fixed inset-y-0 left-0 z-10 hidden w-full border-r bg-card md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
-          <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link href="/" className="group flex items-center gap-2 font-semibold">
-              <Logo className="h-10 w-10 text-primary transition-transform group-hover:scale-110" />
-              <span className="text-xl font-bold">Tradecraft</span>
+          <div className="flex h-20 items-center border-b px-4 lg:px-6">
+            <Link href="/" className="group flex items-center gap-3 font-semibold">
+              <Logo className="h-12 w-12 text-primary transition-transform group-hover:scale-110" />
+              <span className="text-2xl font-bold">Tradecraft</span>
             </Link>
           </div>
           <div className="flex-1">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+            <nav className="grid items-start px-2 text-base font-medium lg:px-4">
               <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Menu</p>
               {allNavItems.map(item => (
                    <NavItem key={item.href} href={item.href} icon={item.icon}>
@@ -59,7 +59,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
             </nav>
           </div>
           <div className="mt-auto p-4">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+            <nav className="grid items-start px-2 text-base font-medium lg:px-4">
                <p className="px-3 py-2 text-xs font-medium uppercase text-muted-foreground">Account</p>
                {accountNavItems.map(item => (
                    <NavItem key={item.href} href={item.href} icon={item.icon}>
@@ -71,14 +71,14 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
         </div>
       </aside>
       <div className="flex flex-col md:pl-[220px] lg:pl-[280px]">
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex h-14 items-center gap-4 border-b bg-card/80 px-4 lg:h-[60px] lg:px-6 md:hidden">
           <div className="w-full flex-1">
              <div className="ml-auto flex items-center justify-end gap-4">
                <p className="text-sm font-medium">Welcome, {progress.name}</p>
              </div>
           </div>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 mb-16 md:mb-0">
           {children}
         </main>
       </div>
@@ -159,11 +159,11 @@ function NavItem({ href, icon: Icon, children, isMobile = false }: { href: strin
     <Link
       href={href}
       className={cn(
-        "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
-        isActive && "bg-primary text-primary-foreground"
+        "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-muted",
+        isActive && "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
       )}
     >
-      <Icon className="h-4 w-4" />
+      <Icon className="h-5 w-5" />
       {children}
     </Link>
   );

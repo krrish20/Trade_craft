@@ -10,6 +10,8 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { cn } from '@/lib/utils';
 import { CheckCircle, XCircle, RefreshCcw } from 'lucide-react';
 import type { ScenarioChoice } from '@/lib/types';
+import { motion, AnimatePresence } from 'framer-motion';
+
 
 // Function to shuffle an array
 const shuffleArray = (array: any[]) => {
@@ -58,23 +60,32 @@ export function ScenarioTrainer() {
   };
 
   const goToNext = () => {
-    if (currentScenarioIndex < shuffledScenarios.length - 1) {
-      setCurrentScenarioIndex((prev) => prev + 1);
-    } else {
-      // End of the shuffled list, reshuffle for a new session
-      setShuffledScenarios(shuffleArray([...scenarios]));
-      setCurrentScenarioIndex(0);
-    }
-    resetState();
+    setShowOutcome(false); // Hide the outcome to trigger the exit animation
+    
+    // Add a small delay to allow the fade-out animation to complete
+    setTimeout(() => {
+      if (currentScenarioIndex < shuffledScenarios.length - 1) {
+        setCurrentScenarioIndex((prev) => prev + 1);
+      } else {
+        // End of the shuffled list, reshuffle for a new session
+        setShuffledScenarios(shuffleArray([...scenarios]));
+        setCurrentScenarioIndex(0);
+      }
+      resetState();
+    }, 300); // This duration should match the exit animation time
   };
   
   const resetState = () => {
     setSessionCount(prev => prev + 1);
     setSelectedChoice(null);
-    setShowOutcome(false);
   }
 
   const outcome = showOutcome ? scenario.outcomes[selectedChoice!] : null;
+
+  const variants = {
+    hidden: { opacity: 0, scale: 0.98 },
+    visible: { opacity: 1, scale: 1 },
+  };
 
   return (
     <Card>
@@ -89,36 +100,52 @@ export function ScenarioTrainer() {
           </div>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="p-4 bg-muted rounded-lg font-body">
-            <p className="font-semibold">Setup:</p>
-            <p>{scenario.setup}</p>
-        </div>
-
-        <div className="my-4">
-          <Image
-            src={scenario.image.src}
-            alt={scenario.image.alt}
-            width={800}
-            height={400}
-            className="rounded-lg border object-cover w-full"
-            data-ai-hint={scenario.image['data-ai-hint']}
-          />
-        </div>
-        
-        {!showOutcome && (
-            <div className="text-center space-y-4">
-                <p className="text-lg font-semibold">{scenario.decisionPoint}</p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <Button onClick={() => handleSelectChoice('long')} variant="default" className="bg-green-600 hover:bg-green-700">Enter Long</Button>
-                    <Button onClick={() => handleSelectChoice('short')} variant="destructive">Enter Short</Button>
-                    <Button onClick={() => handleSelectChoice('wait')} variant="secondary">Stay Out / Wait</Button>
+      <CardContent className="space-y-4 min-h-[500px]">
+        <AnimatePresence mode="wait">
+            <motion.div
+                key={scenario.id}
+                variants={variants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+                <div className="p-4 bg-muted rounded-lg font-body">
+                    <p className="font-semibold">Setup:</p>
+                    <p>{scenario.setup}</p>
                 </div>
-            </div>
-        )}
+
+                <div className="my-4">
+                  <Image
+                    src={scenario.image.src}
+                    alt={scenario.image.alt}
+                    width={800}
+                    height={400}
+                    className="rounded-lg border object-cover w-full"
+                    data-ai-hint={scenario.image['data-ai-hint']}
+                  />
+                </div>
+                
+                {!showOutcome && (
+                    <div className="text-center space-y-4">
+                        <p className="text-lg font-semibold">{scenario.decisionPoint}</p>
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                            <Button onClick={() => handleSelectChoice('long')} variant="default" className="bg-green-600 hover:bg-green-700">Enter Long</Button>
+                            <Button onClick={() => handleSelectChoice('short')} variant="destructive">Enter Short</Button>
+                            <Button onClick={() => handleSelectChoice('wait')} variant="secondary">Stay Out / Wait</Button>
+                        </div>
+                    </div>
+                )}
+            </motion.div>
+        </AnimatePresence>
 
         {showOutcome && outcome && (
-            <div className="space-y-4">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="space-y-4"
+            >
                 <Alert className={cn(
                     outcome.isCorrect ? 'border-green-500 bg-green-500/10' : 'border-destructive bg-red-500/10'
                 )}>
@@ -134,7 +161,7 @@ export function ScenarioTrainer() {
                 <div className="text-center">
                     <Button onClick={goToNext}>Next Scenario</Button>
                 </div>
-            </div>
+            </motion.div>
         )}
       </CardContent>
     </Card>

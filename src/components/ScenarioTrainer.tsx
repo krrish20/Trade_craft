@@ -1,22 +1,56 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { scenarios } from '@/content/scenarios';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { cn } from '@/lib/utils';
-import { CheckCircle, XCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CheckCircle, XCircle, RefreshCcw } from 'lucide-react';
 import type { ScenarioChoice } from '@/lib/types';
 
+// Function to shuffle an array
+const shuffleArray = (array: any[]) => {
+  let currentIndex = array.length, randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex !== 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+};
+
 export function ScenarioTrainer() {
+  const [shuffledScenarios, setShuffledScenarios] = useState<typeof scenarios>([]);
   const [currentScenarioIndex, setCurrentScenarioIndex] = useState(0);
   const [selectedChoice, setSelectedChoice] = useState<ScenarioChoice | null>(null);
   const [showOutcome, setShowOutcome] = useState(false);
+  const [sessionCount, setSessionCount] = useState(1);
 
-  const scenario = scenarios[currentScenarioIndex];
+  useEffect(() => {
+    setShuffledScenarios(shuffleArray([...scenarios]));
+  }, []);
+
+  if (shuffledScenarios.length === 0) {
+    return (
+      <Card>
+        <CardContent className="p-6 text-center">
+          <p>Loading scenarios...</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  const scenario = shuffledScenarios[currentScenarioIndex];
 
   const handleSelectChoice = (choice: ScenarioChoice) => {
     setSelectedChoice(choice);
@@ -24,16 +58,18 @@ export function ScenarioTrainer() {
   };
 
   const goToNext = () => {
-    setCurrentScenarioIndex((prev) => (prev + 1) % scenarios.length);
-    resetState();
-  };
-
-  const goToPrev = () => {
-    setCurrentScenarioIndex((prev) => (prev - 1 + scenarios.length) % scenarios.length);
+    if (currentScenarioIndex < shuffledScenarios.length - 1) {
+      setCurrentScenarioIndex((prev) => prev + 1);
+    } else {
+      // End of the shuffled list, reshuffle for a new session
+      setShuffledScenarios(shuffleArray([...scenarios]));
+      setCurrentScenarioIndex(0);
+    }
     resetState();
   };
   
   const resetState = () => {
+    setSessionCount(prev => prev + 1);
     setSelectedChoice(null);
     setShowOutcome(false);
   }
@@ -46,11 +82,10 @@ export function ScenarioTrainer() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <div className="space-y-1">
              <CardTitle>{scenario.title}</CardTitle>
-             <CardDescription>Scenario {currentScenarioIndex + 1} of {scenarios.length}</CardDescription>
+             <CardDescription>Scenario {sessionCount}</CardDescription>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" size="icon" onClick={goToPrev}><ChevronLeft className="h-4 w-4" /></Button>
-            <Button variant="outline" size="icon" onClick={goToNext}><ChevronRight className="h-4 w-4" /></Button>
+            <Button variant="outline" size="icon" onClick={goToNext}><RefreshCcw className="h-4 w-4" /></Button>
           </div>
         </div>
       </CardHeader>

@@ -361,7 +361,7 @@ export const curriculum: Curriculum = [
         sections: [
             {
                 type: 'text',
-                tldr: "Volume is the total number of shares or contracts traded in a period. High volume confirms the strength of a price move. Low volume during a trend can signal that it's running out of steam.",
+                tldr: "Volume is the total number of shares or contracts traded in a period. High volume confirms the strength of a price move. Low volume during a trend can signal that it's running out of ateam.",
                 body: "Volume measures the amount of trading activity in an asset for a given period. It's typically displayed as a histogram at the bottom of your chart. Volume is a crucial secondary indicator because it reveals the conviction behind a price move. \n- **Confirmation:** In a healthy uptrend, volume should ideally increase as prices rise and decrease as prices pull back. This shows strong buying interest. In a downtrend, volume should increase as prices fall. This confirms the selling pressure. \n- **Divergence/Weakness:** If price makes a new high but on very low volume, it can be a warning sign that the trend lacks conviction and might be ready to reverse. Similarly, a breakout from a pattern on low volume is less likely to be successful. Volume tells you how much 'fuel' is behind the market's move."
             },
             {
@@ -707,14 +707,278 @@ export const curriculum: Curriculum = [
     title: 'Module 2: Core Technical Analysis',
     description: 'Deepen your understanding of chart analysis, indicators, and price action.',
     lessons: [
-      { id: 'm2-l1', levelId: 'module-2', title: 'Mastering Trendlines', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l1', attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l2', levelId: 'module-2', title: 'Channels and Parallel Lines', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l2', attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l3', levelId: 'module-2', title: 'Single Candlestick Patterns', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l3', attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l4', levelId: 'module-2', title: 'Dual Candlestick Patterns', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l4', attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l5', levelId: 'module-2', title: 'Triple Candlestick Patterns', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l5', attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l6', levelId: 'module-2', title: 'Moving Averages: SMA vs EMA', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l6', attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l7', levelId: 'module-2', title: 'Using MAs as Dynamic S/R', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l7', attempts: 3, passScore: 70, items: [] } },
-      { id: 'm2-l8', levelId: 'module-2', title: 'MA Crossovers: Golden/Death Cross', time: 15, objectives: [], sections: [], quiz: { id: 'm2-l8', attempts: 3, passScore: 70, items: [] } },
+      { 
+          id: 'm2-l1', 
+          levelId: 'module-2', 
+          title: 'Mastering Trendlines', 
+          time: 15, 
+          objectives: [
+              "Correctly draw an uptrend line.",
+              "Correctly draw a downtrend line.",
+              "Understand the significance of a trendline break."
+          ], 
+          sections: [
+              {
+                  type: 'text',
+                  tldr: "Trendlines are simple, powerful tools. Connect at least two lows to draw an uptrend line, and at least two highs for a downtrend line. A break of a valid trendline is a potential signal of a trend change.",
+                  body: "Trendlines are one of the most basic and effective tools in technical analysis. They help visualize the trend and identify potential support and resistance levels as the market moves. \n**Drawing an Uptrend Line:** In an uptrend, find at least two significant swing lows and draw a line connecting them and extending it out to the right. This line now acts as a dynamic support level. As long as the price stays above this line, the uptrend is considered intact. The more times the price touches and respects the trendline, the stronger it is. \n**Drawing a Downtrend Line:** In a downtrend, connect at least two significant swing highs. This line now acts as dynamic resistance. As long as the price remains below this line, the downtrend is considered intact. A decisive close above the downtrend line can signal the end of the downtrend and a potential reversal."
+              },
+              {
+                  type: 'image',
+                  src: 'https://images.unsplash.com/photo-1624555130581-2d9248b4c255?q=80&w=800&h=400&auto=format&fit=crop',
+                  alt: 'A chart with a clear uptrend line connecting several lows and a downtrend line connecting several highs.',
+                  'data-ai-hint': 'trendline analysis chart'
+              }
+          ], 
+          quiz: { 
+              id: 'm2-l1', 
+              attempts: 3, 
+              passScore: 70, 
+              items: [
+                  { id: 'q1', type: 'mcq', prompt: 'How do you correctly draw an uptrend line?', choices: ['Connecting two or more highs', 'Connecting two or more lows', 'Connecting the open and close of a candle', 'Drawing a horizontal line'], answer: 1, explain: 'An uptrend line is drawn by connecting a series of higher lows, acting as dynamic support.' },
+                  { id: 'q2', type: 'truefalse', prompt: 'A decisive break below a valid uptrend line is a signal that the trend may be ending or reversing.', answer: true, explain: 'A trendline break signifies that the previous market structure has changed, warning of a potential shift in trend.' },
+                  { id: 'q3', type: 'mcq', prompt: 'For a trendline to be considered valid, it must touch at least how many points?', choices: ['One', 'Two', 'Five', 'Ten'], answer: 1, explain: 'A minimum of two points (two lows for an uptrend, two highs for a downtrend) are required to draw a trendline. A third touch adds significant validity.' }
+              ] 
+          } 
+      },
+      { 
+          id: 'm2-l2', 
+          levelId: 'module-2', 
+          title: 'Channels and Parallel Lines', 
+          time: 15, 
+          objectives: [
+              "Define a price channel.",
+              "Construct an ascending and descending channel.",
+              "Understand how to trade within a channel."
+          ], 
+          sections: [
+              {
+                  type: 'text',
+                  tldr: "A channel is formed by drawing two parallel trendlines that contain price action. In an uptrend, this is an ascending channel. Traders can use these channels to buy near the support trendline and sell near the resistance trendline.",
+                  body: "A price channel expands on the concept of a trendline. It's a corridor that price moves within, defined by two parallel lines. \n**Ascending Channel (Bullish):** This is formed in an uptrend. First, you draw the primary uptrend line connecting the lows. Then, you draw a parallel line connecting the highs. This creates a channel that the price is trending upwards within. \n**Descending Channel (Bearish):** In a downtrend, you draw the primary downtrend line connecting the highs, and then a parallel line connecting the lows. \nTrading within a channel involves buying when the price hits the lower trendline (support) and selling or taking profit when it hits the upper trendline (resistance). A breakout from a long-established channel is a significant event that can signal an acceleration of the trend."
+              },
+              {
+                  type: 'image',
+                  src: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=800&h=400&auto=format&fit=crop',
+                  alt: 'A chart clearly showing an ascending channel and a descending channel with parallel lines containing the price.',
+                  'data-ai-hint': 'price channel chart'
+              }
+          ], 
+          quiz: { 
+              id: 'm2-l2', 
+              attempts: 3, 
+              passScore: 70, 
+              items: [
+                  { id: 'q1', type: 'mcq', prompt: 'In a descending channel, the upper trendline acts as:', choices: ['Support', 'Resistance', 'A breakout point', 'The median'], answer: 1, explain: 'In a descending channel, the upper trendline connects the highs and acts as resistance, providing potential shorting opportunities.' },
+                  { id: 'q2', type: 'truefalse', prompt: 'A price channel must always be horizontal.', answer: false, explain: 'Channels can be ascending (in an uptrend), descending (in a downtrend), or horizontal (in a range).' },
+                  { id: 'q3', type: 'mcq', prompt: 'A common strategy for trading within an ascending channel is to:', choices: ['Buy at the upper line, sell at the lower line', 'Sell at both lines', 'Buy at the lower line, sell at the upper line', 'Only trade breakouts'], answer: 2, explain: 'The basic strategy is to trade with the trend, buying at the support (lower) trendline and taking profits at the resistance (upper) trendline.' }
+              ] 
+          } 
+      },
+      { 
+          id: 'm2-l3', 
+          levelId: 'module-2', 
+          title: 'Single Candlestick Patterns', 
+          time: 18, 
+          objectives: [
+              "Identify a Hammer and a Shooting Star.",
+              "Identify a Hanging Man and an Inverted Hammer.",
+              "Understand the psychology behind these patterns."
+          ], 
+          sections: [
+              {
+                  type: 'text',
+                  tldr: "Single candles can signal reversals. A Hammer (long lower wick) after a fall is bullish. A Shooting Star (long upper wick) after a rise is bearish. They show a strong rejection of prices by the opposing side.",
+                  body: "A single candlestick can tell a powerful story of a battle between buyers and sellers. \n- **Hammer (Bullish):** Appears after a downtrend. It has a small body, little or no upper wick, and a long lower wick. Psychology: Sellers pushed the price down, but buyers stepped in aggressively and pushed it all the way back up to close near the open. It's a signal of potential bullish reversal. \n- **Shooting Star (Bearish):** The opposite of a Hammer. Appears after an uptrend. It has a small body, little or no lower wick, and a long upper wick. Psychology: Buyers pushed the price up, but sellers took control and slammed it back down. It's a signal of a potential bearish reversal. \n- **Hanging Man (Bearish):** Looks identical to a Hammer but occurs after an uptrend. It's a bearish warning sign. \n- **Inverted Hammer (Bullish):** Looks identical to a Shooting Star but occurs after a downtrend. It's a bullish warning sign."
+              },
+              {
+                  type: 'image',
+                  src: 'https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?q=80&w=800&h=400&auto=format&fit=crop',
+                  alt: 'Four mini-charts, each showing a Hammer, Shooting Star, Hanging Man, and Inverted Hammer in context.',
+                  'data-ai-hint': 'candlestick reversal patterns'
+              }
+          ], 
+          quiz: { 
+              id: 'm2-l3', 
+              attempts: 3, 
+              passScore: 70, 
+              items: [
+                  { id: 'q1', type: 'mcq', prompt: 'A candle with a small body and a long lower wick at the bottom of a downtrend is a:', choices: ['Shooting Star', 'Hammer', 'Doji', 'Hanging Man'], answer: 1, explain: 'This describes a Hammer, a bullish reversal pattern indicating that buyers rejected the lower prices.' },
+                  { id: 'q2', type: 'mcq', prompt: 'A Shooting Star pattern is a potential signal for what?', choices: ['A bullish continuation', 'A bearish reversal', 'A sideways market', 'High volatility'], answer: 1, explain: 'A Shooting Star at the top of an uptrend indicates that sellers have rejected higher prices, signaling a potential bearish reversal.' },
+                  { id: 'q3', type: 'truefalse', prompt: 'A Hanging Man looks identical to a Hammer but is considered a bullish signal.', answer: false, explain: 'A Hanging Man looks like a Hammer but occurs at the top of an uptrend and is considered a bearish warning signal.' }
+              ] 
+          } 
+      },
+      { 
+          id: 'm2-l4', 
+          levelId: 'module-2', 
+          title: 'Dual Candlestick Patterns', 
+          time: 18, 
+          objectives: [
+              "Identify Bullish and Bearish Engulfing patterns.",
+              "Identify Tweezer Top and Bottom patterns.",
+              "Understand the significance of these two-candle formations."
+          ], 
+          sections: [
+              {
+                  type: 'text',
+                  tldr: "Two candles together can form powerful signals. An Engulfing pattern, where the second candle's body swallows the first, is a strong reversal signal. Tweezer patterns, with matching highs or lows, show a strong rejection at a key level.",
+                  body: "Two-candle patterns add more confirmation than single-candle patterns. \n- **Engulfing Patterns:** These are strong reversal signals. A **Bullish Engulfing** pattern occurs after a downtrend when a large bullish candle completely engulfs the body of the previous smaller bearish candle. It signifies that buyers have forcefully taken over from sellers. A **Bearish Engulfing** is the opposite, occurring after an uptrend. \n- **Tweezer Patterns:** These patterns show a strong rejection of a price level. A **Tweezer Bottom** is a bullish reversal pattern where two consecutive candles have nearly identical lows, showing a strong refusal to go lower. A **Tweezer Top** is a bearish reversal pattern where two consecutive candles have nearly identical highs, signaling strong resistance."
+              },
+              {
+                  type: 'image',
+                  src: 'https://images.unsplash.com/photo-1542626991-a23188554655?q=80&w=800&h=400&auto=format&fit=crop',
+                  alt: 'Charts showing Bullish/Bearish Engulfing patterns and Tweezer Top/Bottom patterns.',
+                  'data-ai-hint': 'dual candlestick patterns'
+              }
+          ], 
+          quiz: { 
+              id: 'm2-l4', 
+              attempts: 3, 
+              passScore: 70, 
+              items: [
+                  { id: 'q1', type: 'mcq', prompt: 'What does a Bearish Engulfing pattern signify?', choices: ['Buyers are in control', 'A potential bullish reversal', 'Sellers have forcefully overtaken buyers', 'The market is consolidating'], answer: 2, explain: 'A large bearish candle engulfing a prior bullish candle shows a significant shift in momentum to the downside.' },
+                  { id: 'q2', type: 'truefalse', prompt: 'A Tweezer Bottom pattern is formed by two candles with matching highs.', answer: false, explain: 'A Tweezer Bottom is formed by two candles with matching LOWS, indicating strong support.' },
+                  { id: 'q3', type: 'mcq', prompt: 'A Bullish Engulfing pattern is most significant when it occurs after a(n):', choices: ['Uptrend', 'Downtrend', 'Ranging market', 'Period of low volume'], answer: 1, explain: 'Like all bullish reversal patterns, the Bullish Engulfing is most meaningful when it appears after a period of selling (a downtrend).' }
+              ] 
+          } 
+      },
+      { 
+          id: 'm2-l5', 
+          levelId: 'module-2', 
+          title: 'Triple Candlestick Patterns', 
+          time: 20, 
+          objectives: [
+              "Identify the Morning Star pattern.",
+              "Identify the Evening Star pattern.",
+              "Understand the psychology of these three-candle reversals."
+          ], 
+          sections: [
+              {
+                  type: 'text',
+                  tldr: "Three-candle patterns provide even more confirmation. The Morning Star is a bullish reversal pattern (big down, small indecision, big up). The Evening Star is its bearish counterpart. They show a clear, gradual shift in control from one side to the other.",
+                  body: "Three-candle patterns show a more developed and confirmed shift in market sentiment. \n- **Morning Star (Bullish Reversal):** This pattern appears at the bottom of a downtrend and consists of three candles: \n  1. A long bearish candle. \n  2. A small-bodied candle (or a doji) that gaps down, signaling indecision. \n  3. A long bullish candle that closes well into the body of the first candle. \n  Psychology: The first candle shows sellers are in control. The second shows their momentum has stalled. The third shows buyers have taken decisive control. \n- **Evening Star (Bearish Reversal):** The opposite of a Morning Star, appearing at the top of an uptrend. It consists of a long bullish candle, a small indecisive candle that gaps up, and a long bearish candle. It signals a potential top is in place."
+              },
+              {
+                  type: 'image',
+                  src: 'https://images.unsplash.com/photo-1554672485-6a59121a4f4e?q=80&w=800&h=400&auto=format&fit=crop',
+                  alt: 'Charts side-by-side, one with a Morning Star at a bottom and one with an Evening Star at a top.',
+                  'data-ai-hint': 'morning evening star'
+              }
+          ], 
+          quiz: { 
+              id: 'm2-l5', 
+              attempts: 3, 
+              passScore: 70, 
+              items: [
+                  { id: 'q1', type: 'mcq', prompt: 'Which candle is the key signal of indecision in a Morning Star or Evening Star pattern?', choices: ['The first candle', 'The second, small-bodied candle', 'The third candle', 'All three candles'], answer: 1, explain: 'The small second candle, often a Doji or a Spinning Top, represents the point of peak indecision where the trend has stalled.' },
+                  { id: 'q2', type: 'truefalse', prompt: 'An Evening Star is a bullish reversal pattern.', answer: false, explain: 'An Evening Star appears at the top of an uptrend and is a bearish reversal pattern.' },
+                  { id: 'q3', type: 'mcq', prompt: 'For a Morning Star to be valid, what trend should precede it?', choices: ['An uptrend', 'A downtrend', 'A sideways range', 'No trend is required'], answer: 1, explain: 'The Morning Star is a bottoming pattern, so it must be preceded by a downtrend to have significance as a reversal signal.' }
+              ] 
+          } 
+      },
+       { 
+        id: 'm2-l6', 
+        levelId: 'module-2', 
+        title: 'Moving Averages: SMA vs EMA', 
+        time: 15, 
+        objectives: [
+          "Define a Simple Moving Average (SMA).",
+          "Define an Exponential Moving Average (EMA).",
+          "Understand the key difference in their calculation and responsiveness."
+        ], 
+        sections: [
+          {
+            type: 'text',
+            tldr: "Moving averages smooth out price data to show the trend. An SMA gives equal weight to all data points in its period. An EMA gives more weight to recent prices, making it react faster to new information.",
+            body: "Moving Averages (MAs) are one of the most popular technical indicators. They help to filter out market 'noise' and highlight the underlying trend direction. \n- **Simple Moving Average (SMA):** The SMA is calculated by taking the average price of an asset over a specific number of periods. For a 20-day SMA, you add up the closing prices of the last 20 days and divide by 20. It's a smooth line that gives an equal weighting to all data points. \n- **Exponential Moving Average (EMA):** The EMA also calculates an average price, but it gives more weight to the most recent price data. This makes the EMA react more quickly to price changes compared to the SMA. Traders who want to see a more responsive indicator often prefer the EMA, while those who want a smoother, less noisy line might prefer the SMA."
+          },
+          {
+            type: 'image',
+            src: 'https://images.unsplash.com/photo-1664335905803-3439e76a6d25?q=80&w=800&h=400&auto=format&fit=crop',
+            alt: 'A chart showing both an SMA and an EMA of the same period overlaid on the price, with the EMA reacting faster.',
+            'data-ai-hint': 'sma ema comparison'
+          }
+        ], 
+        quiz: { 
+          id: 'm2-l6', 
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'Which type of moving average reacts more quickly to recent price changes?', choices: ['SMA', 'WMA (Weighted)', 'EMA', 'TMA (Triangular)'], answer: 2, explain: 'The Exponential Moving Average (EMA) gives more weight to recent prices, making it more responsive.' },
+            { id: 'q2', type: 'truefalse', prompt: 'A 50-period SMA gives more importance to the most recent price than the price from 49 periods ago.', answer: false, explain: 'An SMA gives equal weight to all prices in its calculation period. An EMA would give more weight to recent prices.' },
+            { id: 'q3', type: 'mcq', prompt: "A trader looking for a smoother, less 'whipsaw' prone indicator would likely prefer a(n):", choices: ['Longer-period SMA', 'Shorter-period EMA', 'RSI', 'Stochastic'], answer: 0, explain: 'A longer-period SMA is slower and smoother, filtering out more short-term noise and reducing the number of false signals (whipsaws).' }
+          ] 
+        } 
+      },
+      { 
+        id: 'm2-l7', 
+        levelId: 'module-2', 
+        title: 'Using MAs as Dynamic S/R', 
+        time: 15, 
+        objectives: [
+          "Understand how moving averages can act as support in an uptrend.",
+          "Understand how moving averages can act as resistance in a downtrend.",
+          "Identify common moving average periods used by traders."
+        ], 
+        sections: [
+          {
+            type: 'text',
+            tldr: "In a trending market, moving averages often act as dynamic support or resistance. In an uptrend, price will often pull back to and bounce off a key MA. In a downtrend, it will rally to and be rejected by a key MA.",
+            body: "Beyond identifying the trend, moving averages are powerful tools for identifying areas of value. \n- **Dynamic Support:** In a strong uptrend, price will often respect a moving average as a floor. After moving up, the price will pull back to the MA, buyers will see this as a value area and step in, and the price will bounce off the MA to continue the trend. \n- **Dynamic Resistance:** In a strong downtrend, the opposite is true. The price will rally up to a moving average, sellers will see it as a good price to short, and the price will be rejected, continuing the downtrend. \n**Common Periods:** While any period can be used, traders commonly watch the 20/21 EMA for short-term trend, the 50 SMA/EMA for medium-term trend, and the 200 SMA for the long-term trend."
+          },
+          {
+            type: 'image',
+            src: 'https://images.unsplash.com/photo-1678248434193-f497914e4024?q=80&w=800&h=400&auto=format&fit=crop',
+            alt: 'A chart showing price respecting the 50-period moving average as dynamic support during an uptrend.',
+            'data-ai-hint': 'dynamic support chart'
+          }
+        ], 
+        quiz: { 
+          id: 'm2-l7', 
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'In a strong uptrend, a moving average often acts as:', choices: ['Dynamic resistance', 'A profit target', 'Dynamic support', 'A sell signal'], answer: 2, explain: 'In an uptrend, pullbacks often find support at a key moving average before continuing higher.' },
+            { id: 'q2', type: 'truefalse', prompt: 'The 200-period SMA is generally used to gauge the short-term trend.', answer: false, explain: 'The 200 SMA is widely regarded as the line in the sand for the long-term trend, separating bull and bear markets.' },
+            { id: 'q3', type: 'mcq', prompt: 'When price rallies to a key moving average in a downtrend and is rejected, it is acting as:', choices: ['Dynamic support', 'Dynamic resistance', 'A buy signal', 'A breakout level'], answer: 1, explain: 'In a downtrend, moving averages act as a dynamic ceiling or resistance level.' }
+          ] 
+        } 
+      },
+      { 
+        id: 'm2-l8', 
+        levelId: 'module-2', 
+        title: 'MA Crossovers: Golden/Death Cross', 
+        time: 15, 
+        objectives: [
+          "Define a Golden Cross.",
+          "Define a Death Cross.",
+          "Understand that these are lagging, long-term signals."
+        ], 
+        sections: [
+          {
+            type: 'text',
+            tldr: "MA Crossovers are simple trend-following signals. The 'Golden Cross' (50 SMA crosses above 200 SMA) is a long-term bullish signal. The 'Death Cross' (50 SMA crosses below 200 SMA) is a long-term bearish signal. They are very slow, lagging indicators.",
+            body: "A moving average crossover system uses two MAs of different lengths. A signal is generated when the shorter-term MA crosses above or below the longer-term MA. \n- **Golden Cross (Bullish):** This is a well-known, long-term bullish signal that occurs when the 50-period SMA crosses *above* the 200-period SMA. It suggests that the medium-term trend is now stronger than the long-term trend, signaling a potential new bull market. \n- **Death Cross (Bearish):** This is the bearish counterpart. It occurs when the 50-period SMA crosses *below* the 200-period SMA. This is seen by many long-term investors as a signal of a potential bear market. \n**Important:** These are very slow, lagging indicators. They don't predict tops and bottoms; they confirm that a major trend change has likely already occurred. They are useful for long-term context, not for short-term trading signals."
+          },
+          {
+            type: 'image',
+            src: 'https://images.unsplash.com/photo-1624555130581-2d9248b4c255?q=80&w=800&h=400&auto=format&fit=crop',
+            alt: 'A chart showing a Golden Cross (50 SMA crossing above 200 SMA) and a Death Cross (50 SMA crossing below 200 SMA).',
+            'data-ai-hint': 'golden death cross'
+          }
+        ], 
+        quiz: { 
+          id: 'm2-l8', 
+          attempts: 3, 
+          passScore: 70, 
+          items: [
+            { id: 'q1', type: 'mcq', prompt: 'A Death Cross occurs when:', choices: ['200 SMA crosses above 50 SMA', '50 SMA crosses above 200 SMA', '50 SMA crosses below 200 SMA', 'Price crosses below the 50 SMA'], answer: 2, explain: 'A Death Cross is a bearish signal where the shorter-term 50 SMA crosses below the longer-term 200 SMA.' },
+            { id: 'q2', type: 'truefalse', prompt: 'A Golden Cross is a leading indicator that predicts market tops.', answer: false, explain: 'MA crossovers are lagging indicators. A Golden Cross confirms a bullish trend is likely already underway, it does not predict a top.' },
+            { id: 'q3', type: 'mcq', prompt: 'MA crossover signals are best suited for:', choices: ['Short-term day trading', 'Long-term trend identification', 'Predicting exact entry points', 'Measuring volatility'], answer: 1, explain: 'Because they are so slow to react, signals like the Golden and Death Cross are used to gauge the long-term health of the market.' }
+          ] 
+        } 
+      },
       { id: 'm2-l9', levelId: 'module-2', title: 'Oscillators: Relative Strength Index (RSI)', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l9', attempts: 3, passScore: 70, items: [] } },
       { id: 'm2-l10', levelId: 'module-2', title: 'Oscillators: MACD', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l10', attempts: 3, passScore: 70, items: [] } },
       { id: 'm2-l11', levelId: 'module-2', title: 'Oscillators: Stochastics', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l11', attempts: 3, passScore: 70, items: [] } },
@@ -728,7 +992,12 @@ export const curriculum: Curriculum = [
       { id: 'm2-l19', levelId: 'module-2', title: 'Introduction to Market Structure', time: 18, objectives: [], sections: [], quiz: { id: 'm2-l19', attempts: 3, passScore: 70, items: [] } },
       { id: 'm2-l20', levelId: 'module-2', title: 'Identifying Supply and Demand Zones', time: 20, objectives: [], sections: [], quiz: { id: 'm2-l20', attempts: 3, passScore: 70, items: [] } }
     ],
-    bossQuiz: { id: 'b2', passScore: 80, items: [] }
+    bossQuiz: { id: 'b2', passScore: 80, items: [
+      { id: 'bq2-1', type: 'mcq', prompt: 'Which moving average reacts faster to price changes?', choices: ['SMA', 'EMA', 'WMA', 'HMA'], answer: 1, explain: 'The Exponential Moving Average (EMA) gives more weight to recent prices, making it more responsive.' },
+      { id: 'bq2-2', type: 'truefalse', prompt: 'A Tweezer Top pattern is a bullish reversal signal.', answer: false, explain: 'A Tweezer Top consists of two candles with matching highs, signaling strong resistance and a potential bearish reversal.' },
+      { id: 'bq2-3', type: 'mcq', prompt: 'In a strong uptrend, the 50-period moving average often acts as:', choices: ['Static Resistance', 'Dynamic Support', 'A Sell Signal', 'A Leading Indicator'], answer: 1, explain: 'In uptrends, key moving averages often provide a "floor" or dynamic support where buyers step in during pullbacks.' },
+      { id: 'bq2-4', type: 'truefalse', prompt: 'A Bearish Engulfing pattern is most significant when it appears after a long downtrend.', answer: false, explain: 'A Bearish Engulfing is a bearish REVERSAL pattern, so it is most significant after an UPTREND.' }
+    ] }
   },
   {
     id: 'module-3',
@@ -857,7 +1126,7 @@ export const getLevel = (levelId: string) => {
 }
 
 export const getQuiz = (levelId: string, lessonId: string) => {
-  if (lessonId.startsWith('b')) { // Simplified check for boss quiz
+  if (lessonId === 'boss') { 
     const level = getLevel(levelId);
     return level ? level.bossQuiz : null;
   }

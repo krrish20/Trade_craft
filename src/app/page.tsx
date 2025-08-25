@@ -25,9 +25,9 @@ function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col items-center text-center mb-4">
-        <Logo className="h-16 w-16 mb-2" />
-        <h1 className="text-3xl font-bold">Tradecraft Academy</h1>
+      <div className="flex flex-col items-start mb-4">
+        <h1 className="text-3xl font-bold">Dashboard</h1>
+         <p className="text-muted-foreground font-body">Welcome back, {progress.name}. Continue your journey.</p>
       </div>
       <Card>
         <CardHeader>
@@ -47,7 +47,7 @@ function Dashboard() {
           const levelStatus = getLevelStatus(level.id);
           const isLocked = levelStatus === 'locked';
           return (
-            <Card key={level.id} className={cn('transition-all duration-300 hover:shadow-lg hover:border-primary/50', isLocked ? 'bg-muted/50' : '')}>
+            <Card key={level.id} className={cn('transition-all duration-300 group', isLocked ? 'bg-card/50' : 'hover:border-primary/20 hover:bg-card/90')}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   {isLocked && <Lock className="h-5 w-5 text-muted-foreground" />}
@@ -64,12 +64,12 @@ function Dashboard() {
                     const lessonLink = isLessonLocked ? '#' : `/learn/${level.id}/${lesson.id}`;
                     
                     return (
-                      <Link href={lessonLink} key={lesson.id} className={cn('block p-3 rounded-lg transition-all duration-200 ease-in-out group', 
-                          !isLessonLocked && 'hover:bg-muted hover:scale-[1.02] hover:shadow-inner',
+                      <Link href={lessonLink} key={lesson.id} className={cn('block p-3 rounded-lg transition-all duration-200 ease-in-out', 
+                          !isLessonLocked && 'hover:bg-muted/50 hover:scale-[1.01]',
                           isLessonLocked && 'cursor-not-allowed opacity-60')}>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-4">
-                             {lessonStatus === 'completed' ? <CheckCircle className="h-5 w-5 text-green-500" /> : <PlayCircle className="h-5 w-5 text-muted-foreground transition-transform duration-200 group-hover:scale-110" />}
+                             {lessonStatus === 'completed' ? <CheckCircle className="h-5 w-5 text-green-500" /> : <PlayCircle className="h-5 w-5 text-muted-foreground transition-transform duration-200 group-hover:text-foreground" />}
                             <span className="font-medium">{lesson.title}</span>
                           </div>
                           <span className="text-sm text-muted-foreground">{lesson.time} min</span>
@@ -93,10 +93,10 @@ export default function HomePage() {
 
   if (!isLoaded) {
     return (
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex h-screen w-full items-center justify-center bg-background">
         <div className="text-center">
-          <Logo className="h-16 w-16" />
-          <p className="mt-4 text-muted-foreground">Loading your academy...</p>
+          <Logo className="h-24 w-24 text-primary" />
+          <p className="mt-4 text-muted-foreground animate-pulse">Loading Academy...</p>
         </div>
       </div>
     );

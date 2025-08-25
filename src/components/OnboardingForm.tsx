@@ -82,20 +82,20 @@ export function OnboardingForm() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/40 p-4">
-      <Card className="w-full max-w-2xl">
+    <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-lg border-0 bg-transparent sm:border sm:bg-card">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-4 animate-float">
-             <Logo className="w-24 h-auto" />
+          <div className="mx-auto mb-4">
+             <Logo className="w-24 h-24 text-primary animate-float" />
           </div>
-          <CardTitle className="text-3xl font-bold">Welcome to Tradecraft Academy</CardTitle>
-          <CardDescription className="font-body text-lg">
-            Learning to trade isn’t luck—it’s <strong>practice, rules, and patience.</strong> Let’s begin.
+          <CardTitle className="text-3xl font-bold">Welcome to Tradecraft</CardTitle>
+          <CardDescription className="text-lg text-muted-foreground">
+            Let's build your personalized learning path.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
                 control={form.control}
                 name="name"
@@ -161,7 +161,7 @@ export function OnboardingForm() {
                 )}
               />
 
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />

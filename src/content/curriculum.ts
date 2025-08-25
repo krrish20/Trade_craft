@@ -118,7 +118,7 @@ export const curriculum: Curriculum = [
         levelId: 'module-1', 
         title: 'Choosing a Broker and Trading Platform', 
         time: 12, 
-        youtubeLink: 'https://www.youtube.com/watch?v=T0I7a840k1k',
+        youtubeLink: 'https://www.youtube.com/watch?v=A-Zo94l5nkk',
         objectives: [
           "List key factors to consider when choosing a broker.",
           "Understand the purpose of a trading platform.",

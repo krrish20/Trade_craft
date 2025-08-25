@@ -3,7 +3,7 @@
 
 import type { NewsArticle } from '@/lib/types';
 
-const API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY;
 const BASE_URL = 'https://www.alphavantage.co/query';
 
 export async function fetchMarketNews(tickers?: string[], topics?: string[]): Promise<NewsArticle[]> {

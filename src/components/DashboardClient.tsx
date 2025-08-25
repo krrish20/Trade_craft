@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import type { Lesson } from '@/lib/types';
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { QuoteOfTheDay } from './QuoteOfTheDay';
 
 function findNextLesson(progress: any, getLessonStatus: any): Lesson | null {
     for (const level of curriculum) {
@@ -46,11 +47,21 @@ export function DashboardClient() {
         <p className="text-muted-foreground">Your journey to trading mastery continues.</p>
       </div>
 
+      <motion.div
+        className="animate-float"
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 0.5 }}
+        variants={cardVariants}
+      >
+        <QuoteOfTheDay />
+      </motion.div>
+
        {nextLesson && (
         <motion.div
             initial="hidden"
             animate="visible"
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             variants={cardVariants}
         >
             <Card className="bg-card/50 border-primary/20 shadow-lg shadow-primary/5 hover:bg-card/70 transition-all">
@@ -88,7 +99,7 @@ export function DashboardClient() {
                 key={level.id}
                 initial="hidden"
                 animate="visible"
-                transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
+                transition={{ duration: 0.5, delay: 0.1 * (index + 3) }}
                 variants={cardVariants}
                 whileHover={{ scale: 1.02, y: -5 }}
               >

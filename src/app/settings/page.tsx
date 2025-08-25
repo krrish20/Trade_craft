@@ -1,4 +1,6 @@
 
+"use client";
+
 import { MainLayout } from '@/components/MainLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -6,8 +8,13 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
+import { useTheme } from 'next-themes';
+import { ThemeToggle } from '@/components/ThemeToggle';
+
 
 export default function SettingsPage() {
+  const { setTheme } = useTheme();
+
   return (
     <MainLayout>
         <div className="space-y-6">
@@ -42,7 +49,7 @@ export default function SettingsPage() {
                   <CardContent className="space-y-4">
                       <div className="grid w-full max-w-sm items-center gap-1.5">
                           <Label htmlFor="theme">Theme</Label>
-                          <Select>
+                           <Select onValueChange={(value) => setTheme(value)}>
                               <SelectTrigger id="theme">
                                   <SelectValue placeholder="System" />
                               </SelectTrigger>

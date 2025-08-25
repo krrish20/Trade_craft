@@ -16,6 +16,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import { ThemeToggle } from "./ThemeToggle";
 
 const allNavItems = [
     { href: "/", icon: Home, label: "Dashboard" },
@@ -72,9 +73,14 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
         </div>
       </aside>
       <div className="flex flex-col">
-        <header className="flex h-14 items-center justify-between gap-4 border-b bg-card/80 px-4 lg:h-[60px] lg:px-6 md:hidden">
-            <MobileMenu />
-            <p className="text-sm font-medium text-muted-foreground">Welcome, {progress.name}</p>
+        <header className="flex h-14 items-center justify-between gap-4 border-b bg-card/80 px-4 lg:h-[60px] lg:px-6 sticky top-0 z-30">
+            <div className="flex items-center gap-2 md:hidden">
+              <MobileMenu />
+              <p className="text-sm font-medium text-muted-foreground">Welcome, {progress.name}</p>
+            </div>
+            <div className="flex w-full justify-end items-center gap-4">
+              <ThemeToggle />
+            </div>
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           {children}

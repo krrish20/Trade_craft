@@ -3,13 +3,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck, ClipboardCheck, DraftingCompass, MoreHorizontal, Menu } from "lucide-react";
+import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck, ClipboardCheck, DraftingCompass, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from 'framer-motion';
 
 import { cn } from "@/lib/utils";
 import { useProgress } from "@/context/ProgressContext";
 import { Logo } from "./Logo";
-import { Separator } from "./ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -133,6 +133,7 @@ function MobileNavItem({ href, icon: Icon, children }: { href: string; icon: Rea
   const isActive = pathname === href;
   return (
     <SheetClose asChild>
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <Link
             href={href}
             className={cn("flex items-center gap-4 rounded-lg px-3 py-3 text-muted-foreground hover:text-primary hover:bg-muted", isActive && "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground")}
@@ -140,6 +141,7 @@ function MobileNavItem({ href, icon: Icon, children }: { href: string; icon: Rea
             <Icon className="h-5 w-5" />
             {children}
         </Link>
+      </motion.div>
     </SheetClose>
   )
 }
@@ -149,15 +151,17 @@ function NavItem({ href, icon: Icon, children }: { href: string; icon: React.Ele
   const isActive = pathname === href;
 
   return (
-    <Link
-      href={href}
-      className={cn(
-        "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-muted",
-        isActive && "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
-      )}
-    >
-      <Icon className="h-5 w-5" />
-      {children}
-    </Link>
+     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Link
+            href={href}
+            className={cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-muted",
+                isActive && "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
+            )}
+        >
+            <Icon className="h-5 w-5" />
+            {children}
+        </Link>
+     </motion.div>
   );
 }

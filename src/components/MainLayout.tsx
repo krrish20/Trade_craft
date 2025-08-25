@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck, ClipboardCheck, DraftingCompass, Menu } from "lucide-react";
+import { Home, User, BookText, Settings, LogOut, Calculator, BrainCircuit, BookCheck, DraftingCompass, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
 

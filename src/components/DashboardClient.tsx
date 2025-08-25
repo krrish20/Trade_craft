@@ -90,7 +90,7 @@ export function DashboardClient() {
               const levelStatus = getLevelStatus(level.id);
               const isLocked = levelStatus === 'locked';
               return (
-                <CarouselItem key={level.id} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={level.id} className="basis-full md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
                     <Card 
                       className={cn(
